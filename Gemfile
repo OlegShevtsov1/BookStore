@@ -5,10 +5,17 @@ ruby '2.7.1'
 gem 'pg', '0.18.4'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'puma', '~> 4.1'
-gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'haml'
+gem 'sass-rails', '>= 5'
+gem 'sprockets', '~> 3'
+gem 'sprockets-rails', require: 'sprockets/railtie'
+
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
