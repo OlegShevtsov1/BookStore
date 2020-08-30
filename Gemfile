@@ -18,10 +18,12 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rails-controller-testing'
+  gem 'rubocop-rspec', require: false
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.6'
   gem 'shoulda-matchers'
   gem 'ffaker'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
