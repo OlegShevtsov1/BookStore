@@ -17,6 +17,11 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'shoulda-matchers'
+  gem 'ffaker'
 end
 
 group :development do
@@ -31,4 +36,5 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'simplecov', require: false, group: :test
 end
