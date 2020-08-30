@@ -27,9 +27,10 @@ end
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
-
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'overcommit', '~> 0.53.0', require: false
+  gem 'fasterer', '~> 0.8.3', require: false
 end
 
 group :test do
