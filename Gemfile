@@ -29,6 +29,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'ffaker'
   gem 'rspec_junit_formatter'
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
