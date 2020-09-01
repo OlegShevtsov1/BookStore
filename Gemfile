@@ -25,7 +25,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rubocop-rspec', require: false
   gem 'factory_bot_rails'
-  gem 'rspec-rails', '~> 3.6'
+  gem 'rspec-rails', '~> 4.0.1'
   gem 'shoulda-matchers'
   gem 'ffaker'
   gem 'rspec_junit_formatter'
