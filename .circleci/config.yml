@@ -6,7 +6,14 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: circleci/ruby:2.7.1
-
+        environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: root
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: bookstore_test
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
@@ -24,6 +31,12 @@ commands:
           key: *bundle_cache_full
           paths:
             - vendor/bundle
+      - run: mv config/database.circleci config/database.yml
+      - run:
+          name: Database Setup
+          command: |
+            bin/rails db:create db:schema:load --trace
+            bin/rails db:migrate
   run_linters:
     description: command to start linters
     steps:
