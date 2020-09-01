@@ -4,42 +4,21 @@
     %li{'data-target': "#slider", 'data-slide-to': "1"}
     %li{'data-target': "#slider", 'data-slide-to': "2"}
   .carousel-inner{role: "listbox"}
-    .item.active
-      .row
-        .col-sm-5
-          .general-img-wrap
-            = image_tag('http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg', alt: "design-book", class: 'img-shadow general-thumbnail-img')
-        .col-sm-7
-          .mb-60
-            %h1 Real-Life Responsive Web Design
-            %p.lead Smart front-end techniques and design patterns derived from real-life responsive projects
-            %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
-            .general-align
-              %button.disabled.btn=t('home.slider.by_now')
-    .item
-      .row
-        .col-sm-5
-          .general-img-wrap
-            = image_tag('http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg', alt: "design-book", class: 'img-shadow general-thumbnail-img')
-        .col-sm-7
-          .mb-60
-            %h1 Real-Life Responsive Web Design
-            %p.lead Smart front-end techniques and design patterns derived from real-life responsive projects
-            %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
-            .general-align
-              %button.disabled.btn=t('home.slider.by_now')
-    .item
-      .row
-        .col-sm-5
-          .general-img-wrap
-            = image_tag('http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg', alt: "design-book", class: 'img-shadow general-thumbnail-img')
-        .col-sm-7
-          .mb-60
-            %h1 Real-Life Responsive Web Design
-            %p.lead Smart front-end techniques and design patterns derived from real-life responsive projects
-            %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
-            .general-align
-              %button.btn.btn-primary=t('home.slider.by_now')
+    - @books_slider.each_with_index do |book, index|
+      .item{class: "#{'active' if index == 0}"}
+        .row
+          .col-sm-5
+            .general-img-wrap
+              = image_tag('http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg', alt: "design-book", class: 'img-shadow general-thumbnail-img')
+          .col-sm-7
+            .mb-60
+              %h1=book.name
+              %p.lead=book.description
+              %p.lead.small
+                - book.authors.each do |author|
+                  = author.name
+              .general-align
+                %button.disabled.btn=t('home.slider.by_now')
   %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
     %span.icon-prev{'aria-hidden': "true"}
     %span.sr-only=t('home.slider.previous')
