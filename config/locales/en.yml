@@ -20,3 +20,14 @@ en:
         by_now: 'Buy Now'
         previous: 'Previous'
         next: 'Next'
+  catalog:
+    title: 'Catalog'
+    all: 'All'
+    filter:
+      newest first: 'Newest first'
+      popular first: 'Popular first'
+      price low to hight: 'Price: Low to hight'
+      price hight to low: 'Price: Hight to low'
+    filter by category: 'Filter by category'
+    sort by: 'Sort by'
+    view more: 'View More'
