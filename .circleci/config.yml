@@ -49,6 +49,12 @@ commands:
       - run:
           name: brakeman
           command: bundle exec brakeman
+  run_bundler-audit:
+    description: command to start bundler-audit
+    steps:
+      - run:
+          name: bundler-audit
+          command: bundle exec bundler-audit
   run_specs:
     steps:
       - run:
@@ -76,13 +82,22 @@ jobs:
     steps:
       - defaults
       - run_brakeman
+  bundler-audit:
+    executor: default
+    steps:
+      - defaults
+      - run_bundler-audit
 
 workflows:
   version: 2.1
   build:
     jobs:
-      - rubocop
       - brakeman
+      - bundler-audit
+      - rubocop:
+          requires:
+            - brakeman
+            - bundler-audit
       - specs:
           requires:
             - rubocop
