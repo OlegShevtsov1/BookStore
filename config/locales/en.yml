@@ -1,4 +1,5 @@
 en:
+  title: 'BookStoreOs'
   home:
     welcome: 'Welcome to our amazing Bookstore!'
     welcome_description: 'We pore through hundreds of new books each month and select the five best we can find to share with our members.'

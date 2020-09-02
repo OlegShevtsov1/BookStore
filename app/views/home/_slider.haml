@@ -1,8 +1,7 @@
 #slider.carousel.slide{'data-ride': "carousel"}
   %ol.carousel-indicators
-    %li.active{'data-target': "#slider", 'data-slide-to': "0"}
-    %li{'data-target': "#slider", 'data-slide-to': "1"}
-    %li{'data-target': "#slider", 'data-slide-to': "2"}
+    - @books_slider.each_with_index do |book, index|
+      %li{class: "#{'active' if index == 0}",'data-target': "#slider", 'data-slide-to': index}
   .carousel-inner{role: "listbox"}
     - @books_slider.each_with_index do |book, index|
       .item{class: "#{'active' if index == 0}"}
@@ -18,7 +17,7 @@
                 - book.authors.each do |author|
                   = author.name
               .general-align
-                %button.disabled.btn=t('home.slider.by_now')
+                %button.btn-primary.btn=t('home.slider.by_now')
   %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
     %span.icon-prev{'aria-hidden': "true"}
     %span.sr-only=t('home.slider.previous')
