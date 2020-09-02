@@ -55,6 +55,12 @@ commands:
       - run:
           name: bundler-audit
           command: bundle exec bundler-audit
+  run_database_consistency:
+    description: command to start database_consistency
+    steps:
+      - run:
+          name: database_consistency
+          command: bundle exec database_consistency
   run_specs:
     steps:
       - run:
@@ -87,6 +93,11 @@ jobs:
     steps:
       - defaults
       - run_bundler-audit
+  database_consistency:
+    executor: default
+    steps:
+      - defaults
+      - run_database_consistency
 
 workflows:
   version: 2.1
@@ -94,6 +105,7 @@ workflows:
     jobs:
       - brakeman
       - bundler-audit
+      - database_consistency
       - rubocop:
           requires:
             - brakeman

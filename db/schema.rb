@@ -45,4 +45,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_182708) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "book_authors", "authors"
+  add_foreign_key "book_authors", "books"
+  add_foreign_key "books", "categories"
 end
