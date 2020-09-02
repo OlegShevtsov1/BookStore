@@ -13,6 +13,11 @@ PreCommit:
     BundleAudit:
     enabled: true
 
+  DatabaseConsistency:
+    enabled: false
+    quiet: false
+    command: [ 'bundle', 'exec', 'database_consistency' ]
+
 PrePush:
   Brakeman:
     enabled: true

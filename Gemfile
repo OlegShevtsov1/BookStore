@@ -42,6 +42,8 @@ group :development do
   gem 'fasterer', '~> 0.8.3', require: false
   gem 'brakeman'
   gem 'bundler-audit'
+  gem 'database_consistency', require: false
+  gem 'bullet'
 end
 
 group :test do
