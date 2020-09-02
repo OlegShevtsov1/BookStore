@@ -28,6 +28,8 @@ en:
       popular first: 'Popular first'
       price low to hight: 'Price: Low to hight'
       price hight to low: 'Price: Hight to low'
+      title a-z: 'Title: A - Z'
+      title z-a: 'Title: Z - A'
     filter by category: 'Filter by category'
     sort by: 'Sort by'
     view more: 'View More'

@@ -142,6 +142,7 @@ GEM
     overcommit (0.53.0)
       childprocess (>= 0.6.3, < 4)
       iniparse (~> 1.4)
+    pagy (3.8.3)
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
@@ -317,6 +318,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2)
   overcommit (~> 0.53.0)
+  pagy
   pg (= 0.18.4)
   pry-rails
   puma (~> 4.1)

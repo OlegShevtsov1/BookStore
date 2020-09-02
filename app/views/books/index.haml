@@ -23,9 +23,8 @@
         %i.fa.fa-angle-down.dropdown-icon.pull-right
       = render 'filter'
   .mb-120
-    .row
-      = render 'books'
-    .row.mb-25
-      = render 'books'
+    = render 'books'
+    -#.row.mb-25
+    -#  = render 'books'
     .text-center
       %button.btn.btn-primary=t('catalog.view more')
