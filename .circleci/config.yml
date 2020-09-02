@@ -37,12 +37,18 @@ commands:
           command: |
             bin/rails db:create db:schema:load --trace
             bin/rails db:migrate
-  run_linters:
-    description: command to start linters
+  run_rubocop:
+    description: command to start rubocop
     steps:
       - run:
           name: rubocop
           command: bundle exec rubocop
+  run_brakeman:
+    description: command to start brakeman
+    steps:
+      - run:
+          name: brakeman
+          command: bundle exec brakeman
   run_specs:
     steps:
       - run:
@@ -55,22 +61,28 @@ commands:
       - store_test_results:
           path: /tmp/test-results/rspec/
 jobs:
-  lintering:
+  rubocop:
     executor: default
     steps:
       - defaults
-      - run_linters
-  run_specs:
+      - run_rubocop
+  specs:
     executor: default
     steps:
       - defaults
       - run_specs
+  brakeman:
+    executor: default
+    steps:
+      - defaults
+      - run_brakeman
 
 workflows:
   version: 2.1
   build:
     jobs:
-      - lintering
-      - run_specs:
+      - rubocop
+      - brakeman
+      - specs:
           requires:
-            - lintering
+            - rubocop
