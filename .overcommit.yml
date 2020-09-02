@@ -9,6 +9,14 @@ PreCommit:
     on_warn: warn
     required: true
 
+  PreCommit:
+    BundleAudit:
+    enabled: true
+
+PrePush:
+  Brakeman:
+    enabled: true
+
 CommitMsg:
   CapitalizedSubject:
     enabled: true
