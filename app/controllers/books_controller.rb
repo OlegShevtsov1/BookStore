@@ -1,9 +1,10 @@
 class BooksController < ApplicationController
+  COUNT_PAGE_BOOKS = 12
   before_action :books, only: [:index]
 
   def index
-    @books = Sort::SortBooksService.new(@books, params['sort_by']).call
-    @categories = Category.all
+    @pagy, @books = pagy(Sort::SortBooksService.new(@books, params['sort_by']).call, items: COUNT_PAGE_BOOKS)
+    @books_presenter = BooksPresenter.new(params: params)
   end
 
   private

@@ -28,3 +28,4 @@
     -#  = render 'books'
     .text-center
       %button.btn.btn-primary=t('catalog.view more')
+  = pagy_bootstrap_nav(@pagy).html_safe
