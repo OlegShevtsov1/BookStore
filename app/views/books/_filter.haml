@@ -1,13 +1,5 @@
 %ul.dropdown-menu
-  %li
-    %a{href: "#"}=t('catalog.filter.newest first')
-  %li
-    %a{href: "#"}=t('catalog.filter.popular first')
-  %li
-    %a{href: "#"}=t('catalog.filter.price low to hight')
-  %li
-    %a{href: "#"}=t('catalog.filter.price hight to low')
-  %li
-    %a{href: "#"}=t('catalog.filter.title a-z')
-  %li
-    %a{href: "#"}=t('catalog.filter.title z-a')
+  - Sort::SortBooksService::SORT_BY.each do |sort_by|
+    %li
+      = link_to @category  ? category_books_path(@category,sort_by: sort_by) : books_path do
+        =t("catalog.filter.#{sort_by}")

@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_action :books, only: [:index]
 
   def index
+    @books = Sort::SortBooksService.new(@books, params['sort_by']).call
     @categories = Category.all
   end
 
