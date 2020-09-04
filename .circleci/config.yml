@@ -5,7 +5,7 @@ executors:
     working_directory: ~/repo
     description: The official CircleCI Ruby Docker image
     docker:
-      - image: circleci/ruby:2.7.1
+      - image: circleci/ruby:2.7.1-node
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
@@ -17,7 +17,8 @@ executors:
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
-
+  - &yarn_cache_full yarn-cache-v1-{{ checksum "yarn.lock" }}
+  - &yarn_cache yarn-cache-v1-
 commands:
   defaults:
     steps:
@@ -26,11 +27,21 @@ commands:
           keys:
             - *bundle_cache_full
             - *bundle_cache
+      - restore_cache:
+          keys:
+            - *yarn_cache_full
+            - *yarn_cache
       - run: bundle install --path vendor/bundle
+      - run: yarn install
+      - run: bundle exec bin/rails webpacker:compile
       - save_cache:
           key: *bundle_cache_full
           paths:
             - vendor/bundle
+      - save_cache:
+          key: *yarn_cache_full
+          paths:
+            - node_modules
       - run: mv config/database.circleci config/database.yml
       - run:
           name: Database Setup

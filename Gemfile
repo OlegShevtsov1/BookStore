@@ -9,13 +9,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'haml-rails', '~> 2.0'
-gem 'sass-rails', '>= 5'
-gem 'sprockets', '~> 3'
-gem 'sprockets-rails', require: 'sprockets/railtie'
-
-gem 'bootstrap-sass'
-gem 'font-awesome-rails'
-gem 'jquery-rails'
+gem 'sass-rails', '>= 6'
+gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
