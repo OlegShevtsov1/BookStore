@@ -34,7 +34,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'overcommit', '~> 0.53.0', require: false
-  gem 'fasterer', '~> 0.8.3', require: false
+  gem 'fasterer', require: false
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'database_consistency', require: false

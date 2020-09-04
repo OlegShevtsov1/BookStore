@@ -2,6 +2,8 @@ test:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  host: 127.0.0.1
-  username: root
+  host: localhost
+  port: 5432
   database: bookstore_test
+  username: postgres
+

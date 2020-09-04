@@ -8,11 +8,11 @@ executors:
       - image: circleci/ruby:2.7.1-node
         environment:
           RAILS_ENV: test
-          PGHOST: 127.0.0.1
-          PGUSER: root
+          PGHOST: localhost
+          PGUSER: postgres
       - image: circleci/postgres:9.6.2-alpine
         environment:
-          POSTGRES_USER: root
+          POSTGRES_USER: postgres
           POSTGRES_DB: bookstore_test
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
@@ -46,7 +46,7 @@ commands:
       - run:
           name: Database Setup
           command: |
-            bin/rails db:create db:schema:load --trace
+            bin/rails db:schema:load --trace
             bin/rails db:migrate
   run_rubocop:
     description: command to start rubocop
@@ -54,6 +54,12 @@ commands:
       - run:
           name: rubocop
           command: bundle exec rubocop
+  run_fasterer:
+    description: command to start fasterer
+    steps:
+      - run:
+          name: fasterer
+          command: bundle exec fasterer
   run_brakeman:
     description: command to start brakeman
     steps:
@@ -84,7 +90,14 @@ commands:
       - store_test_results:
           path: /tmp/test-results/rspec/
 jobs:
-  rubocop:
+  code_check:
+    executor: default
+    steps:
+      - defaults
+      - run_brakeman
+      - run_bundler-audit
+      - run_database_consistency
+  code_style:
     executor: default
     steps:
       - defaults
@@ -94,33 +107,14 @@ jobs:
     steps:
       - defaults
       - run_specs
-  brakeman:
-    executor: default
-    steps:
-      - defaults
-      - run_brakeman
-  bundler-audit:
-    executor: default
-    steps:
-      - defaults
-      - run_bundler-audit
-  database_consistency:
-    executor: default
-    steps:
-      - defaults
-      - run_database_consistency
-
 workflows:
   version: 2.1
   build:
     jobs:
-      - brakeman
-      - bundler-audit
-      - database_consistency
-      - rubocop:
+      - code_check
+      - code_style:
           requires:
-            - brakeman
-            - bundler-audit
+            - code_check
       - specs:
           requires:
-            - rubocop
+            - code_style
