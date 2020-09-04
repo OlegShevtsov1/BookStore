@@ -1,4 +1,5 @@
 class BooksPresenter
+  BOOKS_COUNT_ROW = 4
   attr_reader :params
 
   def initialize(params)

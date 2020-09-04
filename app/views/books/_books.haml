@@ -1,4 +1,4 @@
-- @books.each_slice(4) do |book_group|
+- @books.each_slice(BooksPresenter::BOOKS_COUNT_ROW) do |book_group|
   .row
     - book_group.each do |book|
       .col-xs-6.col-sm-3
@@ -7,7 +7,7 @@
             %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
             .thumb-hover
               .general-thumb-link-wrap
-                = link_to '#', class: 'thumb-hover-link' do
+                = link_to category_book_path(book.category, book), class: 'thumb-hover-link' do
                   %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
                 = link_to '#', class: 'thumb-hover-link' do
                   %i.fa.fa-shopping-cart.thumb-icon
@@ -18,5 +18,4 @@
             = book.price
           %span.divider-sm
           %p.lead.small
-            - book.authors.each do |author|
-              = author.name
+            = book.authors.map(&:name).join ', '

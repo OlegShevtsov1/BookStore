@@ -1,0 +1,12 @@
+%main.container
+  = link_to url_for(:back), class: 'general-back-link' do
+    %i.fa.fa-long-arrow-left.mr-15
+    #{t('back')}
+  .row
+    = render 'books/book'
+  .mb-80
+    %h3 #{t('book.review.write_review')}
+    = render 'books/comment/form'
+  .mb-80
+    %h3.in-gold-500.mb-25 #{t('book.review.reviews')} (3)
+    = render 'books/comment/comments'

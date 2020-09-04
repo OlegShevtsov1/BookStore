@@ -1,5 +1,5 @@
 %ul.dropdown-menu
   - Sort::SortBooksService::SORT_BY.each do |sort_by|
     %li
-      = link_to @category  ? category_books_path(@category,sort_by: sort_by) : books_path do
+      = link_to @category  ? category_books_path(@category,sort_by: sort_by) : books_path(sort_by: sort_by) do
         =t("catalog.filter.#{sort_by}")

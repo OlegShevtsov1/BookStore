@@ -1,6 +1,6 @@
 module Sort
   class SortBooksService
-    SORT_BY = %w[newest_first popular_first price_low price_hight name_a_z name_z_a].freeze
+    SORT_BY = %w[name_a_z name_z_a newest_first popular_first price_low price_hight].freeze
 
     def initialize(books, sort_by)
       @books = books

@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :homes, only: [:index]
   resources :books, only: [:index]
   resources :categories, only: [] do
-    resources :books, only: [:index]
+    resources :books, only: %i[index show]
   end
 end
