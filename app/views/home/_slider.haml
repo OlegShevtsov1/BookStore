@@ -14,8 +14,7 @@
               %h1=book.name
               %p.lead=book.description
               %p.lead.small
-                - book.authors.each do |author|
-                  = author.name
+                = book.authors.map(&:name).join ', '
               .general-align
                 %button.btn-primary.btn=t('home.slider.by_now')
   %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
