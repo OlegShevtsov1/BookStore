@@ -15,3 +15,5 @@
     = render partial: 'shared/header'
     = yield
     = render partial: 'shared/footer'
+  - if content_for?(:custom_script)
+    = yield :custom_script

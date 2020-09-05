@@ -18,7 +18,7 @@ class BookPresenter
     book.description[0..DESCRIPTION_LIMIT]
   end
 
-  def description_length_valid?
-    book.description.length > DESCRIPTION_LIMIT
+  def description_length_short?
+    book.description.length < DESCRIPTION_LIMIT
   end
 end

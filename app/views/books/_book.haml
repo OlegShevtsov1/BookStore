@@ -17,22 +17,22 @@
       %p.h1.in-gold-500.mt-10 €#{@book_presenter.book.price}
     .col-xs-5.col-md-3
       .input-group.general-position
-        -#%a.input-link{href: "#"}
-        #plus.input-link
+        #book_minus.input-link
           %i.fa.fa-minus.line-height-40
-        %input.form-control.quantity-input{type: "text"}
-        -#%a.input-link{href: "#"}
-        #minus.input-link
+        %input.form-control.quantity-input{id: "book_amount", type: "text"}
+        #book_plus.input-link
           %i.fa.fa-plus.line-height-40
     .col-xs-7.col-md-5
       %button.btn.btn-default.pull-right.general-position #{t('book.add_to_cart')}
   .general-info-wrap.divider-lg
     %p= t('book.description')
     %p.lead.small.line-height-2
-      #{@book_presenter.short_description}
-      %a.in-gold-500.ml-10{href: "#"} #{t('book.read_more')}
-      - if @book_presenter.description_length_valid?
-        = @book_presenter.book.description
+      - if @book_presenter.description_length_short?
+        #full_description #{@book_presenter.book.description}
+      - else
+        #full_description{style: "display: none"} #{@book_presenter.book.description}
+        #short_description #{@book_presenter.short_description}
+        %a.in-gold-500.ml-10{id: "read_more", href: "#"} #{t('book.read_more')}
   .general-info-wrap.divider-lg
     .clearfix
       %p.pull-left #{t('book.year_of_publication')}
