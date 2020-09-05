@@ -20,3 +20,4 @@ require("fontsource-open-sans")
 // const imagePath = (name) => images(name, true)
 
 require('../stylesheets/application.scss')
+require('../javascripts/application.js')

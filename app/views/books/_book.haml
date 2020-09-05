@@ -17,10 +17,12 @@
       %p.h1.in-gold-500.mt-10 €#{@book_presenter.book.price}
     .col-xs-5.col-md-3
       .input-group.general-position
-        %a.input-link{href: "#"}
+        -#%a.input-link{href: "#"}
+        #plus.input-link
           %i.fa.fa-minus.line-height-40
         %input.form-control.quantity-input{type: "text"}
-        %a.input-link{href: "#"}
+        -#%a.input-link{href: "#"}
+        #minus.input-link
           %i.fa.fa-plus.line-height-40
     .col-xs-7.col-md-5
       %button.btn.btn-default.pull-right.general-position #{t('book.add_to_cart')}

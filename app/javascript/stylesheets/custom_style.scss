@@ -1,4 +1,9 @@
 a.btn_get_started, a.btn_get_started:hover {
-    color: #FFFF;
-    text-decoration: none;
+  color: #FFFF;
+  text-decoration: none;
 }
+
+#plus, #minus {
+  cursor: pointer
+}
+
