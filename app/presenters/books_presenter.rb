@@ -7,7 +7,7 @@ class BooksPresenter
   end
 
   def books
-    Book.all
+    Book.includes([:authors, :category]).all
   end
 
   def categories

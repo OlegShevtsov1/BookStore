@@ -17,7 +17,7 @@ class BooksController < ApplicationController
   def books
     return @books = @books_presenter.books unless params[:category_id]
 
-    @books ||= category.books
+    @books ||= category.books.includes(:authors)
   end
 
   def book
