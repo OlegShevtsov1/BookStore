@@ -8,6 +8,11 @@ en:
     home: 'Home'
     shop: 'Shop'
     my_account: 'My account'
+    sign_up: 'Sign Up'
+    log_in: 'Log In'
+    log_out: 'Log Out'
+    orders: 'Orders'
+    settings: 'Settings'
   footer_menu:
     home: 'Home'
     shop: 'Shop'

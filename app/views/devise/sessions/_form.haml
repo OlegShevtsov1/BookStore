@@ -1,0 +1,26 @@
+.form-group.mb-30
+  = f.label :email, 'Enter Email'
+  = f.input :email,
+    required: false,
+    autofocus: true,
+    label: false,
+    placeholder: 'Enter Email',
+    input_html: { autocomplete: "email" }
+.form-group.mb-30
+  = f.label :password, 'Password'
+  = f.input :password,
+    required: false,
+    label: false,
+    placeholder: 'Password',
+    input_html: { autocomplete: "current-password" }
+  = link_to "Forgot password?", new_password_path(resource_name), class: 'help-block in-gold-500'
+
+.form-group.checkbox.text-center.mb-30
+  %label.checkbox-label
+    %input.checkbox-input{type: "checkbox", hidden: "true"}
+    %span.checkbox-icon
+      %i.fa.fa-check
+    - if devise_mapping.rememberable?
+      = f.label :remember_me, class: 'checkbox-text remember-me'
+.text-center
+  = f.button :submit, 'Back to Store', class: 'btn btn-default mb-20'

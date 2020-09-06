@@ -1,0 +1,25 @@
+.form-group.mb-30
+  = f.label :email, 'Enter Email'
+  = f.input :email,
+    required: true,
+    autofocus: true,
+    label: false,
+    placeholder: 'Enter Email',
+    input_html: { autocomplete: "email" }
+.form-group.mb-30
+  = f.label :password, 'Password'
+  = f.input :password,
+    required: true,
+    label: false,
+    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+    placeholder: 'Password',
+    input_html: { autocomplete: "new-password" }
+.form-group.mb-30
+  = f.label :password_confirmation, 'Confirm Password'
+  = f.input :password_confirmation,
+    required: true,
+    label: false,
+    placeholder: 'Confirm Password',
+    input_html: { autocomplete: "new-password" }
+.text-center
+  = f.button :submit, 'Sign Up', class: 'btn btn-default mb-20'

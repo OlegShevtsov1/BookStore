@@ -42,7 +42,7 @@ group :development do
   gem 'bundler-audit'
   gem 'database_consistency', require: false
   gem 'bullet'
-  gem 'letter_opener_web'
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :test do

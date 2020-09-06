@@ -1,0 +1,10 @@
+.form-group.mb-30
+  = f.label :email, 'Enter Email'
+  = f.input :email,
+    required: true,
+    autofocus: true,
+    label: false,
+    placeholder: 'Enter Email',
+    input_html: { autocomplete: "email" }
+.text-center
+  = f.button :submit, 'Send me reset password instructions', class: 'btn btn-default mb-20'

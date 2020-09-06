@@ -1,0 +1,17 @@
+.form-group.mb-30
+  = f.label :password, 'New Password'
+  = f.input :password,
+    required: true,
+    label: false,
+    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+    placeholder: 'New Password',
+    input_html: { autocomplete: "new-password" }
+.form-group.mb-30
+  = f.label :password_confirmation, 'Confirm your new password'
+  = f.input :password_confirmation,
+    required: true,
+    label: false,
+    placeholder: 'Confirm your new password',
+    input_html: { autocomplete: "new-password" }
+.text-center
+  = f.button :submit, 'Change my password', class: 'btn btn-default mb-20'
