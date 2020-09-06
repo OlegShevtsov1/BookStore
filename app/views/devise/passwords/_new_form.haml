@@ -1,10 +1,10 @@
 .form-group.mb-30
-  = f.label :email, 'Enter Email'
+  = f.label :email, t('devise.enter_email')
   = f.input :email,
     required: true,
     autofocus: true,
     label: false,
-    placeholder: 'Enter Email',
+    placeholder: t('devise.enter_email'),
     input_html: { autocomplete: "email" }
 .text-center
-  = f.button :submit, 'Send me reset password instructions', class: 'btn btn-default mb-20'
+  = f.button :submit, t('devise.password_instruction'), class: 'btn btn-default mb-20'

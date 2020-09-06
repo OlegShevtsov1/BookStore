@@ -56,4 +56,17 @@ en:
         post: 'Post'
         reviews: 'Reviews'
         verified_reviewer: 'Verified Reviewer'
-      
+  devise:
+    log_in: 'Log In'
+    not_account: "Don’t have an Account?"
+    or: 'or'
+    enter_email: 'Enter email'
+    password: 'Password'
+    confirm_password: 'Confirm Password'
+    forgot_password: 'Forgot password?'
+    new_password: 'New password'
+    change_password: 'Change password'
+    back_to_store: 'Back to Store'
+    sign up: 'Sign Up'
+    password_instruction: 'Send me reset password instructions'
+    characters minimum: 'characters minimum'

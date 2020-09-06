@@ -1,17 +1,17 @@
 .form-group.mb-30
-  = f.label :password, 'New Password'
+  = f.label :password, t('devise.new_password')
   = f.input :password,
     required: true,
     label: false,
-    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-    placeholder: 'New Password',
+    hint: ("#{@minimum_password_length} #{t('devise.characters minimum')}" if @minimum_password_length),
+    placeholder: t('devise.new_password'),
     input_html: { autocomplete: "new-password" }
 .form-group.mb-30
-  = f.label :password_confirmation, 'Confirm your new password'
+  = f.label :password_confirmation, t('devise.confirm_password')
   = f.input :password_confirmation,
     required: true,
     label: false,
-    placeholder: 'Confirm your new password',
+    placeholder: t('devise.confirm_password'),
     input_html: { autocomplete: "new-password" }
 .text-center
-  = f.button :submit, 'Change my password', class: 'btn btn-default mb-20'
+  = f.button :submit, t('devise.change_password'), class: 'btn btn-default mb-20'
