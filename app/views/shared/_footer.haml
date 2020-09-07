@@ -12,13 +12,6 @@
               = link_to t('footer_menu.orders'), '#', class: 'nav-link'
             %li
               = link_to t('footer_menu.settings'), '#', class: 'nav-link'
-            %li
-            = link_to t('top_menu.log_out'), destroy_user_session_path, method: :delete, class: 'nav-link'
-          - else
-            %li
-              = link_to t('top_menu.log_in'), new_user_session_path, class: 'nav-link'
-            %li
-              = link_to t('top_menu.sign_up'), new_user_registration_path, class: 'nav-link'
 
       .col-sm-3
         %p.general-nav-mail=t('email')

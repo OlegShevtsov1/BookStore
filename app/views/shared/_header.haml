@@ -27,8 +27,21 @@
                 %li
                   = link_to category_books_path(category), class: 'collapse-link' do
                     = category.name
-          %li
-            = link_to t('top_menu.my_account'), '#'
+          %li.divider{role: "separator"}
+          - if user_signed_in?
+            %li
+              = link_to t('top_menu.my_account'), '#'
+            %li
+            = link_to t('top_menu.orders'), '#'
+            %li
+              = link_to t('top_menu.settings'), '#'
+            %li
+            = link_to t('top_menu.log_out'), destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to t('top_menu.log_in'), new_user_session_path
+            %li
+              = link_to t('top_menu.sign_up'), new_user_registration_path
       .hidden-xs
         %ul.nav.navbar-nav
           %li
@@ -40,8 +53,21 @@
                 %li
                   = link_to category_books_path(category) do
                     = category.name
-              %li.divider{role: "separator"}
-              %li
-                %a{href: "#"} Log out
-          %li
-            %a{href: "#"} My account
+          - if user_signed_in?
+            %li.dropdown
+              %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+                = t('top_menu.my_account')
+              %ul.dropdown-menu
+                %li
+                  = link_to t('top_menu.orders'), '#'
+                %li
+                  = link_to t('top_menu.settings'), '#'
+                %li.divider{role: "separator"}
+                %li
+                  = link_to t('top_menu.log_out'), destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to t('top_menu.log_in'), new_user_session_path
+            %li
+              = link_to t('top_menu.sign_up'), new_user_registration_path
+

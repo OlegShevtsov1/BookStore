@@ -1,9 +1,6 @@
 %main.container.general-main-wrap
   .text-center
-    %h3.general-login-title= t('devise.forgot_password')
-    %a.general-login-icon{href: "#"}
-      %i.fa.fa-facebook-official
-    %p.general-login-text or
-  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+    %h3.general-login-title= t('devise.set_new_password')
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'general-form' }) do |f|
     = f.error_notification
     = render 'devise/passwords/edit_form', f: f
