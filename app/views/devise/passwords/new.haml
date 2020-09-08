@@ -4,6 +4,5 @@
     %p.general-password-text= t('devise.we_will_email')
   %div.general-form
   = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'general-form' }) do |f|
-    = f.error_notification
     = render 'devise/passwords/new_form', f: f
 

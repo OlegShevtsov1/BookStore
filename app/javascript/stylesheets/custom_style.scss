@@ -12,3 +12,15 @@ a.btn_get_started, a.btn_get_started:hover {
 }
 
 
+.is-invalid,  {
+  border-color: red
+}
+
+.invalid-feedback{
+  color: red;
+}
+
+.is-valid {
+  border-color: green
+}
+
