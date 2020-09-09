@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe HomeController, type: :controller do
+RSpec.describe HomesController, type: :controller do
   describe 'GET #home' do
     let(:books_presenter) { instance_double('BooksPresenter') }
 
     before do
       allow(BooksPresenter).to receive(:new).and_return(books_presenter)
-      get :home
+      get :index
     end
 
     it { expect(response).to have_http_status(:success) }
 
     it 'renders the home template' do
-      expect(response).to(render_template(:home))
+      expect(response).to(render_template(:index))
     end
 
     context 'with assigns' do
