@@ -14,14 +14,14 @@ if Author.count.zero?
 end
 
 if Book.count.zero?
-  Book.create!(name:        'Real-Life Responsive Web Design',
+  Book.create!(name: 'Real-Life Responsive Web Design',
                description: 'Smart front-end techniques and design patterns derived from real-life
 responsive projects.',
                category_id: 3)
-  Book.create!(name:        'Android Programming for Beginners',
+  Book.create!(name: 'Android Programming for Beginners',
                description: 'Smashing Book 5: Real-Life Responsive Web Design is our brand new.',
                category_id: 1)
-  Book.create!(name:        'Android Programming for Beginners',
+  Book.create!(name: 'Android Programming for Beginners',
                description: 'Smashing Book 5: Real-Life Responsive Web Design is our brand new.',
                category_id: 1)
 end
