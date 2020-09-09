@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#home'
+  root 'homes#index'
+  resources :homes, only: [:index]
   resources :books, only: [:index]
 end

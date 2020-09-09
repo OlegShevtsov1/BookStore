@@ -1,10 +1,10 @@
-RSpec.describe 'Books', type: :request do
+RSpec.describe 'Homes', type: :request do
   describe 'GET #index' do
-    before { get '/books' }
+    before { get '/' }
 
     it { expect(response).to have_http_status(:success) }
 
-    it 'renders the index template' do
+    it 'renders the home template' do
       expect(response).to(render_template(:index))
     end
   end
