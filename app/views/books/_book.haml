@@ -10,11 +10,11 @@
       %a.img-link{href: "#"}
         %img{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
 .col-sm-6
-  %h1.mt-res-0= @book_presenter.book.name
-  %p.lead.small= @book_presenter.authors
+  %h1.mt-res-0= book_presenter.name
+  %p.lead.small= book_presenter.authors
   .row
     .col-xs-12.col-md-4
-      %p.h1.in-gold-500.mt-10 €#{@book_presenter.book.price}
+      %p.h1.in-gold-500.mt-10 €#{book_presenter.price}
     .col-xs-5.col-md-3
       .input-group.general-position
         #book_minus.input-link
@@ -23,25 +23,25 @@
         #book_plus.input-link
           %i.fa.fa-plus.line-height-40
     .col-xs-7.col-md-5
-      %button.btn.btn-default.pull-right.general-position #{t('book.add_to_cart')}
+      %button.btn.btn-default.pull-right.general-position #{t('.add_to_cart')}
   .general-info-wrap.divider-lg
-    %p= t('book.description')
+    %p= t('.description')
     %p.lead.small.line-height-2
-      - if @book_presenter.description_length_short?
-        #full_description #{@book_presenter.book.description}
+      - if book_presenter.description_length_short?
+        #full_description #{book_presenter.description}
       - else
-        #full_description{style: "display: none"} #{@book_presenter.book.description}
-        #short_description #{@book_presenter.short_description}
-        %a.in-gold-500.ml-10{id: "read_more", href: "#"} #{t('book.read_more')}
+        #full_description{style: "display: none"} #{book_presenter.description}
+        #short_description #{book_presenter.short_description}
+        %a.in-gold-500.ml-10{id: "read_more", href: "#"} #{t('.read_more')}
   .general-info-wrap.divider-lg
     .clearfix
-      %p.pull-left #{t('book.year_of_publication')}
-      %p.lead.small.pull-right #{@book_presenter.book.year}
+      %p.pull-left #{t('.year_of_publication')}
+      %p.lead.small.pull-right #{book_presenter.year}
   .general-info-wrap.divider-lg
     .clearfix
-      %p.pull-left #{t('book.dimensions')}
-      %p.lead.small.pull-right #{@book_presenter.properties}
+      %p.pull-left #{t('.dimensions')}
+      %p.lead.small.pull-right #{book_presenter.properties}
   .general-info-wrap.divider-lg
     .clearfix
-      %p.pull-left #{t('book.materials')}
-      %p.lead.small.pull-right #{@book_presenter.book.material}
+      %p.pull-left #{t('.materials')}
+      %p.lead.small.pull-right #{book_presenter.material}

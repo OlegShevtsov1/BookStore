@@ -2,6 +2,12 @@ class BookPresenter
   DESCRIPTION_LIMIT = 250
   attr_reader :book
 
+  delegate :name, to: :book
+  delegate :price, to: :book
+  delegate :description, to: :book
+  delegate :year, to: :book
+  delegate :material, to: :book
+
   def initialize(book)
     @book = book
   end
