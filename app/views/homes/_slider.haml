@@ -16,10 +16,10 @@
               %p.lead.small
                 = book.authors.map(&:name).join ', '
               .general-align
-                %button.btn-primary.btn=t('home.slider.by_now')
+                %button.btn-primary.btn=t('.slider.by_now')
   %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
     %span.icon-prev{'aria-hidden': "true"}
-    %span.sr-only=t('home.slider.previous')
+    %span.sr-only=t('.slider.previous')
   %a.right.carousel-control{href: "#slider", role: "button", 'data-slide': "next"}
     %span.icon-next{'aria-hidden': "true"}
-    %span.sr-only=t('home.slider.next')
+    %span.sr-only=t('.slider.next')
