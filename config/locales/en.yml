@@ -74,3 +74,4 @@ en:
     email_instruction: 'Email instructions'
     cancel: 'Cancel'
     characters minimum: 'characters minimum'
+    password_validate: 'password must contain at least 1 uppercase, at least 1 lowercase, at least 1 number'

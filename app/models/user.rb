@@ -1,9 +1,8 @@
 class User < ApplicationRecord
-  PASSWORD_FORMAT = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/.freeze
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
 
-  validates :password, format: { with: PASSWORD_FORMAT }
+  validates_with PasswordValidator
 
   before_validation :strip_password
 
