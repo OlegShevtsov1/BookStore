@@ -13,6 +13,7 @@ AllCops:
     - "db/schema.rb"
     - "db/migrate/*"
     - 'config/environments/*'
+    - 'config/initializers/*'
     - 'config/puma.rb'
     - 'config/spring.rb'
     - 'test/**/*'
