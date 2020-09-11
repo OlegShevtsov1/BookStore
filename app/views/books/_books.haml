@@ -18,4 +18,4 @@
             = book.price
           %span.divider-sm
           %p.lead.small
-            = book.authors.map(&:name).join ', '
+            = BookPresenter.new(book).authors

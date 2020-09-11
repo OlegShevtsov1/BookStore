@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  include Pagy::Backend
   COUNT_PAGE_BOOKS = 12
   before_action :books_presenter, only: %i[index show]
   before_action :books, only: [:index]

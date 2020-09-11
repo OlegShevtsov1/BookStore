@@ -25,6 +25,6 @@
   .mb-120
     = render 'books', books: @books
     .row.mb-25
-    .text-center
+    -#.text-center
       %button.btn.btn-primary=t('.view more')
   = pagy_bootstrap_nav(@pagy).html_safe
