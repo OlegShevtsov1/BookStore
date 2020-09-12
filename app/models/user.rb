@@ -3,8 +3,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates_with PasswordValidator
+  validates_with EmailValidator
 
   before_validation :strip_password
+  validates :email, presence: true
 
   def strip_password
     self.password = password.strip

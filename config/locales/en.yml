@@ -74,4 +74,9 @@ en:
     email_instruction: 'Email instructions'
     cancel: 'Cancel'
     characters minimum: 'characters minimum'
-    password_validate: 'password must contain at least 1 uppercase, at least 1 lowercase, at least 1 number'
+    password_validate: 'must contain at least 1 uppercase, at least 1 lowercase, at least 1 number'
+    email_wrong_format: 'domain part must be like %{format}'
+    email_size_error: 'local part should be less then %{max_size}'
+    email_sides_error: 'local part can not start or end with symbols: %{wrong_symbols}'
+    email_validate: 'can not  contain symbols: %{symbols}'
+    wrong_format: "domain part must be like '%{format_example}'"
