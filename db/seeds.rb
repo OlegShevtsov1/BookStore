@@ -104,3 +104,5 @@ if BookAuthor.count.zero?
 
   BookAuthor.create!(book_id: 7, author_id: 2)
 end
+
+User.create!(email: 'john@dow.com', username: 'John Dow', password: 'As12345678') if User.count.zero?

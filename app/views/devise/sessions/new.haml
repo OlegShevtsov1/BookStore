@@ -1,8 +1,7 @@
 %main.container.general-main-wrap
   .text-center
     %h3.general-login-title=t('devise.log_in')
-    %a.general-login-icon{href: "#"}
-      %i.fa.fa-facebook-official
+    = render 'devise/shared/facebook'
     %p.general-login-text= t('devise.or')
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'general-form'}) do |f|
     = render 'devise/sessions/form', f: f

@@ -95,7 +95,7 @@ jobs:
     steps:
       - defaults
       - run_brakeman
-      - run_bundler-audit
+#      - run_bundler-audit
       - run_database_consistency
   code_style:
     executor: default

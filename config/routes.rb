@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, path_names: { sign_in: 'login',
                                    sign_out: 'logout',
                                    password: 'secret',
-                                   sign_up: 'registration' }
+                                   sign_up: 'registration' },
+                     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'homes#index'
   resources :homes, only: [:index]
