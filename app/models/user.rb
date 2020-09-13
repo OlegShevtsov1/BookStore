@@ -18,6 +18,6 @@ class User < ApplicationRecord
 
   def strip_password
     self.password = password.strip
-    self.password_confirmation = password_confirmation.strip
+    self.password_confirmation = password_confirmation.strip if password_confirmation.present?
   end
 end
