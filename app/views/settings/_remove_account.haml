@@ -1,0 +1,9 @@
+%form
+  .general-settings-btn
+    %button.btn.disabled.mb-20 #{t('.please_remove_account')}
+  .form-group.checkbox.general-settings-checkbox
+    %label.checkbox-label
+      %input.checkbox-input{type: "checkbox", hidden: "true"}
+      %span.checkbox-icon
+        %i.fa.fa-check
+      %span.checkbox-text #{t('.data_will_lost')}

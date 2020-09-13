@@ -13,5 +13,6 @@ Rails.application.routes.draw do
       put :calc_price, on: :member
     end
   end
+  resources :settings, only: [:index]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

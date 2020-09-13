@@ -1,0 +1,24 @@
+.form-group.has-error
+  %label.control-label.input-label{for: "firstName"} #{t('.first_name')}
+  %input#firstName.form-control{name:"fname", type: "text", placeholder: "#{t('.first_name')}"}
+  %span.help-block #{t('.please_enter_first_name')}
+.form-group
+  %label.control-label.input-label{for: "lastName"} #{t('.last_name')}
+  %input#lastName.form-control{name:"lname", type: "text", placeholder: "#{t('.last_name')}"}
+.form-group
+  %label.control-label.input-label{for: "address"} #{t('.address')}
+  %input#address.form-control{name: "address", type: "text", placeholder: "#{t('.address')}"}
+.form-group
+  %label.control-label.input-label{for: "city"} #{t('.city')}
+  %input#city.form-control{name: "city", type: "text", placeholder: "#{t('.city')}"}
+.form-group
+  %label.control-label.input-label{for: "zip"} #{t('.zip')}
+  %input#zip.form-control{name: "zip", type: "text", placeholder: "#{t('.zip')}"}
+.form-group
+  %label.control-label.input-label{for: "сountry"} #{t('.country')}
+  %input#country.form-control{name: "country", type: "text", placeholder: "#{t('.select_country')}"}
+.form-group.mb-60
+  %label.control-label.input-label{for: "phone"} #{t('.phone')}
+  %input#phone.form-control{name: "phone", type: "tel", placeholder: "#{t('.example_phone')}"}
+.text-center.general-text-align
+  %button.btn.disabled #{t('.save')}
