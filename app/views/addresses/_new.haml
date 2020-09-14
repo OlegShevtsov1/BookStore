@@ -1,0 +1,4 @@
+= simple_form_for address_form, as: 'address_form', url: addresses_path, method: :post  do |f|
+  = render 'addresses/form', f: f, address_type: address_type
+  .text-center.general-text-align
+    = f.button :submit, t('.form.save'), class: 'btn btn-default'

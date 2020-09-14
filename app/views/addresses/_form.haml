@@ -1,24 +1,59 @@
-.form-group.has-error
-  %label.control-label.input-label{for: "firstName"} #{t('.first_name')}
-  %input#firstName.form-control{name:"fname", type: "text", placeholder: "#{t('.first_name')}"}
-  %span.help-block #{t('.please_enter_first_name')}
+= f.hidden_field :address_type, value: address_type
+= f.hidden_field :user_id, value: current_user.id
+
 .form-group
-  %label.control-label.input-label{for: "lastName"} #{t('.last_name')}
-  %input#lastName.form-control{name:"lname", type: "text", placeholder: "#{t('.last_name')}"}
+  = f.label :first_name, t('.first_name')
+  = f.input :first_name,
+     required: false,
+     autofocus: true,
+     label: false,
+     placeholder: t('.first_name'),
+     input_html: { autocomplete: :on }
 .form-group
-  %label.control-label.input-label{for: "address"} #{t('.address')}
-  %input#address.form-control{name: "address", type: "text", placeholder: "#{t('.address')}"}
+  = f.label :last_name, t('.last_name')
+  = f.input :last_name,
+     required: false,
+     autofocus: true,
+     label: false,
+     placeholder: t('.last_name'),
+     input_html: { autocomplete: :on }
 .form-group
-  %label.control-label.input-label{for: "city"} #{t('.city')}
-  %input#city.form-control{name: "city", type: "text", placeholder: "#{t('.city')}"}
+  = f.label :address, t('.address')
+  = f.input :address,
+     required: false,
+     autofocus: true,
+     label: false,
+     placeholder: t('.address'),
+     input_html: { autocomplete: :on}
 .form-group
-  %label.control-label.input-label{for: "zip"} #{t('.zip')}
-  %input#zip.form-control{name: "zip", type: "text", placeholder: "#{t('.zip')}"}
+  = f.label :city, t('.city')
+  = f.input :city,
+     required: false,
+     autofocus: true,
+     label: false,
+     placeholder: t('.city'),
+     input_html: { autocomplete: :on }
 .form-group
-  %label.control-label.input-label{for: "сountry"} #{t('.country')}
-  %input#country.form-control{name: "country", type: "text", placeholder: "#{t('.select_country')}"}
-.form-group.mb-60
-  %label.control-label.input-label{for: "phone"} #{t('.phone')}
-  %input#phone.form-control{name: "phone", type: "tel", placeholder: "#{t('.example_phone')}"}
-.text-center.general-text-align
-  %button.btn.disabled #{t('.save')}
+  = f.label :zip, t('.zip')
+  = f.input :zip,
+     required: false,
+     autofocus: true,
+     label: false,
+     placeholder: t('.zip'),
+     input_html: { autocomplete: :on }
+.form-group
+  = f.label :country, t('.country')
+  = f.input :country, as: :string,
+     required: false,
+     autofocus: true,
+     label: false,
+     placeholder: t('.country'),
+     input_html: { autocomplete: :on }
+.form-group
+  = f.label :phone, t('.phone')
+  = f.input :phone,
+     required: false,
+     autofocus: true,
+     label: false,
+     placeholder: t('.phone'),
+     input_html: { autocomplete: :on }

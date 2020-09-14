@@ -65,3 +65,50 @@ en:
     email_sides_error: 'local part can not start or end with symbols: %{wrong_symbols}'
     email_validate: 'can not  contain symbols: %{symbols}'
     wrong_format: "domain part must be like '%{format_example}'"
+  validate:
+    big_letter: 'must write with big letter'
+    wrong_number: 'wrong number'
+    start_plus: 'have to start with +'
+    only_numbers: 'must be only numbers'
+    mm_yy: 'should be in MM/YY format and contain only numbers'
+  settings:
+    index:
+      settings: 'Settings'
+      billing_address: 'Billing Address'
+      shipping_address: 'Shipping Address'
+      s_email: 'Email'
+      password: 'Password'
+      remove_account: 'Remove Account'
+      address: 'Address'
+      privacy: 'Privacy'
+    remove_account:
+      please_remove_account: 'Please Remove My Account'
+      data_will_lost: 'I understand that all data will be lost'
+      save: 'Save'
+    password:
+      old_password: 'Old Password'
+      new_password: 'New Password'
+      confirm_password: 'Confirm Password'
+      save: 'Save'
+    email:
+      enter_email: 'Enter Email'
+      enter_your_email: 'Enter your email'
+      save: 'Save'
+    new:
+      updated: "%{type} address updated"
+  addresses:
+    new:
+      form:
+        save: 'Save'
+    form:
+      first_name: 'First Name'
+      please_enter_first_name: 'Please enter your first name'
+      last_name: 'Last Name'
+      address: 'Address'
+      city: 'City'
+      zip: 'Zip'
+      country: 'Country'
+      select_country: 'Select a country'
+      phone: 'Phone'
+      example_phone: 'Example +355 66 123 4567'
+
