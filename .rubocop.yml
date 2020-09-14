@@ -1,0 +1,29 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7.1
+  Exclude:
+    - 'bin/bundle'
+    - 'bin/rails'
+    - 'bin/rake'
+    - "db/schema.rb"
+    - "db/migrate/*"
+    - 'config/environments/*'
+    - 'config/puma.rb'
+    - 'config/spring.rb'
+    - 'test/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'bin/yarn'
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

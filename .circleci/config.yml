@@ -1,0 +1,120 @@
+version: 2.1 
+
+executors:
+  default:
+    working_directory: ~/repo
+    description: The official CircleCI Ruby Docker image
+    docker:
+      - image: circleci/ruby:2.7.1-node
+        environment:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: bookstore_test
+caches:
+  - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
+  - &bundle_cache v2-repo-
+  - &yarn_cache_full yarn-cache-v1-{{ checksum "yarn.lock" }}
+  - &yarn_cache yarn-cache-v1-
+commands:
+  defaults:
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - *bundle_cache_full
+            - *bundle_cache
+      - restore_cache:
+          keys:
+            - *yarn_cache_full
+            - *yarn_cache
+      - run: bundle install --path vendor/bundle
+      - run: yarn install
+      - run: bundle exec bin/rails webpacker:compile
+      - save_cache:
+          key: *bundle_cache_full
+          paths:
+            - vendor/bundle
+      - save_cache:
+          key: *yarn_cache_full
+          paths:
+            - node_modules
+      - run: mv config/database.circleci config/database.yml
+      - run:
+          name: Database Setup
+          command: |
+            bin/rails db:schema:load --trace
+            bin/rails db:migrate
+  run_rubocop:
+    description: command to start rubocop
+    steps:
+      - run:
+          name: rubocop
+          command: bundle exec rubocop
+  run_fasterer:
+    description: command to start fasterer
+    steps:
+      - run:
+          name: fasterer
+          command: bundle exec fasterer
+  run_brakeman:
+    description: command to start brakeman
+    steps:
+      - run:
+          name: brakeman
+          command: bundle exec brakeman
+  run_bundler-audit:
+    description: command to start bundler-audit
+    steps:
+      - run:
+          name: bundler-audit
+          command: bundle exec bundler-audit
+  run_database_consistency:
+    description: command to start database_consistency
+    steps:
+      - run:
+          name: database_consistency
+          command: bundle exec database_consistency
+  run_specs:
+    steps:
+      - run:
+          name: run specs
+          command: |
+            bundle exec rspec --format progress \
+                              --format RspecJunitFormatter \
+                              --out /tmp/test-results/rspec/rspec.xml
+          when: always
+      - store_test_results:
+          path: /tmp/test-results/rspec/
+jobs:
+  code_check:
+    executor: default
+    steps:
+      - defaults
+      - run_brakeman
+      - run_bundler-audit
+      - run_database_consistency
+  code_style:
+    executor: default
+    steps:
+      - defaults
+      - run_rubocop
+  specs:
+    executor: default
+    steps:
+      - defaults
+      - run_specs
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - code_check
+      - code_style:
+          requires:
+            - code_check
+      - specs:
+          requires:
+            - code_style

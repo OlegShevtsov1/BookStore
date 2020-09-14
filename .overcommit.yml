@@ -1,0 +1,43 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+    on_warn: warn
+    required: true
+
+  Fasterer:
+    enabled: true
+    on_warn: warn
+    required: true
+
+  PreCommit:
+    BundleAudit:
+    enabled: true
+
+  DatabaseConsistency:
+    enabled: false
+    quiet: false
+    command: [ 'bundle', 'exec', 'database_consistency' ]
+
+PrePush:
+  Brakeman:
+    enabled: true
+
+CommitMsg:
+  CapitalizedSubject:
+    enabled: true
+    on_warn: fail
+
+  TrailingPeriod:
+    enabled: true
+    on_warn: fail
+
+  TextWidth:
+    enabled: true
+    on_warn: fail
+
+  SingleLineSubject:
+    enabled: true
+    on_warn: fail
+
+TrailingWhitespace:
+  enabled: true

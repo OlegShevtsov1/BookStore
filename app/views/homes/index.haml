@@ -1,0 +1,10 @@
+%main.container
+  = render 'slider', books_slider: @books_slider
+.container
+  .jumbotron.text-center.mb-0
+    %h2.h1=t('.welcome')
+    .mb-res-50
+      %p=t('.welcome_description')
+    %button.btn.btn-default
+      = link_to t('.get_started'), books_path, class: 'btn_get_started'
+  -# = render 'best_sellers'
