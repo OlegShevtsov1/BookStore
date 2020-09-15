@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
 
   validates_with PasswordValidator
-  validates_with EmailValidator
+  validates_with EmailValidator, if: :email.present?
 
   before_validation :strip_password
   validates :email, presence: true
