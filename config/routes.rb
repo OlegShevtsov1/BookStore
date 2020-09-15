@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :homes, only: [:index]
   resources :books, only: [:index]
   resources :categories, only: [] do
-    resources :books, only: %i[index show]
+    resources :books, only: %i[index show] do
+      put :calc_price, on: :member
+    end
   end
 end

@@ -3,7 +3,7 @@ FactoryBot.define do
     name { FFaker::Book.title }
     description { FFaker::Book.description(3) }
     trait :with_short_description do
-      description { FFaker::Book.description(1) }
+      description { FFaker::Book.description(2) }
     end
     trait :with_long_description do
       description { FFaker::Book.description(10) }

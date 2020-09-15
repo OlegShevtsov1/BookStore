@@ -14,12 +14,15 @@
   %p.lead.small= book_presenter.authors
   .row
     .col-xs-12.col-md-4
-      %p.h1.in-gold-500.mt-10 €#{book_presenter.price}
+      %p.h1.in-gold-500.mt-10.inline
+        #{t('EUR')}
+      %p.h1.in-gold-500.mt-10.inline{id:'book_price'}
+        #{book_presenter.price}
     .col-xs-5.col-md-3
       .input-group.general-position
         #book_minus.input-link
           %i.fa.fa-minus.line-height-40
-        %input.form-control.quantity-input{id: "book_amount", type: "text"}
+        %input.form-control.quantity-input{id: "book_amount", type: "text", value: 1}
         #book_plus.input-link
           %i.fa.fa-plus.line-height-40
     .col-xs-7.col-md-5
@@ -45,3 +48,5 @@
     .clearfix
       %p.pull-left #{t('.materials')}
       %p.lead.small.pull-right #{book_presenter.material}
+= content_for(:custom_script) do
+  = render 'books/click_amount.js', category: @category, book: @book

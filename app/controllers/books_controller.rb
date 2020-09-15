@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   include Pagy::Backend
   COUNT_PAGE_BOOKS = 12
+  skip_before_action :verify_authenticity_token
   before_action :books_presenter, only: %i[index show]
   before_action :books, only: [:index]
   before_action :book, only: [:show]
@@ -11,6 +12,15 @@ class BooksController < ApplicationController
 
   def show
     @book_presenter = BookPresenter.new(@book)
+  end
+
+  def calc_price
+    respond_to do |format|
+      format.json do
+        render json: Calc::CalcPriceBookService.new(book: book, params: params).call, status: :ok
+      end
+      format.html
+    end
   end
 
   private

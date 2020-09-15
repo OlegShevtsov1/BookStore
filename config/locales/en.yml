@@ -3,6 +3,7 @@ en:
   email: 'support@bookstore.com'
   phone: '(555)-555-5555'
   back: 'Back to results'
+  EUR: '€'
   top_menu:
     home: 'Home'
     shop: 'Shop'

@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe BookPresenter do
   let(:book) { create(:book) }
   let(:presenter) { described_class.new(book) }
