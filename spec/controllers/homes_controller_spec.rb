@@ -1,25 +1,19 @@
-require 'rails_helper'
-
 RSpec.describe HomesController, type: :controller do
-  describe 'GET #home' do
-    let(:books_presenter) { instance_double('BooksPresenter') }
+  before do
+    stub_const('COUNT_LAST_BOOKS', 3)
+    get :index
+  end
 
-    before do
-      allow(BooksPresenter).to receive(:new).and_return(books_presenter)
-      get :index
-    end
-
+  describe 'GET #index' do
     it { expect(response).to have_http_status(:success) }
 
-    it 'renders the home template' do
+    it 'renders the index template' do
       expect(response).to(render_template(:index))
     end
 
     context 'with assigns' do
-      let(:books_presenter1) { BooksPresenter.new({}) }
-
-      it 'assigns @books_presenter variable' do
-        expect(assigns[:books_presenter]).to eq(books_presenter1)
+      it 'assigns @books_slider variable' do
+        expect(assigns[:books_slider]).to eq(Book.includes(:authors).last(COUNT_LAST_BOOKS))
       end
     end
   end

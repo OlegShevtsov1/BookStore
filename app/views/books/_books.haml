@@ -1,4 +1,4 @@
-- books.each_slice(BooksPresenter::BOOKS_COUNT_ROW) do |book_group|
+- books.each_slice(BooksController::BOOKS_COUNT_ROW) do |book_group|
   .row
     - book_group.each do |book|
       .col-xs-6.col-sm-3

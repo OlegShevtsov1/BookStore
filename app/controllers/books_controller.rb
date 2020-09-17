@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
   include Pagy::Backend
+  BOOKS_COUNT_ROW = 4
   COUNT_PAGE_BOOKS = 12
   skip_before_action :verify_authenticity_token
-  before_action :books_presenter, only: %i[index show]
   before_action :books, only: [:index]
   before_action :book, only: [:show]
 
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
   private
 
   def books
-    return @books = @books_presenter.books unless params[:category_id]
+    return @books = Book.includes(%i[authors category]).all unless params[:category_id]
 
     @books ||= category.books.includes(:authors)
   end
@@ -37,9 +37,5 @@ class BooksController < ApplicationController
 
   def category
     @category ||= Category.find(params[:category_id])
-  end
-
-  def books_presenter
-    @books_presenter = BooksPresenter.new(params: params)
   end
 end

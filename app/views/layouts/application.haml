@@ -12,7 +12,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
-    = render partial: 'shared/header', locals: { books_presenter: @books_presenter }
+    = render partial: 'shared/header', locals: { categories: @categories }
     = yield
     = render partial: 'shared/footer'
   - if content_for?(:custom_script)
