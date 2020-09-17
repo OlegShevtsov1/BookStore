@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   include Pagy::Backend
+  BOOKS_COUNT_ROW = 4
   COUNT_PAGE_BOOKS = 12
   skip_before_action :verify_authenticity_token
   before_action :books, only: [:index]
