@@ -10,12 +10,6 @@ module Sort
     attr_reader :books, :sort_by
 
     def call
-      sort_books
-    end
-
-    private
-
-    def sort_books
       SORT_BY.include?(sort_by) ? books.public_send(sort_by) : books.name_a_z
     end
   end
