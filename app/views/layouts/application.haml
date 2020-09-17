@@ -2,7 +2,8 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title BookStoreOs
+    %title
+      = content_for?(:title) ? yield(:title) : t('title')
 
     %meta{charset: "UTF-8"}
     %meta{name: "viewport", content: "width=device-width"}
@@ -11,6 +12,8 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
-    = render partial: 'shared/header'
+    = render partial: 'shared/header', locals: { categories: @categories }
     = yield
     = render partial: 'shared/footer'
+  - if content_for?(:custom_script)
+    = yield :custom_script
