@@ -14,7 +14,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = config.secret_key = Rails.application.credentials[Rails.env.to_sym][:secret_key_base]
+  # config.secret_key = Rails.application.credentials[Rails.env.to_sym][:secret_key_base]
+  config.secret_key = Rails.application.credentials.secret_key_base
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +25,8 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  # config.mailer_sender = Rails.application.credentials[Rails.env.to_sym][:mailer_sender]
+  config.mailer_sender = Rails.application.credentials.mailer_sender
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -272,15 +274,15 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  # config.omniauth :facebook,'App ID', 'App Secret'
-  #
-  config.omniauth :facebook,
-                  Rails.application.credentials[Rails.env.to_sym][:facebook][:APP_ID],
-                  Rails.application.credentials[Rails.env.to_sym][:facebook][:APP_SECRET]
+  # config.omniauth :facebook,
+  #                 Rails.application.credentials[Rails.env.to_sym][:facebook][:APP_ID],
+  #                 Rails.application.credentials[Rails.env.to_sym][:facebook][:APP_SECRET]
+  # config.omniauth :facebook, Rails.application.credentials.facebook[:id], Rails.application.credentials.facebook[:secret]
+  config.omniauth :facebook, Rails.application.credentials.facebook_id, Rails.application.credentials.facebook_secret
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
-  # change the failure app, you can configure them inside the config.warden block.
+  # change the failure app, you can conconfig.mailer_senderfigure them inside the config.warden block.
   #
   # config.warden do |manager|
   #   manager.intercept_401 = false
