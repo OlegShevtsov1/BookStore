@@ -17,7 +17,7 @@ class BooksController < ApplicationController
   def calc_price
     respond_to do |format|
       format.json do
-        render json: Calc::CalcPriceBookService.new(book: book, params: params).call, status: :ok
+        render json: Calculators::BooksCalculatorService.new(book: book, params: params).call, status: :ok
       end
       format.html
     end

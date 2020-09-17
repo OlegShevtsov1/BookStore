@@ -1,4 +1,4 @@
-RSpec.describe Calc::CalcPriceBookService do
+RSpec.describe Calculators::BooksCalculatorService do
   let(:book) { create(:book) }
   let(:params) { { amount: 1, change: 'plus' } }
 

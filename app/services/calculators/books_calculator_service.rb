@@ -1,5 +1,5 @@
-module Calc
-  class CalcPriceBookService
+module Calculators
+  class BooksCalculatorService
     attr_reader :book, :amount, :change
 
     def initialize(book:, params:)
