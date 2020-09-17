@@ -9,13 +9,13 @@ module Calc
     end
 
     def call
-      { price: calc_price, amount: calc_amount }
+      { price: calc_price, amount: @amount }
     end
 
     private
 
     def calc_price
-      format('%<offset>.2f', offset: book.price * @amount.to_i)
+      format('%<offset>.2f', offset: book.price * calc_amount.to_i)
     end
 
     def calc_amount
