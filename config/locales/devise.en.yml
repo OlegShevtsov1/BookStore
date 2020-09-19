@@ -19,8 +19,16 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+        greeting: "Welcome, %{email}"
+        confirm_message: 'You can confirm your account email through the link below:'
+        confirm_button: 'Confirm my account'
       reset_password_instructions:
+        greeting: "Hello, %{email}!"
+        warning: 'Someone has requested a link to change your password. You can do this through the link below.'
+        change_button: 'Change my password'
         subject: "Reset password instructions"
+        main_text: "If you didn't request this, please ignore this email."
+        until: "Your password won't change until you access the link above and create a new one."
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:

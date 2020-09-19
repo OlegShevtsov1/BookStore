@@ -30,18 +30,18 @@
           %li.divider{role: "separator"}
           - if user_signed_in?
             %li
-              = link_to t('top_menu.my_account'), '#'
+              = link_to t('.my_account'), '#'
             %li
-            = link_to t('top_menu.orders'), '#'
+            = link_to t('.orders'), '#'
             %li
-              = link_to t('top_menu.settings'), '#'
+              = link_to t('.settings'), '#'
             %li
-            = link_to t('top_menu.log_out'), destroy_user_session_path, method: :delete
+            = link_to t('.log_out'), destroy_user_session_path, method: :delete
           - else
             %li
-              = link_to t('top_menu.log_in'), new_user_session_path
+              = link_to t('.log_in'), new_user_session_path
             %li
-              = link_to t('top_menu.sign_up'), new_user_registration_path
+              = link_to t('.sign_up'), new_user_registration_path
       .hidden-xs
         %ul.nav.navbar-nav
           %li
