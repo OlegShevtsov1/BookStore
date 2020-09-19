@@ -71,7 +71,7 @@ commands:
     steps:
       - run:
           name: bundler-audit
-          command: bundle exec bundler-audit
+          command: bundle exec bundler-audit --ignore CVE-2015-9284
   run_database_consistency:
     description: command to start database_consistency
     steps:
@@ -95,7 +95,7 @@ jobs:
     steps:
       - defaults
       - run_brakeman
-#      - run_bundler-audit
+      - run_bundler-audit
       - run_database_consistency
   code_style:
     executor: default
