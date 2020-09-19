@@ -80,3 +80,10 @@ en:
     email_sides_error: 'local part can not start or end with symbols: %{wrong_symbols}'
     email_validate: 'can not  contain symbols: %{symbols}'
     wrong_format: "domain part must be like '%{format_example}'"
+    welcome: 'Welcome %{@email}!'
+    confirm_message: 'You can confirm your account email through the link below:'
+    confirm: 'Confirm my account'
+    someone_reset: 'Someone has requested a link to change your password. You can do this through the link below.'
+    change_password: 'Change my password'
+    ignore_email: "If you didn't request this, please ignore this email."
+    untill_you_acess:  "Your password won't change until you access the link above and create a new one."
