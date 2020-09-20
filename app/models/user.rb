@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
 
-  validates_with PasswordValidator, EmailValidator
+  validates_with PasswordValidator, EmailValidator, on: :create
 
   validates :email, presence: true
 
