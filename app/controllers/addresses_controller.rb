@@ -4,6 +4,7 @@ class AddressesController < ApplicationController
   def create
     billing_form
     shipping_form
+    @email_form = EmailForm.new
     if @address_form.update(address_params)
       redirect_to(settings_path, notice: I18n.t('settings.new.updated', type: @address_form.address_type.capitalize))
     else

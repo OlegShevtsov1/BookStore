@@ -4,5 +4,6 @@ class SettingsController < ApplicationController
   def index
     @billing_form = AddressForm.new.find_or_create_by('billing', current_user)
     @shipping_form = AddressForm.new.find_or_create_by('shipping', current_user)
+    @email_form = EmailForm.new
   end
 end
