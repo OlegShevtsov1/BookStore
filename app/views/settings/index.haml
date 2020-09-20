@@ -6,8 +6,7 @@
     %li.tab-item{role: "presentation"}
       %a.tab-link{href: "#privacy", 'aria-controls': "privacy", role: "tab", 'data-toggle': "tab"} #{t('settings.privacy')}
   .tab-content
-    -##address.tab-pane.fade.in.active.general-main-wrap{role: "tabpanel"}
-    #address.tab-pane.fade{role: "tabpanel"}
+    #address.tab-pane.fade.in.active.general-main-wrap{role: "tabpanel"}
       .hidden-xs.hidden-sm
         .row
           .col-md-5
@@ -23,8 +22,7 @@
           .visible-xs.visible-sm
             %h3.general-subtitle.mt-0 #{t('.shipping_address')}
           = render 'addresses/new', address_type: 'shipping', address_form: @shipping_form
-    -##privacy.tab-pane.fade{role: "tabpanel"}
-    #privacy.tab-pane.fade.in.active.general-main-wrap{role: "tabpanel"}
+    #privacy.tab-pane.fade{role: "tabpanel"}
       .row.mb-60
         .col-sm-5
           %p.in-gold-500.font-18.mb-25 #{t('.s_email')}

@@ -102,6 +102,9 @@ en:
       updated: "%{type} address updated"
       email_updated: "%{email} email updated"
       password_updated: "Your password successfully changed!"
+      account_removed: 'Your account successfully removed'
+      account_removed_error: 'Your account can not be removed'
+      account_removed_confirm: 'Please confirm to remove your account'
   addresses:
     new:
       form:
@@ -117,4 +120,3 @@ en:
       select_country: 'Select a country'
       phone: 'Phone'
       example_phone: 'Example +355 66 123 4567'
-

@@ -2,13 +2,14 @@ class AccountsController < ApplicationController
   before_action :password_form, only: :update
 
   def destroy
+    redirect_to settings_path, alert: I18n.t('settings.new.account_removed_confirm') if params[:remove_account].blank?
+
     if current_user&.destroy
       cookies.delete(:current_order_id)
-      flash[:success] = I18n.t('controllers.deleted_account')
+      redirect_to root_path, notice: I18n.t('settings.new.account_removed')
     else
-      flash[:error] = I18n.t('controllers.error_deleted_account')
+      redirect_to root_path, alert: I18n.t('settings.new.account_removed_error')
     end
-    redirect_to root_path
   end
 
   def update

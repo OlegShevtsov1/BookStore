@@ -1,9 +1,9 @@
-%form
+= form_tag account_path(current_user), method: :delete do
   .general-settings-btn
-    %button.btn.disabled.mb-20 #{t('.please_remove_account')}
+    = submit_tag t('.please_remove_account'), class: 'btn btn-default mb-20'
   .form-group.checkbox.general-settings-checkbox
     %label.checkbox-label
-      %input.checkbox-input{type: "checkbox", hidden: "true"}
+      %input.checkbox-input.drop_account_checkbox{name: 'remove_account', hidden: "true", type: "checkbox", value: '1'}
       %span.checkbox-icon
         %i.fa.fa-check
-      %span.checkbox-text #{t('.data_will_lost')}
+      %span.checkbox-text= t('.data_will_lost')
