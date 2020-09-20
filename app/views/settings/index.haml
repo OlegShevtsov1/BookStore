@@ -31,7 +31,7 @@
           = render 'settings/email', email_form: @email_form
         .col-sm-5.col-sm-offset-1
           %p.in-gold-500.font-18.mb-25 #{t('.password')}
-          = render 'settings/password'
+          = render 'settings/password', password_form: @password_form
         .col-sm-12
           %p.in-gold-500.font-18.mb-25 #{t('.remove_account')}
           = render 'settings/remove_account'
