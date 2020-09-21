@@ -5,12 +5,12 @@ if Category.count.zero?
 end
 
 if Author.count.zero?
-  Author.create!(name: 'John Horton')
-  Author.create!(name: 'Bass Jobsen')
-  Author.create!(name: 'David Cochran')
-  Author.create!(name: 'Ian Whitley')
-  Author.create!(name: 'Vitaly Friedman')
-  Author.create!(name: 'Daniel Mall')
+  Author.create!(first_name: 'John', last_name: ' Horton')
+  Author.create!(first_name: 'Bass', last_name: 'Jobsen')
+  Author.create!(first_name: 'David', last_name: 'Cochran')
+  Author.create!(first_name: 'Ian', last_name: 'Whitley')
+  Author.create!(first_name: 'Vitaly', last_name: 'Friedman')
+  Author.create!(first_name: 'Daniel', last_name: 'Mall')
 end
 
 if Book.count.zero?
