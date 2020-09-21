@@ -17,11 +17,11 @@
         .col-md-5.mb-40
           .visible-xs.visible-sm
             %h3.general-subtitle.mt-0 #{t('.billing_address')}
-          = render 'addresses/new', address_type: 'billing', address_form:  @billing_form
+          = render 'addresses/new', address_type: 'billing', address_form:  @addresses.billing_form
         .col-md-5.col-md-offset-1.mb-25
           .visible-xs.visible-sm
             %h3.general-subtitle.mt-0 #{t('.shipping_address')}
-          = render 'addresses/new', address_type: 'shipping', address_form: @shipping_form
+          = render 'addresses/new', address_type: 'shipping', address_form: @addresses.shipping_form
     #privacy.tab-pane.fade{role: "tabpanel"}
       .row.mb-60
         .col-sm-5
