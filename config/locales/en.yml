@@ -128,6 +128,11 @@ en:
       phone: 'Phone'
       example_phone: 'Example +355 66 123 4567'
   admin:
+    dashboard:
+      users_count: 'Count of users: %{count}'
+      books_count: 'Count of books: %{count}'
+      authors_count: 'Count of authors: %{count}'
+      categories_count: 'Count of categories: %{count}'
     book:
       price: '€ %{price}'
       new: 'Add new book'
