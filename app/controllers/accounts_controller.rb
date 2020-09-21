@@ -5,7 +5,6 @@ class AccountsController < ApplicationController
     redirect_to settings_path, alert: I18n.t('settings.new.account_removed_confirm') if params[:remove_account].blank?
 
     if current_user&.destroy
-      cookies.delete(:current_order_id)
       redirect_to root_path, notice: I18n.t('settings.new.account_removed')
     else
       redirect_to root_path, alert: I18n.t('settings.new.account_removed_error')

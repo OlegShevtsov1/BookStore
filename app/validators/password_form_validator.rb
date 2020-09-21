@@ -13,11 +13,11 @@ class PasswordFormValidator < ActiveModel::Validator
   def check_confirmation(record)
     return unless record.confirm_password != record.password
 
-    record.errors[:confirm_password] << I18n.t('validate.form.check_confirm_password')
+    record.errors[:confirm_password] << I18n.t('validate.passwd.check_confirm_password')
   end
 
   def check_old_password(record)
-    record.errors[:old_password] << I18n.t('validate.form.check_old_password') if old_password != record.old_password
+    record.errors[:old_password] << I18n.t('validate.passwd.check_old_password') if old_password != record.old_password
   end
 
   def password

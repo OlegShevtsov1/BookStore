@@ -66,15 +66,21 @@ en:
     email_validate: 'can not  contain symbols: %{symbols}'
     wrong_format: "domain part must be like '%{format_example}'"
   validate:
-    big_letter: 'must write with big letter'
-    wrong_number: 'wrong number'
-    start_plus: 'have to start with +'
-    only_numbers: 'must be only numbers'
-    mm_yy: 'should be in MM/YY format and contain only numbers'
-    form:
+    address:
+      big_letter: 'must write with big letter'
+      wrong_number: 'wrong number'
+      start_plus: "can contain only numbers and must start with '+'"
+      name_format: 'can contain only letters'
+      address_format: "can contain letters, numbers and '-'"
+      only_numbers: 'must be only numbers'
+      mm_yy: 'should be in MM/YY format and contain only numbers'
+      wrong_size: 'maximum size is %{size}'
+    email:
       email_already_used: ' %{email} has already been used'
+    passwd:
       check_confirm_password: 'must match to your new password'
       check_old_password: 'must match to your password'
+
   settings:
     index:
       settings: 'Settings'
