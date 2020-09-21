@@ -120,3 +120,7 @@ if Address.count.zero?
   Address.create!(first_name: 'John2', last_name: 'Dow', address: '403 Park Ave', city: 'New York',
                   zip: 10_022, country: 'USA', phone: '+12123553001', address_type: 1, user_id: 2)
 end
+
+if AdminUser.count.zero?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+end
