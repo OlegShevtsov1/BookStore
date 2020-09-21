@@ -127,3 +127,7 @@ en:
       select_country: 'Select a country'
       phone: 'Phone'
       example_phone: 'Example +355 66 123 4567'
+  admin:
+    book:
+      price: '€ %{price}'
+      new: 'Add new book'

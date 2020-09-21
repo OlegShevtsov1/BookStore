@@ -32,6 +32,7 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'app/admin/books.rb'
 
 RSpec/NestedGroups:
   Exclude:
