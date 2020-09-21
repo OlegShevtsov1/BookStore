@@ -2,5 +2,3 @@
  - resource_class.omniauth_providers.each do |provider|
   = link_to omniauth_authorize_path(resource_name, provider), method: :post, class: 'general-login-icon' do
    %i.fa.fa-facebook-official
--# = link_to user_facebook_omniauth_authorize_path, class: 'general-login-icon' do
--#  %i.fa.fa-facebook-official
