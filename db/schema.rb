@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_09_21_102041) do
   enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
+    t.string "namespace", null: false
+    t.text "body", null: false
     t.string "resource_type"
     t.bigint "resource_id"
     t.string "author_type"
@@ -59,9 +59,10 @@ ActiveRecord::Schema.define(version: 2020_09_21_102041) do
   create_table "authors", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name"
-    t.string "last_name"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.text "description"
+    t.index ["first_name", "last_name"], name: "index_authors_on_first_name_and_last_name", unique: true
   end
 
   create_table "book_authors", force: :cascade do |t|
