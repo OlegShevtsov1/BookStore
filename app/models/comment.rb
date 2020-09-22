@@ -2,8 +2,8 @@ class Comment < ApplicationRecord
   TITLE_MAX_SIZE = 80
   REVIEW_MAX_SIZE = 500
 
-  VALIDATE_TITLE = /\A^\+[0-9]+\z/.freeze
-  VALIDATE_REVIEW = /\A^\+[0-9]+\z/.freeze
+  VALIDATE_TITLE = %r{[A-Za-z0-9 -! -# -$ -% -& -' - *-+ -/ -= -? -_ -` -{ -} -~ -. -^]}.freeze
+  VALIDATE_REVIEW = %r{[A-Za-z0-9 -! -# -$ -% -& -' - *-+ -/ -= -? -_ -` -{ -} -~ -. -^]}.freeze
 
   belongs_to :user
   belongs_to :book

@@ -52,7 +52,7 @@ en:
       materials: 'Materials'
       review:
         write_review: 'Write a Review'
-        reviews: 'Reviews'
+        reviews: 'Reviews (%{count})'
         verified_reviewer: 'Verified Reviewer'
     comment:
       form:
@@ -86,7 +86,7 @@ en:
       check_old_password: 'must match to your password'
     comment:
       wrong_size: 'maximum size is %{size}'
-      comment_format: "can contain letters, numbers and '-'"
+      comment_format: "can contain letters, numbers one of !#$%&'*+-/=?^_`{|}~."
 
   settings:
     index:
