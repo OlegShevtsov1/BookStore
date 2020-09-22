@@ -52,12 +52,15 @@ en:
       materials: 'Materials'
       review:
         write_review: 'Write a Review'
+        reviews: 'Reviews'
+        verified_reviewer: 'Verified Reviewer'
+    comment:
+      form:
         score: 'Score'
         title: 'Title'
         review: 'Review'
         post: 'Post'
-        reviews: 'Reviews'
-        verified_reviewer: 'Verified Reviewer'
+      success: 'Thanks for Review. It will be published as soon as Admin will approve it.'
   devise:
     password_validate: 'must contain at least 1 uppercase, at least 1 lowercase, at least 1 number'
     email_wrong_format: 'domain part must be like %{format}'

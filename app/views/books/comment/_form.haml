@@ -1,18 +1,21 @@
-%p.general-info-text #{t('book.review.score')}
-.mb-15
-  %i.fa.fa-star.rate-empty
-  %i.fa.fa-star.rate-empty
-  %i.fa.fa-star.rate-empty
-  %i.fa.fa-star.rate-empty
-  %i.fa.fa-star.rate-empty
-%form.row
+= simple_form_for(comment, url: comments_path, method: :post, html: { class: 'row' }) do |f|
+  = f.hidden_field :book_id, value: book_presenter.id
+  = f.hidden_field :user_id, value: current_user&.id
   .col-md-8
     .mb-40
       .form-group
-        %label.control-label.input-label.in-grey-600{for: "title"} #{t('book.review.title')}
-        %input#title.form-control{name:"title", type: "text"}
+        = f.label :title, t('.title')
+        = f.input :title,
+           required: false,
+           autofocus: true,
+           label: false,
+           input_html: { autocomplete: :on }
       .form-group
-        %label.control-label.input-label.in-grey-600{for: "review"} #{t('book.review.review')}
-        %textarea#review.form-control{name:"review", type: "text"}
+        = f.label :review, t('.review')
+        = f.input :review,
+           required: false,
+           autofocus: true,
+           label: false,
+           input_html: { autocomplete: :on }
     .text-right
-      %button.btn.disabled.mb-20 #{t('book.review.post')}
+      = f.submit t('.post'), class: 'btn btn-default mb-20'

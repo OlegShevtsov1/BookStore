@@ -6,7 +6,7 @@
     = render 'books/book', book_presenter: @book_presenter
   .mb-80
     %h3 #{t('.review.write_review')}
-    = render 'books/comment/form'
+    = render 'books/comment/form', comment: @comment, book_presenter: @book_presenter
   .mb-80
     %h3.in-gold-500.mb-25 #{t('.review.reviews')} (3)
     = render 'books/comment/comments'

@@ -7,6 +7,7 @@ class BookPresenter
   delegate :description, to: :book
   delegate :year, to: :book
   delegate :material, to: :book
+  delegate :id, to: :book
 
   def initialize(book)
     @book = book

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       put :calc_price, on: :member
     end
   end
+  resource :comments, only: :create
   resources :settings, only: [:index]
   resources :addresses, only: %i[create update]
   resources :emails, only: [:update]
