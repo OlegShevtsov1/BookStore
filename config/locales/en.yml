@@ -84,6 +84,9 @@ en:
     passwd:
       check_confirm_password: 'must match to your new password'
       check_old_password: 'must match to your password'
+    comment:
+      wrong_size: 'maximum size is %{size}'
+      comment_format: "can contain letters, numbers and '-'"
 
   settings:
     index:
