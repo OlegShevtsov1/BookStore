@@ -139,6 +139,7 @@ en:
       books_count: 'Count of books: %{count}'
       authors_count: 'Count of authors: %{count}'
       categories_count: 'Count of categories: %{count}'
+      comment_count: 'Count of comments: %{count}'
     book:
       price: '€ %{price}'
       new: 'Add new book'
