@@ -3,6 +3,7 @@ class Book < ApplicationRecord
   has_many :book_authors, dependent: :destroy
   has_many :authors, through: :book_authors
   has_many :comments, dependent: :destroy
+  has_many :book_images, dependent: :destroy
   belongs_to :category
   validates :name, presence: true
   validates :description, length: { minimum: MIN_DESCRIPTION_SIZE }
