@@ -44,6 +44,19 @@ en:
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
+      new:
+        forgot_password: 'Forgot your password?'
+        we_will_email: "We'll email you instructions on how to reset it"
+        new_form:
+        enter_your_email: 'Enter your email'
+        email_instruction: 'Email instructions'
+        cancel: 'Cancel'
+      edit:
+        set_new_password: 'Set new password'
+        type_new_password: 'Type a new password'
+        characters minimum: 'characters minimum'
+        confirm_password: 'Confirm Password'
+        change: 'Change'
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
@@ -53,14 +66,27 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
+      new:
+        enter_email: 'Enter email'
+        password: 'Password'
+        characters minimum: 'characters minimum'
+        confirm_password: 'Confirm Password'
+        log_in: 'Log In'
+        sign up: 'Sign Up'
+        or: 'or'
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
-    unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
-      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      new:
+        log_in: 'Log In'
+        or: 'or'
+        not_account: "Don’t have an Account?"
+        sign up: 'Sign Up'
+        enter_email: 'Enter email'
+        password: 'Password'
+        forgot_password: 'Forgot your password?'
+        back_to_store: 'Back to Store'
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

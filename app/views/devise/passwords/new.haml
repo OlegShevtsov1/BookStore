@@ -1,8 +1,21 @@
 %main.container.general-main-wrap
   .text-center
-    %h1.mb-30= t('devise.forgot_password')
-    %p.general-password-text= t('devise.we_will_email')
+    %h1.mb-30= t('.forgot_password')
+    %p.general-password-text= t('.we_will_email')
   %div.general-form
   = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'general-form' }) do |f|
-    = render 'devise/passwords/new_form', f: f
+    .form-group.mb-30
+      = f.input :email,
+        required: true,
+        autofocus: true,
+        label: false,
+        placeholder: t('.enter_your_email'),
+        input_html: { autocomplete: :on }
+    .text-center
+      = f.button :submit, t('.email_instruction'), class: 'btn btn-default mb-20'
+    .text-center
+      = link_to t('.cancel'), new_user_session_path, class: 'in-gold-500 mb-20'
+
+
+
 

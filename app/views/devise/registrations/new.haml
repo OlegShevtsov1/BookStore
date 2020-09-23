@@ -1,7 +1,31 @@
 %main.container.general-main-wrap
   .text-center
-    %h3.general-login-title=t('devise.log_in')
+    %h3.general-login-title=t('.log_in')
     = render 'devise/shared/facebook'
-    %p.general-login-text or
+    %p.general-login-text=t('.or')
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'general-form'}) do |f|
-    = render 'devise/registrations/new_form', f: f, minimum_password_length: @minimum_password_length
+    .form-group.mb-30
+      = f.label :email, t('.enter_email')
+      = f.input :email,
+        required: true,
+        autofocus: true,
+        label: false,
+        placeholder: t('.enter_email'),
+        input_html: { autocomplete: :on }
+    .form-group.mb-30
+      = f.label :password, t('.password')
+      = f.input :password,
+        required: true,
+        label: false,
+        hint: ("#{@minimum_password_length} #{t('.characters minimum')}" if @minimum_password_length),
+        placeholder: t('.password'),
+        input_html: { autocomplete: :on }
+    .form-group.mb-30
+      = f.label :password_confirmation, t('.confirm_password')
+      = f.input :password_confirmation,
+        required: true,
+        label: false,
+        placeholder: t('.confirm_password'),
+        input_html: { autocomplete: :on }
+    .text-center
+      = f.button :submit, t('.sign up'), class: 'btn btn-default mb-20'

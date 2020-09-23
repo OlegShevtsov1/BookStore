@@ -59,23 +59,6 @@ en:
         reviews: 'Reviews'
         verified_reviewer: 'Verified Reviewer'
   devise:
-    log_in: 'Log In'
-    not_account: "Don’t have an Account?"
-    or: 'or'
-    enter_email: 'Enter email'
-    enter_your_email: 'Enter your email'
-    password: 'Password'
-    confirm_password: 'Confirm Password'
-    forgot_password: 'Forgot your password?'
-    we_will_email: "We'll email you instructions on how to reset it"
-    set_new_password: 'Set new password'
-    type_new_password: 'Type a new password'
-    change: 'Change'
-    back_to_store: 'Back to Store'
-    sign up: 'Sign Up'
-    email_instruction: 'Email instructions'
-    cancel: 'Cancel'
-    characters minimum: 'characters minimum'
     password_validate: 'must contain at least 1 uppercase, at least 1 lowercase, at least 1 number'
     email_wrong_format: 'domain part must be like %{format}'
     email_size_error: 'local part should be less then %{max_size}'
