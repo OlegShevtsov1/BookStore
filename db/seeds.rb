@@ -109,3 +109,14 @@ if User.count.zero?
   User.create!(email: 'john@dow.com', password: 'As12345678', confirmed_at: Time.current)
   User.create!(email: 'john2@dow.com', password: 'As12345678', confirmed_at: Time.current)
 end
+
+if Address.count.zero?
+  Address.create!(first_name: 'John', last_name: 'Dow', address: '301 Park Ave', city: 'New York',
+                  zip: 10_022, country: 'USA', phone: '+1 212-355-3000', address_type: 0, user_id: 1)
+  Address.create!(first_name: 'John', last_name: 'Dow', address: '402 Park Ave', city: 'New York',
+                  zip: 10_022, country: 'USA', phone: '+1 212-355-3000', address_type: 1, user_id: 1)
+  Address.create!(first_name: 'John2', last_name: 'Dow', address: '302 Park Ave', city: 'New York',
+                  zip: 10_022, country: 'USA', phone: '+1 212-355-3001', address_type: 0, user_id: 2)
+  Address.create!(first_name: 'John2', last_name: 'Dow', address: '403 Park Ave', city: 'New York',
+                  zip: 10_022, country: 'USA', phone: '+1 212-355-3001', address_type: 1, user_id: 2)
+end
