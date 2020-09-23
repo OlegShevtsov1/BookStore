@@ -124,3 +124,35 @@ end
 if AdminUser.count.zero?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
+
+if Comment.count.zero?
+  Comment.create!(title: 'Legend of Dangerous Thief',
+                  review: 'Voluptate ea repudiandae occaecati eum aut.
+                    Molestias ut eligendi aut rerum est dolore.
+                    Voluptatibus quos velit sed beatae quibusdam consequatur.
+                    Vitae laboriosam excepturi sunt inventore.',
+                  status: 1,
+                  score: 3,
+                  book_id: 5,
+                  user_id: 1)
+
+  Comment.create!(title: 'Legend of Dangerous Thief',
+                  review: 'Voluptate ea repudiandae occaecati eum aut.
+                    Molestias ut eligendi aut rerum est dolore.
+                    Voluptatibus quos velit sed beatae quibusdam consequatur.
+                    Vitae laboriosam excepturi sunt inventore.',
+                  status: 2,
+                  score: 0,
+                  book_id: 6,
+                  user_id: 2)
+
+  Comment.create!(title: 'Legend of Dangerous Thief',
+                  review: 'Voluptate ea repudiandae occaecati eum aut.
+                    Molestias ut eligendi aut rerum est dolore.
+                    Voluptatibus quos velit sed beatae quibusdam consequatur.
+                    Vitae laboriosam excepturi sunt inventore.',
+                  status: 0,
+                  score: 3,
+                  book_id: 5,
+                  user_id: 1)
+end
