@@ -143,6 +143,7 @@ en:
     book:
       price: '€ %{price}'
       new: 'Add new book'
+    upload_book_cover: 'Upload book cover'
     comment:
       approve: 'Approve'
       reject: 'Reject'
