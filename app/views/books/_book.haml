@@ -1,14 +1,13 @@
 .col-sm-6
   .product-gallery
     .mb-20
-      %img.img-responsive{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
-    .images.clearfix
-      %a.img-link{href: "#"}
-        %img{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
-      %a.img-link{href: "#"}
-        %img{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
-      %a.img-link{href: "#"}
-        %img{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
+    - if book_presenter.book_images.includes([:book_images]).any?
+      = image_tag book.book_images.includes([:book_images]).first.image_url, alt: book_presenter.name, class: 'img-shadow general-thumbnail-img'
+      .images.clearfix
+      - book_presenter.book_images.includes([:book_images]).each do |book_image|
+        = image_tag book_image.image_url, alt: book_presenter.name, class: 'img-shadow general-thumbnail-img'
+    - else
+      = image_tag 'active_admin/default.png', alt: book_presenter.name, class: 'img-shadow general-thumbnail-img'
 .col-sm-6
   %h1.mt-res-0= book_presenter.name
   %p.lead.small= book_presenter.authors

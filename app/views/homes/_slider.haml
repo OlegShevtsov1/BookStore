@@ -8,7 +8,10 @@
         .row
           .col-sm-5
             .general-img-wrap
-              = image_tag('http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg', alt: "design-book", class: 'img-shadow general-thumbnail-img')
+              - if book.book_images.includes([:book_images]).any?
+                = image_tag book.book_images.includes([:book_images]).first.image_url, alt: book.name, class: 'img-shadow general-thumbnail-img'
+              - else
+                = image_tag 'active_admin/default.png', alt: book.name, class: 'img-shadow general-thumbnail-img'
           .col-sm-7
             .mb-60
               %h1=book.name
