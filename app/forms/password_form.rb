@@ -1,5 +1,5 @@
 class PasswordForm
-  MIN_NEW_PASSWORD_SIZE = 8
+  MIN_PASSWORD_SIZE = 8
 
   include ActiveModel::Model
   include Virtus.model
@@ -10,7 +10,7 @@ class PasswordForm
   attribute :user_id, Integer
 
   validates :old_password, :password, :confirm_password, presence: true
-  validates :password, length: { minimum: MIN_NEW_PASSWORD_SIZE }
+  validates :password, length: { minimum: MIN_PASSWORD_SIZE }
   validates_with PasswordValidator, PasswordFormValidator
 
   def update(current_user)

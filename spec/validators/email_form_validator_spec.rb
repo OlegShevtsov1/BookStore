@@ -20,5 +20,13 @@ RSpec.describe EmailFormValidator do
           .to change(invalid_user.errors[:email], :size).from(0).to(1)
       end
     end
+
+    context 'when email is already taken' do
+      let(:invalid_user) { create(:user, email: user.email) }
+
+      it 'raise error' do
+        expect { invalid_user }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
   end
 end

@@ -5,7 +5,7 @@ RSpec.describe PasswordFormValidator do
 
   describe '#validate' do
     let(:password) { 'As12345678' }
-    let(:user) { User.new(password: password, password_confirmation: password) }
+    let(:user) { create(:user, password: password, password_confirmation: password) }
 
     before do
       user.save(validate: false)
