@@ -5,7 +5,6 @@ class EmailForm
   attribute :email, String
 
   validates :email, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates_with EmailValidator, EmailFormValidator
 
   def update(current_user)
