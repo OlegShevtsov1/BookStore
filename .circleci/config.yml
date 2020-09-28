@@ -32,6 +32,12 @@ commands:
             - *yarn_cache_full
             - *yarn_cache
       - run: bundle install --path vendor/bundle
+      - run: mv config/database.circleci config/database.yml
+      - run:
+          name: Database Setup
+          command: |
+            bin/rails db:schema:load --trace
+            bin/rails db:migrate
       - run: yarn install
       - run: bundle exec bin/rails webpacker:compile
       - save_cache:
@@ -42,12 +48,6 @@ commands:
           key: *yarn_cache_full
           paths:
             - node_modules
-      - run: mv config/database.circleci config/database.yml
-      - run:
-          name: Database Setup
-          command: |
-            bin/rails db:schema:load --trace
-            bin/rails db:migrate
   run_rubocop:
     description: command to start rubocop
     steps:
@@ -71,7 +71,7 @@ commands:
     steps:
       - run:
           name: bundler-audit
-          command: bundle exec bundler-audit
+          command: bundle exec bundler-audit --ignore CVE-2015-9284
   run_database_consistency:
     description: command to start database_consistency
     steps:

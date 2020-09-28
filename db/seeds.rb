@@ -104,3 +104,8 @@ if BookAuthor.count.zero?
 
   BookAuthor.create!(book_id: 7, author_id: 2)
 end
+
+if User.count.zero?
+  User.create!(email: 'john@dow.com', password: 'As12345678', confirmed_at: Time.current)
+  User.create!(email: 'john2@dow.com', password: 'As12345678', confirmed_at: Time.current)
+end

@@ -7,12 +7,6 @@ en:
   top_menu:
     home: 'Home'
     shop: 'Shop'
-    my_account: 'My account'
-  footer_menu:
-    home: 'Home'
-    shop: 'Shop'
-    orders: 'Orders'
-    settings: 'Settings'
   homes:
     index:
       welcome: 'Welcome to our amazing Bookstore!'
@@ -22,6 +16,19 @@ en:
         by_now: 'Buy Now'
         previous: 'Previous'
         next: 'Next'
+  shared:
+    header:
+      my_account: 'My account'
+      sign_up: 'Sign Up'
+      log_in: 'Log In'
+      log_out: 'Log Out'
+      orders: 'Orders'
+      settings: 'Settings'
+    footer:
+      home: 'Home'
+      shop: 'Shop'
+      orders: 'Orders'
+      settings: 'Settings'
   books:
     index:
       title: 'Catalog'
@@ -51,4 +58,10 @@ en:
         post: 'Post'
         reviews: 'Reviews'
         verified_reviewer: 'Verified Reviewer'
-      
+  devise:
+    password_validate: 'must contain at least 1 uppercase, at least 1 lowercase, at least 1 number'
+    email_wrong_format: 'domain part must be like %{format}'
+    email_size_error: 'local part should be less then %{max_size}'
+    email_sides_error: 'local part can not start or end with symbols: %{wrong_symbols}'
+    email_validate: 'can not  contain symbols: %{symbols}'
+    wrong_format: "domain part must be like '%{format_example}'"

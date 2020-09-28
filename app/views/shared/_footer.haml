@@ -4,13 +4,15 @@
       .col-sm-9
         %ul.list-inline.general-align.mb-25
           %li
-            = link_to t('footer_menu.home'), root_path, class: 'nav-link'
+            = link_to t('.home'), root_path, class: 'nav-link'
           %li
-            = link_to t('footer_menu.shop'), '#', class: 'nav-link'
-          %li
-            = link_to t('footer_menu.orders'), '#', class: 'nav-link'
-          %li
-            = link_to t('footer_menu.settings'), '#', class: 'nav-link'
+            = link_to t('.shop'), '#', class: 'nav-link'
+          - if user_signed_in?
+            %li
+              = link_to t('.orders'), '#', class: 'nav-link'
+            %li
+              = link_to t('.settings'), '#', class: 'nav-link'
+
       .col-sm-3
         %p.general-nav-mail=t('email')
         %p.general-nav-number=t('phone')
