@@ -4,6 +4,8 @@ RSpec.describe Book, type: :model do
   describe 'has associations' do
     it { is_expected.to have_many(:book_authors) }
     it { is_expected.to have_many(:authors).through(:book_authors) }
+    it { is_expected.to have_many(:items) }
+    it { is_expected.to have_many(:orders).through(:items) }
     it { is_expected.to belong_to(:category) }
     it { is_expected.to have_many(:comments) }
     it { is_expected.to have_many(:book_images) }
