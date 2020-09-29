@@ -1,8 +1,6 @@
 class EmailForm
   include ActiveModel::Model
-  include Virtus.model
-
-  attribute :email, String
+  attr_accessor :email
 
   validates :email, presence: true
   validates_with EmailValidator, EmailFormValidator

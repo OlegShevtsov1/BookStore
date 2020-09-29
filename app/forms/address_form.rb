@@ -1,6 +1,5 @@
 class AddressForm
   include ActiveModel::Model
-  include Virtus.model
 
   TEXT_MAX_SIZE = 50
   ZIP_MAX_SIZE = 10
@@ -12,17 +11,7 @@ class AddressForm
   VALIDATE_NAME = /\d/.freeze
   VALIDATE_ADDRESS = /[A-Za-z0-9-]/.freeze
 
-  attribute :first_name, String
-  attribute :last_name, String
-  attribute :address, String
-  attribute :city, String
-  attribute :zip, Integer
-  attribute :country, String
-  attribute :phone, String
-
-  attribute :address_type, String
-
-  attribute :user_id, Integer
+  attr_accessor :first_name, :last_name, :address, :city, :zip, :country, :phone, :address_type, :user_id
 
   validates :first_name, :last_name, :address, :city, :zip, :country, :phone, :address_type, presence: true
   validates :first_name, :last_name, :address, :city,
