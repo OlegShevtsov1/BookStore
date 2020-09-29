@@ -45,7 +45,6 @@ en:
       view more: 'View More'
     show:
       description: 'Description'
-      add_to_cart: 'Add to Cart'
       read_more: 'Read More'
       year_of_publication: 'Year of publication'
       dimensions: 'Dimensions'
@@ -54,6 +53,8 @@ en:
         write_review: 'Write a Review'
         reviews: 'Reviews (%{count})'
         verified_reviewer: 'Verified Reviewer'
+    form_book:
+      add_to_cart: 'Add to Cart'
     comment:
       form:
         score: 'Score'
@@ -150,3 +151,5 @@ en:
       destroy: 'Destroy'
 
 
+  controllers:
+    added_in_cart: 'Added in cart'

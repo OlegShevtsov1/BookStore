@@ -9,7 +9,7 @@
               .general-thumb-link-wrap
                 = link_to category_book_path(book.category, book), class: 'thumb-hover-link' do
                   %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
-                = link_to '#', class: 'thumb-hover-link' do
+                = link_to items_path(current_item: book.id, current_user: current_user&.id, quantity: ItemForm::DEFAULT_COUNT_ITEM), method: :post, class: 'thumb-hover-link' do
                   %i.fa.fa-shopping-cart.thumb-icon
         .general-thumb-info
           %p.title=book.name
