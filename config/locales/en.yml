@@ -151,5 +151,9 @@ en:
       destroy: 'Destroy'
 
 
+  carts:
+    index:
+      name_cart: 'Cart'
+
   controllers:
     added_in_cart: 'Added in cart'

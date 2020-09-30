@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :emails, only: [:update]
   resources :accounts, only: %i[update destroy]
   resources :items, only: [:create]
+  resources :carts, only: [:index]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   mount ImageUploader.derivation_endpoint => '/derivations/image'
 end
