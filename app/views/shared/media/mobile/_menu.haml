@@ -1,0 +1,28 @@
+.visible-xs
+  %button.close{type: "button", 'aria-label': "Close"}
+    %span{'aria-hidden': "true"} &times;
+  %ul.nav.navbar-nav
+    %li
+      = link_to t('top_menu.home'), root_path
+    %li
+      %a{type: "button", 'data-toggle': "collapse", href: "#menu", 'aria-expanded': "false", 'aria-controls': "menu"} Shop
+      %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
+        - categories.each do |category|
+          %li
+            = link_to category_books_path(category), class: 'collapse-link' do
+              = category.name
+    %li.divider{role: "separator"}
+    - if user_signed_in?
+      %li
+        = link_to t('.my_account'), '#'
+      %li
+      = link_to t('.orders'), '#'
+      %li
+        = link_to t('.settings'), settings_path
+      %li
+      = link_to t('.log_out'), destroy_user_session_path, method: :delete
+    - else
+      %li
+        = link_to t('.log_in'), new_user_session_path
+      %li
+        = link_to t('.sign_up'), new_user_registration_path
