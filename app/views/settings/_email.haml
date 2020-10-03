@@ -1,4 +1,5 @@
 = simple_form_for email_form, as: :email, url: email_path(current_user), method: :put do |f|
+  = f.hidden_field :user_id, value: current_user.id
   .form-group.mb-35
     = f.label :email, t('.enter_email')
     = f.input :email,

@@ -9,7 +9,7 @@ class EmailFormValidator < ActiveModel::Validator
 
     return if email.match?(EMAIL_FORMAT)
 
-    record.errors[:email] << I18n.t('devise.wrong_format', format_example: CORRECT_FORMAT_EXAMPLE)
+    record.errors[:email] << I18n.t('devise.wrong_format_email', format_example: CORRECT_FORMAT_EXAMPLE)
   end
 
   private

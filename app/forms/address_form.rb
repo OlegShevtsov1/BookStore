@@ -28,8 +28,16 @@ class AddressForm
   validates :address, format: { with: VALIDATE_ADDRESS,
                                 message: I18n.t('validate.address.address_format') }
 
-  def update(params)
-    Address.where(address_type: address_type).find_by(user_id: user_id).update(params) if valid?
+  def update
+    return unless valid?
+
+    Address.find_by(address_type: address_type, user_id: user_id).update(first_name: first_name,
+                                                                         last_name: last_name,
+                                                                         address: address,
+                                                                         country: country,
+                                                                         city: city,
+                                                                         zip: zip,
+                                                                         phone: phone)
   end
 
   def find_or_create_by(address_type, current_user)

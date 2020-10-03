@@ -65,6 +65,7 @@ en:
     email_sides_error: 'local part can not start or end with symbols: %{wrong_symbols}'
     email_validate: 'can not  contain symbols: %{symbols}'
     wrong_format: "domain part must be like '%{format_example}'"
+    wrong_format_email: "format email must be like '%{format_example}'"
   validate:
     address:
       big_letter: 'must write with big letter'

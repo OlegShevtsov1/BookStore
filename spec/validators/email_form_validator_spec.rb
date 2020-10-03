@@ -13,7 +13,7 @@ RSpec.describe EmailFormValidator do
     end
 
     context 'when email is already used' do
-      let(:invalid_user) { User.new(email: user.email) }
+      let(:invalid_user) { build(:user, email: user.email) }
 
       it 'changes record email errors by 1' do
         expect { email_form_validator.validate(invalid_user) }
