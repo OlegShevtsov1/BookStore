@@ -8,8 +8,8 @@
         .row
           .col-sm-5
             .general-img-wrap
-              - if book.book_images.includes([:book_images]).any?
-                = image_tag book.book_images.includes([:book_images]).first.image_url, alt: book.name, class: 'img-shadow general-thumbnail-img'
+              - if book.image_url.present?
+                = image_tag book.image_url, alt: book.name, class: 'img-shadow general-thumbnail-img'
               - else
                 = image_tag 'active_admin/default.png', alt: book.name, class: 'img-shadow general-thumbnail-img'
           .col-sm-7

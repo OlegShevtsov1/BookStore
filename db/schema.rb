@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_23_084350) do
+ActiveRecord::Schema.define(version: 2020_10_03_160050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_084350) do
     t.float "width"
     t.float "depth"
     t.string "material"
+    t.text "image_data"
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 

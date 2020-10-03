@@ -1,13 +1,14 @@
 .col-sm-6
   .product-gallery
     .mb-20
-    - if book_presenter.book_images.includes([:book_images]).any?
-      = image_tag book.book_images.includes([:book_images]).first.image_url, alt: book_presenter.name, class: 'img-shadow general-thumbnail-img'
+    - if book_presenter.image_url.present?
+      = image_tag book_presenter.image_url, alt: book_presenter.name, class: 'img-responsive'
       .images.clearfix
-      - book_presenter.book_images.includes([:book_images]).each do |book_image|
-        = image_tag book_image.image_url, alt: book_presenter.name, class: 'img-shadow general-thumbnail-img'
+      - book_presenter.book_images.each do |book_image|
+        = link_to '#', class: 'img-link' do
+          = image_tag book_image.image.url, class: 'img-responsive'
     - else
-      = image_tag 'active_admin/default.png', alt: book_presenter.name, class: 'img-shadow general-thumbnail-img'
+      = image_tag 'active_admin/default.png', alt: book_presenter.name, class: 'img-responsive'
 .col-sm-6
   %h1.mt-res-0= book_presenter.name
   %p.lead.small= book_presenter.authors

@@ -15,5 +15,14 @@ module Bookstore
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # supports :s3, :s3_multipart, or :app
+    config.upload_server = if ENV['UPLOAD_SERVER'].present?
+                             ENV['UPLOAD_SERVER'].to_sym
+                           elsif Rails.env.production?
+                             :s3
+                           else
+                             :app
+                           end
   end
 end

@@ -11,6 +11,7 @@ class BookPresenter
 
   delegate :comments, to: :book
   delegate :book_images, to: :book
+  delegate :image_url, to: :book
 
   def initialize(book)
     @book = book

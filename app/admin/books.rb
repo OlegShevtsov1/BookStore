@@ -1,14 +1,51 @@
 ActiveAdmin.register Book do
   includes :category, :book_authors, :authors
-  permit_params :name, :description, :price, :material, :year, :heigth, :width, :depth, :category_id,
-                book_images_attributes: %i[id book_id image], author_ids: []
+
+  controller do
+    def create
+      book = Book.new
+      book.assign_attributes(book_controller_params)
+      if book.valid?
+        book.save
+        redirect_to admin_books_path
+      else
+        @resource = book
+        render :new
+      end
+    end
+
+    def update
+      book = Book.find(params[:id])
+      if book.valid?
+        book.update(book_controller_params)
+        redirect_to admin_books_path
+      else
+        @resource = book
+        render :edit
+      end
+    end
+
+    def book_controller_params
+      params[:images].present? ? book_images_params : book_params
+    end
+
+    def book_params
+      params.require(:book).permit(:name, :description, :price, :material, :year, :heigth, :width, :depth,
+                                   :category_id, :image, author_ids: [])
+    end
+
+    def book_images_params
+      images_attributes = params[:images].inject({}) { |hash, image| hash.merge!(SecureRandom.hex => { image: image }) }
+      book_params.merge(book_images_attributes: images_attributes)
+    end
+  end
 
   index do
     selectable_column
 
-    column :book_image do |book|
-      if book.book_images.includes([:book_images]).any?
-        image_tag book.book_images.includes([:book_images]).first.image_url, class: 'admin-image-book'
+    column :image do |book|
+      if book.image_url.present?
+        image_tag book.image_url, class: 'admin-image-book'
       else
         image_tag 'active_admin/default.png', class: 'admin-image-book'
       end
@@ -48,11 +85,23 @@ ActiveAdmin.register Book do
       row :width
       row :depth
 
-      row :book_cover do |book|
-        if book.book_images.includes([:book_images]).any?
-          image_tag book.book_images.includes([:book_images]).first.image_url, class: 'admin-image-book'
+      row :image do |book|
+        if book.image_url.present?
+          image_tag book.image_url, class: 'admin-image-book'
         else
           image_tag 'active_admin/default.png', class: 'admin-image-book'
+        end
+      end
+
+      row :book_images do |book|
+        table do
+          tr do
+            book.book_images.each do |book_image|
+              td do
+                image_tag book_image.image.url, class: 'admin-image-book'
+              end
+            end
+          end
         end
       end
     end
@@ -82,10 +131,8 @@ ActiveAdmin.register Book do
       f.input :heigth
       f.input :width
       f.input :depth
-
-      f.fields_for :book_images do |img|
-        img.file_field :image, multiple: true, name: 'book_images[image][]'
-      end
+      f.input :image, as: :file
+      f.input :book_images, as: :file, input_html: { multiple: true, name: 'images[]' }
     end
     actions
   end
