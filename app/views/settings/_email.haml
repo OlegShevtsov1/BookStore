@@ -1,0 +1,11 @@
+= simple_form_for email_form, as: :email, url: email_path(current_user), method: :put do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  .form-group.mb-35
+    = f.input :email,
+       required: false,
+       autofocus: true,
+       label: t('.enter_email'),
+       placeholder: t('.enter_your_email'),
+       input_html: { autocomplete: :on }
+  .general-text-align
+    = f.button :submit, t('.save'), class: 'btn btn-default mb-35'
