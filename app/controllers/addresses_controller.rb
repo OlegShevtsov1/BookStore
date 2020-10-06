@@ -1,13 +1,25 @@
 class AddressesController < ApplicationController
-  before_action :address_form, only: :create
+  before_action :address_form, only: %i[create update]
 
   def create
     @addresses = Settings::AddressesService.new(current_user)
-    @email_form = EmailForm.new
-    @password_form = PasswordForm.new
+    if @address_form.create
+      redirect_to(settings_path, notice: I18n.t('settings.new.updated', type: @address_form.address_type.capitalize))
+    else
+      @email_form = EmailForm.new
+      @password_form = PasswordForm.new
+      @addresses.address_type(@address_form, address_params)
+      render template: 'settings/index'
+    end
+  end
+
+  def update
+    @addresses = Settings::AddressesService.new(current_user)
     if @address_form.update
       redirect_to(settings_path, notice: I18n.t('settings.new.updated', type: @address_form.address_type.capitalize))
     else
+      @email_form = EmailForm.new
+      @password_form = PasswordForm.new
       @addresses.address_type(@address_form, address_params)
       render template: 'settings/index'
     end

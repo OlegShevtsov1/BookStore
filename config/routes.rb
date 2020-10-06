@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
   resources :settings, only: [:index]
-  resources :addresses, only: [:create]
+  resources :addresses, only: %i[create update]
   resources :emails, only: [:update]
   resources :accounts, only: %i[update destroy]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?

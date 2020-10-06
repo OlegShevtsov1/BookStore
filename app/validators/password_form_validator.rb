@@ -17,7 +17,13 @@ class PasswordFormValidator < ActiveModel::Validator
   end
 
   def check_old_password(record)
-    record.errors[:old_password] << I18n.t('validate.passwd.check_old_password') if old_password != record.old_password
+    return if user.valid_password?(record.old_password)
+
+    record.errors[:old_password] << I18n.t('validate.passwd.check_old_password')
+  end
+
+  def user
+    @user = User.find(user_id)
   end
 
   def password

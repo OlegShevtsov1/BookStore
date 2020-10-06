@@ -8,7 +8,11 @@ class PasswordForm
   validates :password, length: { minimum: MIN_PASSWORD_SIZE }
   validates_with PasswordValidator, PasswordFormValidator
 
-  def update(current_user)
+  def current_user
+    User.find(user_id)
+  end
+
+  def update
     current_user.reset_password(password, confirm_password) if valid?
   end
 end

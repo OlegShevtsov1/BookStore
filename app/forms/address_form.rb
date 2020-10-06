@@ -31,16 +31,21 @@ class AddressForm
   def update
     return unless valid?
 
-    Address.find_by(address_type: address_type, user_id: user_id).update(first_name: first_name,
-                                                                         last_name: last_name,
-                                                                         address: address,
-                                                                         country: country,
-                                                                         city: city,
-                                                                         zip: zip,
-                                                                         phone: phone)
+    Address.find_by(address_type: address_type, user_id: user_id).update(address_params)
   end
 
-  def find_or_create_by(address_type, current_user)
-    Address.find_or_create_by(address_type: address_type, user_id: current_user.id)
+  def create
+    return unless valid?
+
+    user.addresses.create(address_params)
+  end
+
+  def user
+    User.find(user_id)
+  end
+
+  def address_params
+    { first_name: first_name, last_name: last_name, address: address, country: country, city: city, zip: zip,
+      phone: phone, address_type: address_type }
   end
 end

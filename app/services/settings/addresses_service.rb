@@ -16,7 +16,7 @@ module Settings
     end
 
     def address(type)
-      AddressForm.new.find_or_create_by(type, current_user)
+      Address.find_by(address_type: type, user_id: current_user.id) || Address.new
     end
   end
 end

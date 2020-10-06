@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
   end
 
   def update
-    if @password_form.update(current_user)
+    if @password_form.update
       sign_in(current_user, bypass: true)
       redirect_to settings_path, notice: I18n.t('settings.new.password_updated')
     else
