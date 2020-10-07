@@ -1,5 +1,6 @@
 class BookDecorator < Draper::Decorator
   DESCRIPTION_LIMIT = 250
+  DEFAULT_IMAGE = 'active_admin/default.png'.freeze
   delegate_all
 
   def authors
@@ -16,5 +17,9 @@ class BookDecorator < Draper::Decorator
 
   def description_length_short?
     object.description.length < DESCRIPTION_LIMIT
+  end
+
+  def image_url
+    object.image_url.presence || DEFAULT_IMAGE
   end
 end

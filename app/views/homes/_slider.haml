@@ -8,10 +8,7 @@
         .row
           .col-sm-5
             .general-img-wrap
-              - if book.image_url.present?
-                = image_tag book.image_url, alt: book.name, class: 'img-shadow general-thumbnail-img'
-              - else
-                = image_tag 'active_admin/default.png', alt: book.name, class: 'img-shadow general-thumbnail-img'
+              = image_tag book.decorate.image_url, alt: book.name, class: 'img-shadow general-thumbnail-img'
           .col-sm-7
             .mb-60
               %h1=book.name
