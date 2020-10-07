@@ -154,6 +154,20 @@ en:
   carts:
     index:
       name_cart: 'Cart'
+      enter_coupon: 'Enter Your Coupon Code '
+      apply_coupon: 'Apply Coupon '
+      order_summary: 'Order Summary'
+      subtotal: 'Subtotal:'
+      coupon: 'Coupon:'
+      order_total: 'Order Total:'
+      checkout: 'Checkout'
+    media:
+     desktop:
+        item_form:
+          product: 'Product'
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
 
   controllers:
     added_in_cart: 'Added in cart'
