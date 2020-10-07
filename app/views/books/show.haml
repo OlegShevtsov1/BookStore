@@ -3,13 +3,13 @@
     %i.fa.fa-long-arrow-left.mr-15
     #{t('back')}
   .row
-    = render 'books/book', book_presenter: @book_presenter
+    = render 'books/book', book: @book
   .mb-80
     %h3 #{t('.review.write_review')}
-    = render 'books/comment/form', comment: @comment, book_presenter: @book_presenter
+    = render 'books/comment/form', comment: @comment, book: @book
 
   .mb-80
-    - if @book_presenter.comments.any?
-      %h3.in-gold-500.mb-25= t('.review.reviews', count: @book_presenter.comments.count)
-      = render 'books/comment/comments', book_presenter: @book_presenter
+    - if @book.comments.any?
+      %h3.in-gold-500.mb-25= t('.review.reviews', count: @book.comments.count)
+      = render 'books/comment/comments', book: @book
 
