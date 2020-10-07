@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_160050) do
   add_foreign_key "addresses", "users", on_delete: :cascade
   add_foreign_key "book_authors", "authors"
   add_foreign_key "book_authors", "books"
-  add_foreign_key "book_images", "books"
+  add_foreign_key "book_images", "books", on_delete: :cascade
   add_foreign_key "books", "categories", on_delete: :cascade
   add_foreign_key "comments", "books", on_delete: :cascade
   add_foreign_key "comments", "users", on_delete: :cascade
