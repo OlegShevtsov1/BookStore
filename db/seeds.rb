@@ -5,12 +5,12 @@ if Category.count.zero?
 end
 
 if Author.count.zero?
-  Author.create!(name: 'John Horton')
-  Author.create!(name: 'Bass Jobsen')
-  Author.create!(name: 'David Cochran')
-  Author.create!(name: 'Ian Whitley')
-  Author.create!(name: 'Vitaly Friedman')
-  Author.create!(name: 'Daniel Mall')
+  Author.create!(first_name: 'John', last_name: ' Horton')
+  Author.create!(first_name: 'Bass', last_name: 'Jobsen')
+  Author.create!(first_name: 'David', last_name: 'Cochran')
+  Author.create!(first_name: 'Ian', last_name: 'Whitley')
+  Author.create!(first_name: 'Vitaly', last_name: 'Friedman')
+  Author.create!(first_name: 'Daniel', last_name: 'Mall')
 end
 
 if Book.count.zero?
@@ -119,4 +119,8 @@ if Address.count.zero?
                   zip: 10_022, country: 'USA', phone: '+12123553001', address_type: 0, user_id: 2)
   Address.create!(first_name: 'John2', last_name: 'Dow', address: '403 Park Ave', city: 'New York',
                   zip: 10_022, country: 'USA', phone: '+12123553001', address_type: 1, user_id: 2)
+end
+
+if AdminUser.count.zero?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end

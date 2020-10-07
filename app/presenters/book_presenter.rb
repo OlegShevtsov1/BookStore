@@ -13,7 +13,7 @@ class BookPresenter
   end
 
   def authors
-    book.authors.map(&:name).join ', '
+    book.authors.decorate.map(&:name).join ', '
   end
 
   def properties
