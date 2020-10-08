@@ -143,3 +143,9 @@ en:
     book:
       price: '€ %{price}'
       new: 'Add new book'
+    comment:
+      approve: 'Approve'
+      reject: 'Reject'
+      destroy: 'Destroy'
+
+

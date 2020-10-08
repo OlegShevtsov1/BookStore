@@ -7,7 +7,7 @@ ActiveAdmin.register Comment, as: 'Reviews' do
   scope :approved
   scope :rejected
 
-  actions :index, :show, :destroy, :edit
+  actions :index, :show, :destroy
 
   index do
     selectable_column
@@ -21,19 +21,19 @@ ActiveAdmin.register Comment, as: 'Reviews' do
     actions
   end
 
-  batch_action 'Approve', if: proc { @current_scope.scope_method == :unprocessed } do |ids|
+  batch_action I18n.t('admin.comment.approve'), if: proc { @current_scope.scope_method == :unprocessed } do |ids|
     comments = Comment.unprocessed.where(id: ids)
     comments.each(&:approved!) if comments.any?
     redirect_to(admin_reviews_path)
   end
 
-  batch_action 'Reject', if: proc { @current_scope.scope_method == :unprocessed } do |ids|
+  batch_action I18n.t('admin.comment.reject'), if: proc { @current_scope.scope_method == :unprocessed } do |ids|
     comments = Comment.unprocessed.where(id: ids)
     comments.each(&:rejected!) if comments.any?
     redirect_to(admin_reviews_path)
   end
 
-  batch_action 'Destroy' do |ids|
+  batch_action I18n.t('admin.comment.destroy') do |ids|
     comments = Comment.where(id: ids)
     comments.destroy_all if comments.any?
     redirect_to(admin_reviews_path)

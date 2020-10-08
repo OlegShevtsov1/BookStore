@@ -7,9 +7,9 @@ RSpec.describe CommentDecorator do
     end
   end
 
-  describe '#user_name_of' do
+  describe '#user_name' do
     it 'returns string' do
-      expect(comment.decorate.user_name_of.class).to eq(String)
+      expect(comment.decorate.user_name.class).to eq(String)
     end
   end
 

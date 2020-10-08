@@ -10,7 +10,7 @@ class CommentDecorator < Draper::Decorator
     object.created_at.strftime(DATE_FORMAT)
   end
 
-  def user_name_of
+  def user_name
     address = object.user.addresses.billing.first
     return DEFAULT_USER_NAME unless address
 
