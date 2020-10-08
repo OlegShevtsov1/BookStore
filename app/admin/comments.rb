@@ -1,6 +1,5 @@
 ActiveAdmin.register Comment, as: 'Reviews' do
-  # menu false
-  permit_params :title, :review, :score, :status, :book_id, :user_id
+  permit_params :status
   includes :book, :user
 
   scope :unprocessed, default: true

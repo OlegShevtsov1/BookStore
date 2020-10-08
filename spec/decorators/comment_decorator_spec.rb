@@ -3,7 +3,7 @@ RSpec.describe CommentDecorator do
 
   describe '#comment_date' do
     it 'returns string' do
-      expect(comment.decorate.comment_date.class).to eq(String)
+      expect(comment.decorate.date.class).to eq(String)
     end
   end
 

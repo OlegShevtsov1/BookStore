@@ -6,7 +6,7 @@ class CommentDecorator < Draper::Decorator
 
   delegate_all
 
-  def comment_date
+  def date
     object.created_at.strftime(DATE_FORMAT)
   end
 
