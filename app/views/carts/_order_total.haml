@@ -5,7 +5,7 @@
       %td
         %p.font-16= t('.subtotal')
       %td
-        %p.font-16= @current_order.decorate.subtotal_price
+        %p.font-16{id: "subtotal_price"}= @current_order.decorate.subtotal_price
     %tr
       %td
         %p.font-16= t('.coupon')
@@ -15,4 +15,4 @@
       %td
         %strong.font-18= t('.order_total')
       %td
-        %strong.font-18= @current_order.decorate.order_total_price
+        %strong.font-18{id: "order_total_price"}= @current_order.decorate.order_total_price

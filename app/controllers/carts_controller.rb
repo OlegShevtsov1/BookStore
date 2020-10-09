@@ -8,7 +8,7 @@ class CartsController < ApplicationController
   def calc_order
     respond_to do |format|
       format.json do
-        render json: Calculators::OrderCalculatorService.new(params: params).call, status: :ok
+        render json: Calculators::OrderCalculatorService.new(order: current_order, params: params).call, status: :ok
       end
       format.html
     end

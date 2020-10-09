@@ -114,6 +114,24 @@ ActiveRecord::Schema.define(version: 2020_10_03_160050) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.integer "quantity", default: 0
+    t.bigint "book_id"
+    t.bigint "order_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_items_on_book_id"
+    t.index ["order_id"], name: "index_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "status"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -140,4 +158,6 @@ ActiveRecord::Schema.define(version: 2020_10_03_160050) do
   add_foreign_key "books", "categories", on_delete: :cascade
   add_foreign_key "comments", "books", on_delete: :cascade
   add_foreign_key "comments", "users", on_delete: :cascade
+  add_foreign_key "items", "books", on_delete: :cascade
+  add_foreign_key "items", "orders", on_delete: :cascade
 end
