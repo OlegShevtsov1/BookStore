@@ -154,13 +154,17 @@ en:
   carts:
     index:
       name_cart: 'Cart'
-      enter_coupon: 'Enter Your Coupon Code '
-      apply_coupon: 'Apply Coupon '
+      empty_cart: 'Your cart is empty'
+      back_to_store: 'Back to store'
+      checkout: 'Checkout'
+    order_total:
       order_summary: 'Order Summary'
       subtotal: 'Subtotal:'
       coupon: 'Coupon:'
       order_total: 'Order Total:'
-      checkout: 'Checkout'
+    coupon_form:
+      enter_coupon: 'Enter Your Coupon Code '
+      apply_coupon: 'Apply Coupon '
     media:
      desktop:
         item_form:

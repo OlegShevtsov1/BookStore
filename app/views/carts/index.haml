@@ -1,33 +1,21 @@
 %main.container.general-main-wrap
   %h1.general-title-margin= t('.name_cart')
-  = render 'carts/media/mobile/item_form'
-  = render 'carts/media/desktop/item_form', items: @items
-  .general-order-wrap
-    .row
-      .col-sm-4
-        .input-group.general-input-group
-          %label.input-label= t('.enter_coupon')
-          %input.form-control.mb-30{type: "text", placeholder: t('.enter_coupon')}
-          %div
-            %button.btn.btn-primary.mr-5.mb-15= t('.apply_coupon')
-      .col-sm-8
-        .res-mr-200.text-center.general-text-right
-          %p.in-gold-500.font-18= t('.order_summary')
-          %table.general-summary-table.general-summary-table-right.general-text-right
-            %tr
-              %td
-                %p.font-16= t('.subtotal')
-              %td
-                %p.font-16 €117.69
-            %tr
-              %td
-                %p.font-16= t('.coupon')
-              %td
-                %p.font-16 €0.00
-            %tr
-              %td
-                %strong.font-18= t('.order_total')
-              %td
-                %strong.font-18 €117.69
-          %button.btn.btn-default.mb-20.visible-xs-inline-block= t('.checkout')
+  - if @current_order
+    = render 'carts/media/mobile/item_form'
+    = render 'carts/media/desktop/item_form', books: @books
+    .general-order-wrap
+      .row
+        .col-sm-4
+          = render 'carts/coupon_form'
+        .col-sm-8
+          = render 'carts/total', current_order: @current_order
+  - else
+    %div.mb-30
+    %h1.text-center
+      = t('.empty_cart')
+    %br
+    = link_to t('.back_to_store'), root_path, class: 'btn btn-default w-190 mb-20 hidden-xs center-block'
+  %button.btn.btn-default.mb-20.visible-xs-inline-block= t('.checkout')
   %button.btn.btn-default.mb-20.hidden-xs.center-block= t('.checkout')
+
+

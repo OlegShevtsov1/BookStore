@@ -11,11 +11,12 @@
       %th.col-total
         %span.in-grey-600= t('.subtotal')
       %th.col-close
-    - items.each do |book|
+    - books.each do |book|
       %tr
         %td
           .general-img-wrap-table
-            = image_tag book.decorate.image_url, alt: book.name, class: 'cart-img-shadow pull-left'
+            = link_to category_book_path(book.category,book) do
+              = image_tag book.decorate.image_url, alt: book.name, class: 'cart-img-shadow pull-left'
         %td
           %p.title= book.name
         %td
