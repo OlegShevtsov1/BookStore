@@ -3,18 +3,16 @@
   .col-md-8
     .mb-40
       .form-group
-        = f.label :title, t('.title')
         = f.input :title,
            required: false,
            autofocus: true,
-           label: false,
+           label: t('.title'),
            input_html: { autocomplete: :on }
       .form-group
-        = f.label :review, t('.review')
         = f.input :review,
            required: false,
            autofocus: true,
-           label: false,
+           label: t('.review'),
            input_html: { autocomplete: :on }
     .text-right
       = f.submit t('.post'), class: 'btn btn-default mb-20'
