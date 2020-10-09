@@ -175,3 +175,4 @@ en:
 
   controllers:
     added_in_cart: 'Added in cart'
+    deleted_from_cart: 'Successfuly delete book from cart'

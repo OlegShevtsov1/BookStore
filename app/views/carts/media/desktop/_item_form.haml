@@ -34,8 +34,10 @@
         %td
           %span.font-16.in-gold-500 €32.90
         %td
-          %button.close.general-cart-close{type: "button", 'aria-label': "Close"}
-            %span{'aria-hidden': "true"} &times;
+          = form_tag item_path(book), method: :delete do
+            = button_tag(type: "submit", class: 'close general-cart-close', 'aria-label': "Close") do
+              %span{'aria-hidden': "true"} &times;
+
       = content_for(:custom_script) do
         = render 'books/click_amount.js', category: book.category, book: book
 
