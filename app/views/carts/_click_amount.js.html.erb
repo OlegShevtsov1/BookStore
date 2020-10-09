@@ -1,50 +1,49 @@
 <script>
-    document.getElementById("book_plus").addEventListener("click", function (e) {
+    document.getElementById("book_plus_id_<%= book.id%>").addEventListener("click", function (e) {
         if (e.target) {
             var url = '<%= calc_price_category_book_path(category, book, change: 'plus') %>';
             url = url + '&'
                 + 'amount= '
-                + document.getElementById("book_amount").value;
-            requestJSON(url);
+                + document.getElementById("book_amount_id_<%= book.id%>").value;
+            requestJSON_id_<%= book.id%>(url);
         }
     });
 
-    document.getElementById("book_minus").addEventListener("click", function (e) {
+    document.getElementById("book_minus_id_<%= book.id%>").addEventListener("click", function (e) {
         if (e.target) {
             var url = '<%= calc_price_category_book_path(category, book, change: 'minus') %>';
             url = url + '&'
                 + 'amount= '
-                + document.getElementById("book_amount").value;
-            requestJSON(url);
+                + document.getElementById("book_amount_id_<%= book.id%>").value;
+            requestJSON_id_<%= book.id%>(url);
         }
     });
 
-    function requestJSON(url) {
+    function requestJSON_id_<%= book.id%>(url) {
         const getMethod = {
             method: 'PUT',
             headers: {'Content-type': 'application/json; charset=utf-8'},
         };
         fetch(url, getMethod)
             .then(response => response.json())
-            .then(data => change(data))
+            .then(data => change_id_<%= book.id%>(data))
             .catch(err => console.log(err))
     }
 
-    function change(data) {
-        change_price(data.price);
-        change_amount(data.amount);
+    function change_id_<%= book.id%>(data) {
+        console.log('data', data)
+        change_price_id_<%= book.id%>(data.price);
+        change_amount_id_<%= book.id%>(data.amount);
     }
 
-    function change_price(price) {
-        let book_price = document.getElementById("book_price");
+    function change_price_id_<%= book.id%>(price) {
+        let book_price = document.getElementById("book_price_id_<%= book.id%>");
         book_price.innerHTML = price
     }
 
-    function change_amount(amount) {
-        let book_amount = document.getElementById("book_amount");
+    function change_amount_id_<%= book.id%>(amount) {
+        let book_amount = document.getElementById("book_amount_id_<%= book.id%>");
         book_amount.value = amount
-        let book_amount_link = document.getElementById("book_amount_link");
-        // console.log(book_amount_link)
     }
 </script>
 
