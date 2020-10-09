@@ -8,6 +8,7 @@ ActiveAdmin.register_page 'Dashboard' do
         div I18n.t('admin.dashboard.authors_count', count: Author.count)
         div I18n.t('admin.dashboard.categories_count', count: Category.count)
         div I18n.t('admin.dashboard.books_count', count: Book.count)
+        div I18n.t('admin.dashboard.comment_count', count: Comment.count)
       end
     end
   end

@@ -12,6 +12,7 @@ class BooksController < ApplicationController
 
   def show
     @book_presenter = BookPresenter.new(@book)
+    @comment = Comment.new
   end
 
   def calc_price

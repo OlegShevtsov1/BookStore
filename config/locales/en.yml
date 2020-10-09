@@ -52,12 +52,15 @@ en:
       materials: 'Materials'
       review:
         write_review: 'Write a Review'
+        reviews: 'Reviews (%{count})'
+        verified_reviewer: 'Verified Reviewer'
+    comment:
+      form:
         score: 'Score'
         title: 'Title'
         review: 'Review'
         post: 'Post'
-        reviews: 'Reviews'
-        verified_reviewer: 'Verified Reviewer'
+      success: 'Thanks for Review. It will be published as soon as Admin will approve it.'
   devise:
     password_validate: 'must contain at least 1 uppercase, at least 1 lowercase, at least 1 number'
     email_wrong_format: 'domain part must be like %{format}'
@@ -81,6 +84,9 @@ en:
     passwd:
       check_confirm_password: 'must match to your new password'
       check_old_password: 'must match to your password'
+    comment:
+      wrong_size: 'maximum size is %{size}'
+      comment_format: "can contain letters, numbers one of !#$%&'*+-/=?^_`{|}~."
 
   settings:
     index:
@@ -133,6 +139,13 @@ en:
       books_count: 'Count of books: %{count}'
       authors_count: 'Count of authors: %{count}'
       categories_count: 'Count of categories: %{count}'
+      comment_count: 'Count of comments: %{count}'
     book:
       price: '€ %{price}'
       new: 'Add new book'
+    comment:
+      approve: 'Approve'
+      reject: 'Reject'
+      destroy: 'Destroy'
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_102041) do
+ActiveRecord::Schema.define(version: 2020_09_21_204017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,8 @@ ActiveRecord::Schema.define(version: 2020_09_21_102041) do
     t.text "body", null: false
     t.string "resource_type"
     t.bigint "resource_id"
-    t.string "author_type"
-    t.bigint "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
@@ -95,6 +92,19 @@ ActiveRecord::Schema.define(version: 2020_09_21_102041) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "review", null: false
+    t.integer "score", default: 0
+    t.integer "status", default: 0
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_comments_on_book_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -118,4 +128,6 @@ ActiveRecord::Schema.define(version: 2020_09_21_102041) do
   add_foreign_key "book_authors", "authors"
   add_foreign_key "book_authors", "books"
   add_foreign_key "books", "categories", on_delete: :cascade
+  add_foreign_key "comments", "books", on_delete: :cascade
+  add_foreign_key "comments", "users", on_delete: :cascade
 end

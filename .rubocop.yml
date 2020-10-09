@@ -33,6 +33,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
     - 'app/admin/books.rb'
+    - 'app/admin/comments.rb'
 
 RSpec/NestedGroups:
   Exclude:
