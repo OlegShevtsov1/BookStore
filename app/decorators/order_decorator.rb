@@ -18,7 +18,15 @@ class OrderDecorator < Draper::Decorator
     object.items.find_by(book: book).quantity
   end
 
+  def subtotal_books_price(book)
+    format('%<offset>.2f', offset: subtotal_items_book_price(book))
+  end
+
   private
+
+  def subtotal_items_book_price(book)
+    book.price * count_books(book)
+  end
 
   def subtotal_items_price
     object.items.sum { |item| item.quantity * item.book.price }

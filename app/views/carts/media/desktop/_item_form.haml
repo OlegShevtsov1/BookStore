@@ -22,7 +22,7 @@
         %td
           %span.font-16.in-gold-500.inline
             #{t('EUR')}
-          %span.font-16.in-gold-500.inline{id:"book_price_id_#{book.id}"}
+          %span.font-16.in-gold-500.inline
             #{book.price}
         %td
           .input-group
@@ -32,12 +32,15 @@
             .input-link.pointer{id:"book_plus_id_#{book.id}"}
               %i.fa.fa-plus.line-heaght-40
         %td
-          %span.font-16.in-gold-500 €32.90
+          %span.font-16.in-gold-500.inline
+            #{t('EUR')}
+          %span.font-16.in-gold-500.inline{id:"book_price_id_#{book.id}"}
+            #{current_order.decorate.subtotal_books_price(book)}
         %td
           = form_tag item_path(book), method: :delete do
             = button_tag(type: "submit", class: 'close general-cart-close', 'aria-label': "Close") do
               %span{'aria-hidden': "true"} &times;
 
       = content_for(:custom_script) do
-        = render 'carts/click_amount.js', category: book.category, book: book
+        = render 'carts/click_amount.js', category: book.category, book: book, order: current_order
 
