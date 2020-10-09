@@ -2,13 +2,13 @@
   %h1.general-title-margin= t('.name_cart')
   - if @current_order
     = render 'carts/media/mobile/item_form'
-    = render 'carts/media/desktop/item_form', books: @books
+    = render 'carts/media/desktop/item_form', books: @books, current_order: @current_order
     .general-order-wrap
       .row
         .col-sm-4
           = render 'carts/coupon_form'
         .col-sm-8
-          = render 'carts/total', current_order: @current_order
+          = render 'carts/order_total', current_order: @current_order
   - else
     %div.mb-30
     %h1.text-center

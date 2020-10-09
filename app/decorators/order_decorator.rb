@@ -14,6 +14,10 @@ class OrderDecorator < Draper::Decorator
     "#{I18n.t('EUR')} #{format('%<offset>.2f', offset: order_total_price_with_coupon)}"
   end
 
+  def count_books(book)
+    object.items.find_by(book: book).quantity
+  end
+
   private
 
   def subtotal_items_price

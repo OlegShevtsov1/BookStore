@@ -1,0 +1,50 @@
+<script>
+    document.getElementById("book_plus").addEventListener("click", function (e) {
+        if (e.target) {
+            var url = '<%= calc_price_category_book_path(category, book, change: 'plus') %>';
+            url = url + '&'
+                + 'amount= '
+                + document.getElementById("book_amount").value;
+            requestJSON(url);
+        }
+    });
+
+    document.getElementById("book_minus").addEventListener("click", function (e) {
+        if (e.target) {
+            var url = '<%= calc_price_category_book_path(category, book, change: 'minus') %>';
+            url = url + '&'
+                + 'amount= '
+                + document.getElementById("book_amount").value;
+            requestJSON(url);
+        }
+    });
+
+    function requestJSON(url) {
+        const getMethod = {
+            method: 'PUT',
+            headers: {'Content-type': 'application/json; charset=utf-8'},
+        };
+        fetch(url, getMethod)
+            .then(response => response.json())
+            .then(data => change(data))
+            .catch(err => console.log(err))
+    }
+
+    function change(data) {
+        change_price(data.price);
+        change_amount(data.amount);
+    }
+
+    function change_price(price) {
+        let book_price = document.getElementById("book_price");
+        book_price.innerHTML = price
+    }
+
+    function change_amount(amount) {
+        let book_amount = document.getElementById("book_amount");
+        book_amount.value = amount
+        let book_amount_link = document.getElementById("book_amount_link");
+        // console.log(book_amount_link)
+    }
+</script>
+
