@@ -77,7 +77,9 @@ ActiveAdmin.register Book do
         I18n.t('admin.book.price', price: book.price)
       end
 
-      row :authors
+      row :authors do |book|
+        book.decorate.authors
+      end
       row :category
       row :year
       row :material

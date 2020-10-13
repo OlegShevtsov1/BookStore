@@ -1,10 +1,7 @@
-# This is a subclass of Shrine base that will be further configured for it's requirements.
-# This will be included in the model to manage the file.
-
 class ImageUploader < Shrine
   ALLOWED_TYPES  = %w[image/jpeg image/png image/webp].freeze
-  MAX_SIZE       = 10 * 1024 * 1024 # 10 MB
-  MAX_DIMENSIONS = [5000, 5000].freeze # 5000x5000
+  MAX_SIZE       = 10 * 1024 * 1024
+  MAX_DIMENSIONS = [5000, 5000].freeze
 
   THUMBNAILS = {
     small: [300, 300],
@@ -18,26 +15,22 @@ class ImageUploader < Shrine
   plugin :store_dimensions, log_subscriber: nil
   plugin :derivation_endpoint, prefix: 'derivations/image'
 
-  # File validations (requires `validation_helpers` plugin)
   Attacher.validate do
     validate_size 0..MAX_SIZE
 
     validate_max_dimensions MAX_DIMENSIONS if validate_mime_type ALLOWED_TYPES
   end
 
-  # Thumbnails processor (requires `derivatives` plugin)
   Attacher.derivatives do |original|
     THUMBNAILS.transform_values do |(width, height)|
-      GenerateThumbnail.call(original, width, height) # lib/generate_thumbnail.rb
+      GenerateThumbnail.call(original, width, height)
     end
   end
 
-  # Default to dynamic thumbnail URL (requires `default_url` plugin)
   Attacher.default_url do |derivative: nil, **|
     file&.derivation_url(:thumbnail, *THUMBNAILS.fetch(derivative)) if derivative
   end
 
-  # Dynamic thumbnail definition (requires `derivation_endpoint` plugin)
   derivation :thumbnail do |file, width, height|
     GenerateThumbnail.call(file, width.to_i, height.to_i) # lib/generate_thumbnail.rb
   end
