@@ -149,6 +149,9 @@ en:
       approve: 'Approve'
       reject: 'Reject'
       destroy: 'Destroy'
+    coupon:
+      discount: 'Discount '
+      code: 'Code '
 
 
   carts:
@@ -176,3 +179,6 @@ en:
   controllers:
     added_in_cart: 'Added in cart'
     deleted_from_cart: 'Successfuly delete book from cart'
+    wrong_coupon: 'Wrong coupon'
+    used_coupon: 'Coupon already used'
+    applied_coupon: 'Coupon was applied succesfully'

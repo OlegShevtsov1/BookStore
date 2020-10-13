@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :carts, only: [:index] do
     put :calc_order, on: :collection
   end
+  resource :coupons, only: [:update]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   mount ImageUploader.derivation_endpoint => '/derivations/image'
 end

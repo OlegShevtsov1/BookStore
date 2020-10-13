@@ -1,5 +1,7 @@
-.input-group.general-input-group
-  %label.input-label= t('.enter_coupon')
-  %input.form-control.mb-30{type: "text", placeholder: t('.enter_coupon')}
-  %div
-    %button.btn.btn-primary.mr-5.mb-15= t('.apply_coupon')
+= form_tag(coupons_path, method: :put) do
+  .input-group.general-input-group
+    = label_tag 'coupon_code', t('.enter_coupon'), class: 'input_label'
+    = text_field_tag 'coupon_code', nil, placeholder: t('.enter_coupon'), class: 'form-control mb-30'
+    %div
+      = button_tag type: "submit", class: 'btn btn-primary mr-5 mb-15' do
+        = t('.apply_coupon')

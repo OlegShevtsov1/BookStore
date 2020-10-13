@@ -32,8 +32,8 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
-    - 'app/admin/books.rb'
-    - 'app/admin/comments.rb'
+    - 'app/admin/*'
+    - 'config/routes.rb'
 
 RSpec/NestedGroups:
   Exclude:

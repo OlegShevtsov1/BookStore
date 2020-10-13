@@ -156,3 +156,11 @@ if Comment.count.zero?
                   book_id: 5,
                   user_id: 1)
 end
+
+if Coupon.count.zero?
+  Coupon.create!(discount: 10, code: 'HGYHAKPLOVVN')
+  Coupon.create!(discount: 10, code: 'KDKDKDKJDIEE')
+  Coupon.create!(discount: 10, code: 'PKSJHDMMNMNE')
+  Coupon.create!(discount: 10, code: 'IUWTTQTQCSXM')
+  Coupon.create!(discount: 15, code: 'PSHDFETTVXZA')
+end

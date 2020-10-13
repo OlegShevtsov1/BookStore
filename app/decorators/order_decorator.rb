@@ -7,7 +7,7 @@ class OrderDecorator < Draper::Decorator
   end
 
   def coupon_price
-    "#{I18n.t('EUR')} #{format('%<offset>.2f', offset: coupon)}"
+    "#{I18n.t('EUR')} #{format('%<offset>.2f', offset: coupon_discount)}"
   end
 
   def order_total_price
@@ -33,10 +33,10 @@ class OrderDecorator < Draper::Decorator
   end
 
   def order_total_price_with_coupon
-    subtotal_items_price - coupon
+    subtotal_items_price - coupon_discount
   end
 
-  def coupon
-    FIRST_PRICE
+  def coupon_discount
+    object.coupon ? object.coupon.discount : FIRST_PRICE
   end
 end
