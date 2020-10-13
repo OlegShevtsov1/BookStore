@@ -16,7 +16,7 @@
         %td
           .general-img-wrap-table
             = link_to category_book_path(book.category,book) do
-              = image_tag book.decorate.image_url, alt: book.name, class: 'cart-img-shadow pull-left'
+              = image_tag book.decorate.image_url(:small), alt: book.name, class: 'cart-img-shadow pull-left'
         %td
           %p.title= book.name
         %td
