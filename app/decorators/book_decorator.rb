@@ -19,7 +19,11 @@ class BookDecorator < Draper::Decorator
     object.description.length < DESCRIPTION_LIMIT
   end
 
-  def image_url
-    object.image_url.presence || DEFAULT_IMAGE
+  def image_url(thumbnail)
+    object.image_url(thumbnail).presence || DEFAULT_IMAGE
+  end
+
+  def image_custom(thumbnail, width, height)
+    object.image.derivation_url(thumbnail, width, height) || DEFAULT_IMAGE
   end
 end

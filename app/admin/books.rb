@@ -44,11 +44,7 @@ ActiveAdmin.register Book do
     selectable_column
 
     column :image do |book|
-      if book.image_url.present?
-        image_tag book.image_url, class: 'admin-image-book'
-      else
-        image_tag 'active_admin/default.png', class: 'admin-image-book'
-      end
+      image_tag book.decorate.image_url(:small), alt: book.name, class: 'admin-image-book'
     end
 
     column :category
@@ -88,11 +84,7 @@ ActiveAdmin.register Book do
       row :depth
 
       row :image do |book|
-        if book.image_url.present?
-          image_tag book.image_url, class: 'admin-image-book'
-        else
-          image_tag 'active_admin/default.png', class: 'admin-image-book'
-        end
+        image_tag book.decorate.image_url(:small), alt: book.name, class: 'admin-image-book'
       end
 
       row :book_images do |book|
@@ -100,7 +92,7 @@ ActiveAdmin.register Book do
           tr do
             book.book_images.each do |book_image|
               td do
-                image_tag book_image.image.url, class: 'admin-image-book'
+                image_tag book_image.image_url(:small), class: 'admin-image-book'
               end
             end
           end

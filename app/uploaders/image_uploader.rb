@@ -23,7 +23,7 @@ class ImageUploader < Shrine
 
   Attacher.derivatives do |original|
     THUMBNAILS.transform_values do |(width, height)|
-      GenerateThumbnail.call(original, width, height)
+      Image::GenerateThumbnail.call(original, width, height)
     end
   end
 
@@ -32,6 +32,6 @@ class ImageUploader < Shrine
   end
 
   derivation :thumbnail do |file, width, height|
-    GenerateThumbnail.call(file, width.to_i, height.to_i) # lib/generate_thumbnail.rb
+    Image::GenerateThumbnail.call(file, width.to_i, height.to_i)
   end
 end
