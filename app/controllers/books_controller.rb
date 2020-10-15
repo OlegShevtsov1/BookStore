@@ -11,7 +11,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book_presenter = BookPresenter.new(@book)
     @comment = Comment.new
   end
 
@@ -27,13 +26,13 @@ class BooksController < ApplicationController
   private
 
   def books
-    return @books = Book.includes(%i[authors category]).all unless params[:category_id]
+    return @books ||= Book.includes(%i[category]).all unless params[:category_id]
 
-    @books ||= category.books.includes(:authors)
+    @books ||= category.books
   end
 
   def book
-    @book = books.find(params[:id])
+    @book = books.find(params[:id]).decorate
   end
 
   def category

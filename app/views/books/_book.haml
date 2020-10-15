@@ -1,23 +1,20 @@
 .col-sm-6
   .product-gallery
     .mb-20
-      %img.img-responsive{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
+    = image_tag book.decorate.image_url(:large), alt: book.name, class: 'img-responsive'
     .images.clearfix
-      %a.img-link{href: "#"}
-        %img{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
-      %a.img-link{href: "#"}
-        %img{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
-      %a.img-link{href: "#"}
-        %img{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
+    - book.book_images.each do |book_image|
+      = link_to '#', class: 'img-link' do
+        = image_tag book_image.image.derivation_url(:thumbnail, 150, 150), class: 'img-responsive'
 .col-sm-6
-  %h1.mt-res-0= book_presenter.name
-  %p.lead.small= book_presenter.authors
+  %h1.mt-res-0= book.name
+  %p.lead.small= book.authors
   .row
     .col-xs-12.col-md-4
       %p.h1.in-gold-500.mt-10.inline
         #{t('EUR')}
       %p.h1.in-gold-500.mt-10.inline{id:'book_price'}
-        #{book_presenter.price}
+        #{book.price}
     .col-xs-5.col-md-3
       .input-group.general-position
         #book_minus.input-link
@@ -30,23 +27,23 @@
   .general-info-wrap.divider-lg
     %p= t('.description')
     %p.lead.small.line-height-2
-      - if book_presenter.description_length_short?
-        #full_description #{book_presenter.description}
+      - if book.description_length_short?
+        #full_description #{book.description}
       - else
-        #full_description{style: "display: none"} #{book_presenter.description}
-        #short_description #{book_presenter.short_description}
+        #full_description{style: "display: none"} #{book.description}
+        #short_description #{book.short_description}
         %a.in-gold-500.ml-10{id: "read_more", href: "#"} #{t('.read_more')}
   .general-info-wrap.divider-lg
     .clearfix
       %p.pull-left #{t('.year_of_publication')}
-      %p.lead.small.pull-right #{book_presenter.year}
+      %p.lead.small.pull-right #{book.year}
   .general-info-wrap.divider-lg
     .clearfix
       %p.pull-left #{t('.dimensions')}
-      %p.lead.small.pull-right #{book_presenter.properties}
+      %p.lead.small.pull-right #{book.properties}
   .general-info-wrap.divider-lg
     .clearfix
       %p.pull-left #{t('.materials')}
-      %p.lead.small.pull-right #{book_presenter.material}
+      %p.lead.small.pull-right #{book.material}
 = content_for(:custom_script) do
-  = render 'books/click_amount.js', category: @category, book: @book
+  = render 'books/click_amount.js', category: @category, book: book

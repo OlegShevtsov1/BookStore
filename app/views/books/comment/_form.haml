@@ -1,5 +1,5 @@
 = simple_form_for(comment, url: comments_path, method: :post, html: { class: 'row' }) do |f|
-  = f.hidden_field :book_id, value: book_presenter.id
+  = f.hidden_field :book_id, value: book.id
   .col-md-8
     .mb-40
       .form-group
