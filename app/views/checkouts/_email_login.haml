@@ -5,27 +5,41 @@
         %h3.general-subtitle= t('.returning_customer')
         = render 'devise/shared/facebook'
         %p.general-login-text= t('.or')
-      %form.general-form
         .mb-40
           %p.mb-15= t('.log_in_with_password')
-          .form-group.mb-30
-            %label.control-label.input-label{for: "email"} Enter Email
-            %input#email.form-control{name:"email", type: "email", placeholder: "Enter Email"}
-          .form-group.mb-30
-            %label.control-label.input-label{for: "password"} Password
-            %input#password.form-control{name:"password", type: "password", placeholder: "Password"}
-            %a.help-block.in-gold-500{href: "#"}= t('.forgot_password')
-        %button.btn.disabled.mb-20= t('.log_in_with_password')
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'general-form'}) do |f|
+            .form-group.mb-30{style: 'text-align: left'}
+              %label.control-label.input-label{for: "email"}= t('.enter_email')
+              = f.email_field :email,
+                  autofocus: true,
+                  id: 'email',
+                  class: 'form-control',
+                  placeholder: t('.enter_email')
+            .form-group.mb-30{style: 'text-align: left'}
+              %label.control-label.input-label{for: "password"}= t('.password')
+              = f.password_field :password,
+                  id: 'password',
+                  class: 'form-control',
+                  placeholder: "Password"
+              = link_to t('.forgot_password'), new_password_path(resource_name), class: 'help-block in-gold-500'
+            = f.button :submit, t('.log_in_with_password'), class: 'btn btn-default mb-20'
     .col-md-5.col-md-offset-1.mb-60
       .text-center
         %h3.general-subtitle= t('.new_customer')
         = render 'devise/shared/facebook'
         %p.general-login-text= t('.or')
-      %form.general-form
+      = simple_form_for(User.new, url: user_registration_path, method: :post) do |f|
+        = resource.errors.messages[:email].to_sentence
         .mb-40
           %p.mb-5= t('.quick_register')
           %p.general-info-text.font-12.mb-20= t('.password_later')
           .form-group.mb-30
             %label.control-label.input-label{for: "email"} Enter Email
-            %input#email.form-control{name:"email", type: "email", placeholder: "Enter Email"}
-        %button.btn.disabled.mb-20= t('.continue_to_checkout')
+            = f.email_field :email,
+              autofocus: true,
+              autocomplete: "email",
+              id: 'email',
+              class: 'form-control',
+              placeholder: t('.enter_email')
+            = hidden_field_tag :quick_register
+        = f.button :submit, t('.continue_to_checkout'), class: 'btn btn-default mb-20'

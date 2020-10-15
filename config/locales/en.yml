@@ -191,6 +191,8 @@ en:
       quick_register: 'Quick Register'
       password_later: 'You’ll be able to create password later'
       continue_to_checkout: 'Continue to Checkout'
+      enter_email: 'Enter email'
+      password: 'Password'
 
   controllers:
     added_in_cart: 'Added in cart'
