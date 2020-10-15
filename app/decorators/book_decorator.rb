@@ -1,10 +1,11 @@
 class BookDecorator < Draper::Decorator
   DESCRIPTION_LIMIT = 250
   DEFAULT_IMAGE = 'active_admin/default.png'.freeze
+  COMA = ','.freeze
   delegate_all
 
   def authors
-    object.authors.decorate.map(&:name).join ', '
+    object.authors.decorate.map(&:name).join COMA
   end
 
   def properties

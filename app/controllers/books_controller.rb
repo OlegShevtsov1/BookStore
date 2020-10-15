@@ -26,7 +26,7 @@ class BooksController < ApplicationController
   private
 
   def books
-    return @books = Book.includes(%i[category]).all unless params[:category_id]
+    return @books ||= Book.includes(%i[category]).all unless params[:category_id]
 
     @books ||= category.books
   end

@@ -1,5 +1,3 @@
-require 'image_processing/mini_magick'
-
 module Image
   class GenerateThumbnail
     def self.call(file, width, height)
