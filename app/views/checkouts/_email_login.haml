@@ -3,8 +3,7 @@
     .col-md-5.mb-40
       .text-center
         %h3.general-subtitle= t('.returning_customer')
-        %a.general-login-icon{href: "#"}
-          %i.fa.fa-facebook-official
+        = render 'devise/shared/facebook'
         %p.general-login-text= t('.or')
       %form.general-form
         .mb-40
@@ -20,8 +19,7 @@
     .col-md-5.col-md-offset-1.mb-60
       .text-center
         %h3.general-subtitle= t('.new_customer')
-        %a.general-login-icon{href: "#"}
-          %i.fa.fa-facebook-official
+        = render 'devise/shared/facebook'
         %p.general-login-text= t('.or')
       %form.general-form
         .mb-40
