@@ -1,5 +1,7 @@
-- if @step == 'email_login'
-  = render partial: "checkouts/email_login"
-- if @step == 'address'
-  = render partial: "checkouts/address"
+- if @service.current_step == 'email_login'
+  = render 'checkouts/email_login'
+- if @service.current_step == 'address'
+  = render  'checkouts/address', statuses: @service.statuses, addresses: @service.current_service
+- if @service.current_step == 'delivery'
+  = render  'checkouts/delivery'
 

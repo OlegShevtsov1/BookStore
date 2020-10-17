@@ -2,7 +2,7 @@ class AddressesController < ApplicationController
   before_action :address_form, only: %i[create update]
 
   def create
-    @addresses = Settings::AddressesService.new(current_user)
+    @addresses = Settings::AddressesService.new(params, current_user, current_order)
     if @address_form.create
       redirect_to(settings_path, notice: I18n.t('settings.new.updated', type: @address_form.address_type.capitalize))
     else
@@ -14,7 +14,7 @@ class AddressesController < ApplicationController
   end
 
   def update
-    @addresses = Settings::AddressesService.new(current_user)
+    @addresses = Settings::AddressesService.new(params, current_user, current_order)
     if @address_form.update
       redirect_to(settings_path, notice: I18n.t('settings.new.updated', type: @address_form.address_type.capitalize))
     else

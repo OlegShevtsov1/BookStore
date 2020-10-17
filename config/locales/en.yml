@@ -193,7 +193,17 @@ en:
       continue_to_checkout: 'Continue to Checkout'
       enter_email: 'Enter email'
       password: 'Password'
-
+    address:
+      checkout: 'Checkout'
+      billing_address: 'Billing Address'
+      shipping_address: 'Shipping Address'
+      fields_required: 'all fields are required'
+      save_and_continue: 'Save and Continue'
+      use_billing_address: 'Use Billing Adres'
+    order_summary:
+      order_summary: 'Order Summary'
+      item_total: 'Item Total:'
+      order_total: 'Order Total:'
   controllers:
     added_in_cart: 'Added in cart'
     deleted_from_cart: 'Successfuly delete book from cart'

@@ -5,10 +5,12 @@ module Settings
 
     attr_reader :current_user, :billing_form, :shipping_form
 
-    def initialize(current_user)
+    def initialize(params, current_user, current_order)
       @current_user = current_user
       @billing_form = address(BILLING)
       @shipping_form = address(SHIPPING)
+      @params = params
+      @current_order = current_order
     end
 
     def address_type(address_form, address_params)
