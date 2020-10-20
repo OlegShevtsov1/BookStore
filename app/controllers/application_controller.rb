@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def count_items_in_cart
-    @count_items_in_cart = current_order ? current_order&.items&.map(&:quantity)&.sum.to_i : DEFAULT_COUNT_ITEMS_IN_CART
+    return @count_items_in_cart = DEFAULT_COUNT_ITEMS_IN_CART unless current_order
+
+    @count_items_in_cart = current_order.items.sum(&:quantity)
   end
 end

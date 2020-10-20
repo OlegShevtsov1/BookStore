@@ -9,7 +9,7 @@ module Cart
     end
 
     def call(current_order)
-      @order = current_order || Order.create
+      @order = current_order || Order.create(user: current_user, status: 0)
       create_item
     end
 

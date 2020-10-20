@@ -5,7 +5,8 @@ Rails.application.routes.draw do
                                    sign_out: 'logout',
                                    password: 'secret',
                                    sign_up: 'registration' },
-                     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+                     controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
+                                    sessions: 'users/sessions' }
 
   root 'homes#index'
   resources :homes, only: [:index]

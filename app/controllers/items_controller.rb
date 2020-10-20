@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   def destroy
     service = Cart::ItemDeleteService.new(current_order, params)
     service.call
-    cookies.delete(:current_order_id) if service.delete_order?
+    session.delete(:current_order_id) if service.delete_order?
     redirect_message(I18n.t('controllers.deleted_from_cart'), :notice)
   end
 
