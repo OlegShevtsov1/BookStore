@@ -7,7 +7,7 @@ Rails.application.routes.draw do
                                    sign_up: 'registration' },
                      controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                                     sessions: 'users/sessions',
-                                    registrations: 'users/registrations'}
+                                    registrations: 'users/registrations' }
 
   root 'homes#index'
   resources :homes, only: [:index]
