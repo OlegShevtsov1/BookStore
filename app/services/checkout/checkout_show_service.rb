@@ -11,5 +11,9 @@ module Checkout
       @current_step = params[:step]
       @current_service = current_service || Settings::SettingsIndexService.new(current_user)
     end
+
+    def current_step?(step)
+      current_step == step
+    end
   end
 end

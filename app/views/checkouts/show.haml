@@ -1,7 +1,8 @@
 - if @service.current_step == 'email_login'
   = render 'checkouts/email_login'
 - if @service.current_step == 'address'
-  = render  'checkouts/address', statuses: @service.statuses, current_order: @service.current_order.decorate, addresses: @service.current_service
+  -# = render  'checkouts/address', statuses: @service.statuses, current_step: @service.current_step, current_order: @service.current_order.decorate, addresses: @service.current_service
+  = render  'checkouts/address', service: @service, address: @service.current_service
 - if @service.current_step == 'delivery'
   = render  'checkouts/delivery'
 

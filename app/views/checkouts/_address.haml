@@ -1,13 +1,7 @@
 %main.container
   %h1.general-title-margin= t('.checkout')
-  %ul.steps.list-inline
-    - statuses.each_with_index do |status, index|
-      -#%li.step.active
-      %li.step
-        %span.step-number= index + 1
-        %span.step-text.hidden-xs= status.capitalize
-      %li.step-divider
-  = simple_form_for addresses.billing_form, url: checkouts_path, method: :put, class: 'res-mb-100' do |form|
+  = render 'checkouts/steps', service: service
+  = simple_form_for address.billing_form, url: checkouts_path, method: :put, class: 'res-mb-100' do |form|
     = hidden_field_tag :step, 'address'
     .hidden-xs.hidden-sm
       .row
@@ -21,12 +15,12 @@
         .visible-xs.visible-sm
           %h3.general-subtitle= t('.billing_address')
           %p.general-info-text=t('.fields_required')
-        = simple_fields_for :billing_form, addresses.billing_form do |f|
+        = simple_fields_for :billing_form, address.billing_form do |f|
           = render partial: 'addresses/form', locals: {f: f, address_type: 'billing'}
       .col-md-5.col-md-offset-1.mb-60
         .visible-xs.visible-sm
           %h3.general-subtitle= t('.shipping_address')
-        = simple_fields_for :shipping_form, addresses.shipping_form do |f|
+        = simple_fields_for :shipping_form, address.shipping_form do |f|
           = render partial: 'addresses/form', locals: {f: f, address_type: 'shipping'}
         .form-group.checkbox
           %label.checkbox-label
@@ -35,5 +29,5 @@
               %i.fa.fa-check
             %span.checkbox-text= t('.use_billing_address')
     .general-text-align.mb-60
-      = render 'checkouts/order_summary', current_order: current_order
+      = render 'checkouts/order_summary', current_order: service.current_order.decorate
       = form.submit t('.save_and_continue'), class: 'btn btn-default center-block mb-20'

@@ -1,0 +1,6 @@
+%ul.steps.list-inline
+  - service.statuses.each_with_index do |status, index|
+    %li{ class: "#{service.current_step?(status) ? 'step active' : 'step'}"}
+      %span.step-number= index + 1
+      %span.step-text.hidden-xs= status.capitalize
+    %li.step-divider
