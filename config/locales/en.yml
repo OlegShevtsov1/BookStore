@@ -93,13 +93,16 @@ en:
   settings:
     index:
       settings: 'Settings'
-      billing_address: 'Billing Address'
-      shipping_address: 'Shipping Address'
       s_email: 'Email'
       password: 'Password'
       remove_account: 'Remove Account'
       address: 'Address'
       privacy: 'Privacy'
+    media:
+      desktop:
+        tabpanel:
+          billing_address: 'Billing Address'
+          shipping_address: 'Shipping Address'
     remove_account:
       please_remove_account: 'Please Remove My Account'
       data_will_lost: 'I understand that all data will be lost'

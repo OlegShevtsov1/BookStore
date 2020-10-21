@@ -4,37 +4,33 @@ module Checkout
 
     attr_reader :params, :current_user, :current_order
 
-    # def initialize(params, current_user, current_order)
-    #   super
-    # end
-
     def call
-      binding.pry
-      # return create_billing_shipping_forms if billing_form.valid? && params[:use_billing]
+      return save_addresses if billing_form.valid? && shipping_form.valid?
 
-      create_or_update_checkout_addresses if billing_form.valid? && shipping_form.valid?
-      NEXT_STEP
-      # false
+      save_addresses_use_billing if billing_form.valid? && params[:use_billing]
     end
 
     private
 
-    def create_or_update_checkout_addresses
-      binding.pry
-      create_or_update_address(billing_form, current_order.addresses.billing)
-      create_or_update_address(shipping_form, current_order.addresses.shipping)
+    def save_addresses
+      create_or_update(billing_form)
+      create_or_update(shipping_form)
+      NEXT_STEP
     end
 
-    def create_billing_shipping_forms
-      create_or_update_address(billing, current_order.addresses.billing)
-      billing.address_type = Address.address_types.keys.last
-      create_or_update_address(billing, current_order.addresses.shipping)
+    def save_addresses_use_billing
+      create_or_update(billing_form)
+      create_or_update(shipping_use_billing_form)
+      NEXT_STEP
     end
 
-    def create_or_update_address(form_object, data_address)
-      address = data_address.first
-      @form = form_object
-      address ? update_address(address) : create_address
+    def shipping_use_billing_form
+      shipping_form = billing_form
+      shipping_form.address_type = SHIPPING
+    end
+
+    def create_or_update(form)
+      form ? form.update : form.create
     end
   end
 end

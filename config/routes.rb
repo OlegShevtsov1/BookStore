@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   resource :comments, only: [:create]
   resources :settings, only: [:index]
-  resources :addresses, only: %i[create update]
+  resource :addresses, only: %i[create update]
   resources :emails, only: [:update]
   resources :accounts, only: %i[update destroy]
   resources :items, only: %i[create destroy]

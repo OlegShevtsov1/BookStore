@@ -4,12 +4,11 @@ class CheckoutsController < ApplicationController
   end
 
   def update
-    service = Checkout::CheckoutUpdateService.new(params, current_user, current_order)
-
-    if service.call
-      redirect_to checkouts_path(step: service.next_step)
+    update_service = Checkout::CheckoutUpdateService.new(params, current_user, current_order)
+    if update_service.call
+      redirect_to checkouts_path(step: update_service.next_step)
     else
-      @service = Checkout::CheckoutShowService.new(params, current_user, current_order, service)
+      @service = Checkout::CheckoutShowService.new(params, current_user, current_order, update_service.current_service)
       render :show
     end
   end
