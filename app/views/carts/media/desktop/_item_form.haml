@@ -28,7 +28,7 @@
           .input-group
             .input-link.pointer{id:"book_minus_id_#{book.id}"}
               %i.fa.fa-minus.line-heaght-40
-            = text_field_tag :quantity, "", class: 'form-control quantity-input', id: "book_amount_id_#{book.id}", value: current_order.decorate.count_books(book), autofocus: true
+            = text_field_tag :quantity, "", class: 'form-control quantity-input', id: "book_amount_id_#{book.id}", value: current_order.decorate.count_books(book), readonly: :readonly, autofocus: true
             .input-link.pointer{id:"book_plus_id_#{book.id}"}
               %i.fa.fa-plus.line-heaght-40
         %td
@@ -42,5 +42,5 @@
               %span{'aria-hidden': "true"} &times;
 
       = content_for(:custom_script) do
-        = render 'carts/click_amount.js', category: book.category, book: book, order: current_order
+        = render 'carts/media/desktop/click_amount.js', category: book.category, book: book, order: current_order
 

@@ -6,7 +6,7 @@
     .input-group.general-position
       #book_minus.input-link
         %i.fa.fa-minus.line-height-40
-      = text_field_tag :quantity, "", class: 'form-control quantity-input', id: "book_amount", value: ItemForm::DEFAULT_COUNT_ITEM, autofocus: true
+      = text_field_tag :quantity, "", class: 'form-control quantity-input', id: "book_amount", value: ItemForm::DEFAULT_COUNT_ITEM, readonly: :readonly, autofocus: true
       #book_plus.input-link
         %i.fa.fa-plus.line-height-40
   .col-xs-7.col-md-5
