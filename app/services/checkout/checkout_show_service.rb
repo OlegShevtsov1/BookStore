@@ -1,7 +1,7 @@
 module Checkout
   class CheckoutShowService
     STEPS_COUNT = 5
-    attr_reader :statuses, :current_step, :current_service
+    attr_reader :statuses, :current_step, :current_order, :current_service
 
     def initialize(params, current_user, current_order, current_service)
       @params = params

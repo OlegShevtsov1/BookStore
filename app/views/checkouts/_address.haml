@@ -35,5 +35,5 @@
               %i.fa.fa-check
             %span.checkbox-text= t('.use_billing_address')
     .general-text-align.mb-60
-      = render partial: 'checkouts/order_summary'
+      = render 'checkouts/order_summary', current_order: current_order
       = form.submit t('.save_and_continue'), class: 'btn btn-default center-block mb-20'

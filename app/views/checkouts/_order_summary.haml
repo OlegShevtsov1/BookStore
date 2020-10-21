@@ -2,11 +2,20 @@
 %table.general-summary-table
   %tr
     %td
-      %p.font-16=t('.order_summary')
+      %p.font-16=t('.subtotal')
     %td
-      %p.font-16 €117.69
+      %p.font-16
+        = current_order.subtotal_price
   %tr
     %td
-      %p.font-16=t('.order_total')
+      %p.font-16=t('.coupon')
     %td
-      %p.font-16 €117.69
+      %p.font-16
+        = current_order.coupon_price
+  %tr
+    %td
+      %strong.font-18=t('.order_total')
+    %td
+      %strong.font-18
+        = current_order.order_total_price
+

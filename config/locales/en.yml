@@ -205,7 +205,8 @@ en:
       use_billing_address: 'Use Billing Adres'
     order_summary:
       order_summary: 'Order Summary'
-      item_total: 'Item Total:'
+      subtotal: 'Subtotal:'
+      coupon: 'Coupon:'
       order_total: 'Order Total:'
   controllers:
     added_in_cart: 'Added in cart'
