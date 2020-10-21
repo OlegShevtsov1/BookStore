@@ -1,7 +1,7 @@
 %main.container.general-main-wrap
   %h1.general-title-margin= t('.name_cart')
   - if @current_order
-    = render 'carts/media/mobile/item_form'
+    = render 'carts/media/mobile/item_form', books: @books, current_order: @current_order
     = render 'carts/media/desktop/item_form', books: @books, current_order: @current_order
     .general-order-wrap
       .row

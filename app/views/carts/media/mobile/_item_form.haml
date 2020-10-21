@@ -1,55 +1,37 @@
 .visible-xs
-  .general-cart-item.divider-lg-bottom
-    %button.close.general-cart-close{type: "button", 'aria-label': "Close"}
-      %span{'aria-hidden': "true"} &times;
-    .general-img-wrap-table
-      %img.cart-img-shadow{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
-    %p.title Android Programming for Beginners
-    %table.table
-      %tr
-        %td
-          %span.in-grey-600 Price
-        %td
-          %span.font-16.in-gold-500 €28.50
-      %tr
-        %td.vertical-middle
-          %span.in-grey-600 Quantity
-        %td
-          .input-group
-            %a.input-link{href: "#"}
-              %i.fa.fa-minus.line-heaght-40
-            %input.form-control.quantity-input{type: "text"}
-            %a.input-link{href: "#"}
-              %i.fa.fa-plus.line-heaght-40
-      %tr
-        %td
-          %span.in-grey-600 SubTotal
-        %td
-          %span.font-16.in-gold-500 €32.90
-  .general-cart-item.divider-lg-bottom.mb-30
-    %button.close.general-cart-close{type: "button", 'aria-label': "Close"}
-      %span{'aria-hidden': "true"} &times;
-    .general-img-wrap-table
-      %img.cart-img-shadow{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
-    %p.title Android Programming for Beginners
-    %table.table
-      %tr
-        %td
-          %span.in-grey-600 Price
-        %td
-          %span.font-16.in-gold-500 €28.50
-      %tr
-        %td.vertical-middle
-          %span.in-grey-600 Quantity
-        %td
-          .input-group
-            %a.input-link{href: "#"}
-              %i.fa.fa-minus.line-heaght-40
-            %input.form-control.quantity-input{type: "text"}
-            %a.input-link{href: "#"}
-              %i.fa.fa-plus.line-heaght-40
-      %tr
-        %td
-          %span.in-grey-600 SubTotal
-        %td
-          %span.font-16.in-gold-500 €32.90
+  - books.each do |book|
+    .general-cart-item.divider-lg-bottom
+      = form_tag item_path(book), method: :delete do
+        = button_tag(type: "submit", class: 'close general-cart-close', 'aria-label': "Close") do
+          %span{'aria-hidden': "true"} &times;
+      .general-img-wrap-table
+        = link_to category_book_path(book.category, book) do
+          = image_tag book.decorate.image_url(:small), alt: book.name, class: 'cart-img-shadow pull-left'
+      %p.title{style: 'clear: both'}= book.name
+      %table.table
+        %tr
+          %td
+            %span.in-grey-600= t('.price')
+          %td
+            %span.font-16.in-gold-500.inline
+              #{t('EUR')}
+            %span.font-16.in-gold-500.inline
+              #{book.price}
+        %tr
+          %td.vertical-middle
+            %span.in-grey-600= t('.quantity')
+          %td
+            .input-group
+              .input-link.pointer{id:"book_minus_id_#{book.id}"}
+                %i.fa.fa-minus.line-heaght-40
+              = text_field_tag :quantity, "", class: 'form-control quantity-input', id: "book_amount_id_#{book.id}", value: current_order.decorate.count_books(book), autofocus: true
+              .input-link.pointer{id:"book_plus_id_#{book.id}"}
+                %i.fa.fa-plus.line-heaght-40
+        %tr
+          %td
+            %span.in-grey-600= t('.subtotal')
+          %td
+            %span.font-16.in-gold-500.inline
+              #{t('EUR')}
+            %span.font-16.in-gold-500.inline{id:"book_price_id_#{book.id}"}
+              #{current_order.decorate.subtotal_books_price(book)}

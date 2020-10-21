@@ -175,6 +175,11 @@ en:
           price: 'Price'
           quantity: 'Quantity'
           subtotal: 'SubTotal'
+     mobile:
+        item_form:
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
 
   controllers:
     added_in_cart: 'Added in cart'
