@@ -26,8 +26,7 @@ module Calculators
     end
 
     def item_new_quantity
-      item.quantity = amount
-      item.save
+      item.update(quantity: amount)
     end
   end
 end

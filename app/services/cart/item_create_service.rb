@@ -14,16 +14,16 @@ module Cart
     end
 
     def create_item
-      exist_item ? increment_item(exist_item) : save_item
+      existed_item ? increment_item(@existed_item) : save_item
     end
 
-    def exist_item
-      order.items.find_by(book_id: params[:current_item].to_i)
+    def existed_item
+      @existed_item = order.items.find_by(book_id: params[:current_item].to_i)
     end
 
     def increment_item(cart)
-      cart.quantity += params[:quantity].to_i
-      cart.save
+      quantity = cart.quantity + params[:quantity].to_i
+      cart.update(quantity: quantity)
     end
 
     def save_item

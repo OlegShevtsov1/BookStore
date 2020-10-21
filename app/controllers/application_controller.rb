@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    Order.find_by(id: session[:current_order_id])
+    @current_order ||= Order.find_by(id: session[:current_order_id])
   end
 
   def count_items_in_cart
-    return @count_items_in_cart = DEFAULT_COUNT_ITEMS_IN_CART unless current_order
+    return @count_items_in_cart ||= DEFAULT_COUNT_ITEMS_IN_CART unless current_order
 
-    @count_items_in_cart = current_order.items.sum(&:quantity)
+    @count_items_in_cart ||= current_order.items.sum(&:quantity)
   end
 end
