@@ -4,4 +4,5 @@
   = render  'checkouts/address', service: @service, address: @service.current_service
 - if @service.current_step == 'delivery'
   = render  'checkouts/shipping', service: @service
-
+- if @service.current_step == 'payment'
+  = render  'checkouts/payment', service: @service, credit_card: @service.current_service.credit_card

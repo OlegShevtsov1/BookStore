@@ -81,6 +81,8 @@ en:
       only_numbers: 'must be only numbers'
       mm_yy: 'should be in MM/YY format and contain only numbers'
       wrong_size: 'maximum size is %{size}'
+    credit_card:
+      invalid_credit_card: 'Please enter a valid credit card number - size %{size}'
     email:
       email_already_used: ' %{email} has already been used'
     passwd:
@@ -225,6 +227,15 @@ en:
           days: 'Days'
           price: 'Price'
           save_and_continue: 'Save and Continue'
+    payment:
+      checkout: 'Checkout'
+      credit_card: 'Credit Card'
+      card_number: 'Card Number'
+      name_on_card: 'Name on Card'
+      mm_yy: 'MM / YY'
+      cvv: 'CVV'
+      save_and_continue: 'Save and Continue'
+
   controllers:
     added_in_cart: 'Added in cart'
     deleted_from_cart: 'Successfully delete book from cart'

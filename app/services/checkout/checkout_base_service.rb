@@ -2,7 +2,8 @@ module Checkout
   class CheckoutBaseService
     STEP_SERVICES = {
       address: Checkout::CheckoutAddressService,
-      delivery: Checkout::CheckoutShippingService
+      delivery: Checkout::CheckoutShippingService,
+      payment: Checkout::CheckoutPaymentService
     }.freeze
 
     attr_reader :params, :current_user, :current_order, :current_step
