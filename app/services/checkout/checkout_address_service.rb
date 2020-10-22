@@ -1,13 +1,15 @@
 module Checkout
   class CheckoutAddressService < Settings::AddressesService
-    NEXT_STEP = 'delivery'.freeze
-
-    attr_reader :params, :current_user, :current_order
+    NEXT_STEP = 'shipping'.freeze
 
     def call
       return save_addresses if billing_form.valid? && shipping_form.valid?
 
       save_addresses_use_billing if billing_form.valid? && params[:use_billing]
+    end
+
+    def show
+      Settings::SettingsIndexService.new(current_user)
     end
 
     private

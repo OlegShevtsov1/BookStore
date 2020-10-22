@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_083102) do
+ActiveRecord::Schema.define(version: 2020_10_21_141658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,8 +137,19 @@ ActiveRecord::Schema.define(version: 2020_10_13_083102) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "coupon_id"
+    t.bigint "shipping_id"
     t.index ["coupon_id"], name: "index_orders_on_coupon_id"
+    t.index ["shipping_id"], name: "index_orders_on_shipping_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "from_days", default: 1, null: false
+    t.integer "to_days", null: false
+    t.float "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -170,4 +181,5 @@ ActiveRecord::Schema.define(version: 2020_10_13_083102) do
   add_foreign_key "items", "books", on_delete: :cascade
   add_foreign_key "items", "orders", on_delete: :cascade
   add_foreign_key "orders", "coupons", on_delete: :nullify
+  add_foreign_key "orders", "shippings", on_delete: :nullify
 end

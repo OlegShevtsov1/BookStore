@@ -1,0 +1,6 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('.checkout')
+  = render 'checkouts/steps', service: service
+  %h3.general-subtitle= t('.credit_card')
+  = render 'checkouts/media/mobile/shipping_form'
+  = render 'checkouts/media/desktop/shipping_form', service: service.current_service

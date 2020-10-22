@@ -207,10 +207,27 @@ en:
       order_summary: 'Order Summary'
       subtotal: 'Subtotal:'
       coupon: 'Coupon:'
+      shipping: 'Shipping:'
       order_total: 'Order Total:'
+    shipping:
+      checkout: 'Checkout'
+      credit_card: 'Credit Card'
+    media:
+      desktop:
+        shipping_form:
+          method: 'Method'
+          days: 'Days'
+          price: 'Price'
+          save_and_continue: 'Save and Continue'
+      mobile:
+        shipping_form:
+          method: 'Method'
+          days: 'Days'
+          price: 'Price'
+          save_and_continue: 'Save and Continue'
   controllers:
     added_in_cart: 'Added in cart'
-    deleted_from_cart: 'Successfuly delete book from cart'
+    deleted_from_cart: 'Successfully delete book from cart'
     wrong_coupon: 'Wrong coupon'
     used_coupon: 'Coupon already used'
-    applied_coupon: 'Coupon was applied succesfully'
+    applied_coupon: 'Coupon was applied successfully'

@@ -34,10 +34,14 @@ class OrderDecorator < Draper::Decorator
   end
 
   def order_total_price_with_coupon
-    subtotal_items_price - coupon_discount
+    subtotal_items_price + define_shipping_price - coupon_discount
   end
 
   def coupon_discount
     object.coupon ? object.coupon.discount : FIRST_PRICE
+  end
+
+  def define_shipping_price
+    object.shipping ? object.shipping.price : FIRST_PRICE
   end
 end
