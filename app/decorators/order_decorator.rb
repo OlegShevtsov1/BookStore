@@ -11,6 +11,10 @@ class OrderDecorator < Draper::Decorator
     number_to_currency(coupon_discount, unit: I18n.t('EUR'))
   end
 
+  def shipping_price
+    number_to_currency(define_shipping_price, unit: I18n.t('EUR'))
+  end
+
   def order_total_price
     number_to_currency(order_total_price_with_coupon, unit: I18n.t('EUR'))
   end

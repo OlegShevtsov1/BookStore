@@ -6,7 +6,7 @@ class CheckoutsController < ApplicationController
   def update
     service = Checkout::CheckoutUpdateService.new(params, current_user, current_order)
     if service.call
-      redirect_to checkouts_path(step: service.next_step)
+      redirect_to checkouts_path
     else
       @service = Checkout::CheckoutShowService.new(params, current_user, current_order).call(service.current_service)
       render :show

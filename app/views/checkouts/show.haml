@@ -2,6 +2,6 @@
   = render 'checkouts/email_login'
 - if @service.current_step == 'address'
   = render  'checkouts/address', service: @service, address: @service.current_service
-- if @service.current_step == 'shipping'
+- if @service.current_step == 'delivery'
   = render  'checkouts/shipping', service: @service
 

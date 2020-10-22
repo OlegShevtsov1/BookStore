@@ -1,7 +1,5 @@
 module Checkout
   class CheckoutAddressService < Settings::AddressesService
-    NEXT_STEP = 'shipping'.freeze
-
     def call
       return save_addresses if billing_form.valid? && shipping_form.valid?
 
@@ -17,13 +15,13 @@ module Checkout
     def save_addresses
       create_or_update(billing_form)
       create_or_update(shipping_form)
-      NEXT_STEP
+      @current_order.delivery! if @current_order.may_delivery?
     end
 
     def save_addresses_use_billing
       create_or_update(billing_form)
       create_or_update(shipping_use_billing_form)
-      NEXT_STEP
+      @current_order.delivery! if @current_order.may_delivery?
     end
 
     def shipping_use_billing_form
