@@ -235,6 +235,9 @@ en:
       mm_yy: 'MM / YY'
       cvv: 'CVV'
       save_and_continue: 'Save and Continue'
+    confirm:
+      checkout: 'Checkout'
+      place_order: 'Place Order'
 
   controllers:
     added_in_cart: 'Added in cart'

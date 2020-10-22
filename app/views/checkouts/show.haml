@@ -6,3 +6,5 @@
   = render  'checkouts/shipping', service: @service
 - if @service.current_step == 'payment'
   = render  'checkouts/payment', service: @service, credit_card: @service.current_service.credit_card
+- if @service.current_step == 'confirm'
+  = render  'checkouts/confirm', service: @service
