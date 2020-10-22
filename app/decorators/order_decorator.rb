@@ -1,17 +1,18 @@
 class OrderDecorator < Draper::Decorator
+  include ActiveSupport::NumberHelper
   FIRST_PRICE = 0.0
   delegate_all
 
   def subtotal_price
-    "#{I18n.t('EUR')}#{format('%<offset>.2f', offset: subtotal_items_price)}"
+    number_to_currency(subtotal_items_price, unit: I18n.t('EUR'))
   end
 
   def coupon_price
-    "#{I18n.t('EUR')} #{format('%<offset>.2f', offset: coupon_discount)}"
+    number_to_currency(coupon_discount, unit: I18n.t('EUR'))
   end
 
   def order_total_price
-    "#{I18n.t('EUR')} #{format('%<offset>.2f', offset: order_total_price_with_coupon)}"
+    number_to_currency(order_total_price_with_coupon, unit: I18n.t('EUR'))
   end
 
   def count_books(book)
