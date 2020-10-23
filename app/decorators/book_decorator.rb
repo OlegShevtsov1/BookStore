@@ -1,8 +1,14 @@
 class BookDecorator < Draper::Decorator
+  include ActiveSupport::NumberHelper
+
   DESCRIPTION_LIMIT = 250
   DEFAULT_IMAGE = 'active_admin/default.png'.freeze
   COMA = ','.freeze
   delegate_all
+
+  def price
+    number_to_currency(object.price, unit: I18n.t('EUR'))
+  end
 
   def authors
     object.authors.decorate.map(&:name).join COMA

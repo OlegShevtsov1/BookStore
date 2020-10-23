@@ -45,6 +45,7 @@ en:
       sort by: 'Sort by'
       view more: 'View More'
     show:
+    book:
       description: 'Description'
       read_more: 'Read More'
       year_of_publication: 'Year of publication'
@@ -204,7 +205,7 @@ en:
       shipping_address: 'Shipping Address'
       fields_required: 'all fields are required'
       save_and_continue: 'Save and Continue'
-      use_billing_address: 'Use Billing Adres'
+      use_billing_address: 'Use Billing Address'
     order_summary:
       order_summary: 'Order Summary'
       subtotal: 'Subtotal:'
@@ -221,12 +222,21 @@ en:
           days: 'Days'
           price: 'Price'
           save_and_continue: 'Save and Continue'
+        confirm_items:
+          book: 'Book'
+          price: 'Price'
+          quantity: 'Quantity'
+          total: 'Total'
       mobile:
         shipping_form:
           method: 'Method'
           days: 'Days'
           price: 'Price'
           save_and_continue: 'Save and Continue'
+        confirm_items:
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
     payment:
       checkout: 'Checkout'
       credit_card: 'Credit Card'

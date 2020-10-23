@@ -45,7 +45,7 @@
   .visible-xs
     = render 'checkouts/media/mobile/confirm_items'
   .hidden-xs.divider-lg.pt-20
-    = render 'checkouts/media/desktop/confirm_items'
+    = render 'checkouts/media/desktop/confirm_items', items: service.current_order.items.includes(%i[book])
   .text-center.general-text-right
     = render 'checkouts/order_summary', current_order: service.current_order.decorate, service: service
   .text-center
