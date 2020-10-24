@@ -13,7 +13,7 @@ module Checkout
       return unless @credit_card.valid?
 
       save_credit_card
-      current_order.confirm! if current_order.may_confirm?
+      return_step
     end
 
     def show
@@ -29,6 +29,10 @@ module Checkout
 
     def credit_card_params
       params.require(:credit_card).permit(:name, :number, :date, :cvv, :order_id)
+    end
+
+    def return_step
+      (@current_order.confirm! if @current_order.may_confirm?) || params[:step]
     end
   end
 end

@@ -4,7 +4,7 @@ module Checkout
 
     def initialize(params, current_user, current_order)
       super
-      @current_service = STEP_SERVICES[current_step.to_sym].new(params, current_user, current_order)
+      @current_service = STEP_SERVICES[step.to_sym].new(params, current_user, current_order)
     end
 
     def call

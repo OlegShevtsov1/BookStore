@@ -1,43 +1,24 @@
-.visible-xs
-  .general-cart-item.divider-lg-bottom
-  %table.table
-    %tr
-      %td.col-half
-        %span.in-grey-600= t('.method')
-      %td.col-half
-        .form-group.radio.mt-0.mb-0
-          %label.radio-label
-            %input.radio-input{type: "radio", hidden: "true"}
-            %span.radio-icon
-            %span.radio-text Delivery Next Day!
-    %tr
-      %td
-        %span.in-grey-600= t('.days')
-      %td
-        %span.font-16.fw-300 3 to 7 days
-    %tr
-      %td
-        %span.in-grey-600= t('.price')
-      %td
-        %span.font-16.in-gold-500 €5.00
-  .general-cart-item.divider-lg-bottom.mb-30
+= form_tag checkouts_path, method: :put do
+  .visible-xs
+    .general-cart-item.divider-lg-bottom
     %table.table
-      %tr
-        %td.col-half
-          %span.in-grey-600 Method
-        %td.col-half
-          .form-group.radio.mt-0.mb-0
-            %label.radio-label
-              %input.radio-input{type: "radio", hidden: "true"}
-              %span.radio-icon
-              %span.radio-text Delivery Next Day!
-      %tr
-        %td
-          %span.in-grey-600 Days
-        %td
-          %span.font-16.fw-300 3 to 7 days
-      %tr
-        %td
-          %span.in-grey-600 Price
-        %td
-          %span.font-16.in-gold-500 €5.00
+      - service.shippings.each do |shipping|
+        %tr
+          %td.col-half
+            %span.in-grey-600= t('.method')
+          %td.col-half
+            .form-group.radio.mt-0.mb-0
+              %label.radio-label
+                = radio_button_tag :shipping_id, shipping.id, shipping.decorate.shipping_method(service.current_order), class: 'radio-input', hidden: true
+                %span.radio-icon
+                %span.radio-text= shipping.name
+        %tr
+          %td
+            %span.in-grey-600= t('.days')
+          %td
+            %span.font-16.fw-300= shipping.decorate.shipping_period
+        %tr
+          %td
+            %span.in-grey-600= t('.price')
+          %td
+            %span.font-16.in-gold-500= shipping.decorate.price

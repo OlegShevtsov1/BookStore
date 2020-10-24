@@ -21,13 +21,14 @@
         .visible-xs.visible-sm
           %h3.general-subtitle= t('.shipping_address')
         = simple_fields_for :shipping_form, address.shipping_form do |f|
-          = render partial: 'addresses/form', locals: {f: f, address_type: 'shipping'}
+          .shipping-form
+            = render partial: 'addresses/form', locals: {f: f, address_type: 'shipping'}
         .form-group.checkbox
           %label.checkbox-label
-            %input.checkbox-input{type: "checkbox", hidden: "true",  name: 'use_billing', value: '1', }
+            %input.checkbox-input.use_billing{type: 'checkbox', hidden: 'true',  name: 'use_billing', value: '1' }
             %span.checkbox-icon
               %i.fa.fa-check
             %span.checkbox-text= t('.use_billing_address')
     .general-text-align.mb-60
-      = render 'checkouts/order_summary', current_order: service.current_order.decorate
+      = render 'checkouts/order_summary', service: service, current_order: service.current_order.decorate
       = form.submit t('.save_and_continue'), class: 'btn btn-default center-block mb-20'

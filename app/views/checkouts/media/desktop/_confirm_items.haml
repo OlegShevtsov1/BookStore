@@ -11,7 +11,7 @@
       %th
         %span.in-grey-600= t('.total')
   %tbody
-    - items.each do |item|
+    - items.includes([:book]).each do |item|
       %tr
         %td
           .general-img-wrap-table

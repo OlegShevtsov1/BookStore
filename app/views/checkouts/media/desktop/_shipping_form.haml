@@ -1,4 +1,4 @@
-= form_tag checkouts_path(step: 'shipping'), method: :put do
+= form_tag checkouts_path, method: :put do
   .hidden-xs.mb-res-50
     %table.table.table-hover
       %thead
@@ -23,6 +23,6 @@
             %td
               %span.font-16.in-gold-500= shipping.decorate.price
   .general-text-align
-    = render 'checkouts/order_summary', current_order: service.current_order.decorate
+    = render 'checkouts/order_summary', service: service, current_order: service.current_order.decorate
   .text-center
     = submit_tag t('.save_and_continue'), class: 'btn btn-default mb-20'

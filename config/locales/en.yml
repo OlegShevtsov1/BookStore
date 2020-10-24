@@ -214,7 +214,7 @@ en:
       order_total: 'Order Total:'
     shipping:
       checkout: 'Checkout'
-      credit_card: 'Credit Card'
+      shipping: 'Shipping'
     media:
       desktop:
         shipping_form:
@@ -227,6 +227,9 @@ en:
           price: 'Price'
           quantity: 'Quantity'
           total: 'Total'
+        confirm_address:
+          edit: 'Edit'
+          phone: 'Phone'
       mobile:
         shipping_form:
           method: 'Method'
@@ -248,6 +251,9 @@ en:
     confirm:
       checkout: 'Checkout'
       place_order: 'Place Order'
+      shipping_address: 'Shipping Address'
+      billing_address: 'Billing Address'
+
 
   controllers:
     added_in_cart: 'Added in cart'

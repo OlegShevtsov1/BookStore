@@ -15,13 +15,13 @@ module Checkout
     def save_addresses
       create_or_update(billing_form)
       create_or_update(shipping_form)
-      @current_order.delivery! if @current_order.may_delivery?
+      return_step
     end
 
     def save_addresses_use_billing
       create_or_update(billing_form)
       create_or_update(shipping_use_billing_form)
-      @current_order.delivery! if @current_order.may_delivery?
+      return_step
     end
 
     def shipping_use_billing_form
@@ -31,6 +31,10 @@ module Checkout
 
     def create_or_update(form)
       form ? form.update : form.create
+    end
+
+    def return_step
+      (@current_order.delivery! if @current_order.may_delivery?) || params[:step]
     end
   end
 end

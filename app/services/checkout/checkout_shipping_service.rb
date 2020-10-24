@@ -10,12 +10,18 @@ module Checkout
 
     def call
       current_order.update(shipping_id: params[:shipping_id])
-      current_order.payment! if current_order.may_payment?
+      return_step
     end
 
     def show
       @shippings = Shipping.all
       self
+    end
+
+    private
+
+    def return_step
+      (@current_order.payment! if @current_order.may_payment?) || params[:step]
     end
   end
 end

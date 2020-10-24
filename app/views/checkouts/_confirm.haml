@@ -3,31 +3,11 @@
   = render 'checkouts/steps', service: service
   .row.mb-20
     .col-sm-3
-      %h3.general-subtitle Shipping Address
-      %p.general-address
-        John Doe
-        %span.general-edit edit
-        %br
-        44 Fifth Ave v231
-        %br
-        New York NY 1001
-        %br
-        United States
-        %br
-        Phone +16507599755
+      %h3.general-subtitle= t('.shipping_address')
+      = render 'checkouts/media/desktop/confirm_address', address_form: service.current_service.addresses.shipping_form.decorate
     .col-sm-3
-      %h3.general-subtitle Billing Address
-      %p.general-address
-        John Doe
-        %span.general-edit edit
-        %br
-        44 Fifth Ave v231
-        %br
-        New York NY 1001
-        %br
-        United States
-        %br
-        Phone +16507599755
+      %h3.general-subtitle= t('.billing_address')
+      = render 'checkouts/media/desktop/confirm_address', address_form: service.current_service.addresses.billing_form.decorate
     .col-sm-3
       %h3.general-subtitle Shipments
       %p.general-address
@@ -43,7 +23,7 @@
         %br
         12/2018
   .visible-xs
-    = render 'checkouts/media/mobile/confirm_items'
+    = render 'checkouts/media/mobile/confirm_items', items: service.current_order.items.includes(%i[book])
   .hidden-xs.divider-lg.pt-20
     = render 'checkouts/media/desktop/confirm_items', items: service.current_order.items.includes(%i[book])
   .text-center.general-text-right

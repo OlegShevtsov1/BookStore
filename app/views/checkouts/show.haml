@@ -1,10 +1,10 @@
-- if @service.current_step == 'email_login'
+- if @service.step == 'email_login'
   = render 'checkouts/email_login'
-- if @service.current_step == 'address'
+- if @service.step == 'address'
   = render  'checkouts/address', service: @service, address: @service.current_service
-- if @service.current_step == 'delivery'
+- if @service.step == 'delivery'
   = render  'checkouts/shipping', service: @service
-- if @service.current_step == 'payment'
+- if @service.step == 'payment'
   = render  'checkouts/payment', service: @service, credit_card: @service.current_service.credit_card
-- if @service.current_step == 'confirm'
+- if @service.step == 'confirm'
   = render  'checkouts/confirm', service: @service

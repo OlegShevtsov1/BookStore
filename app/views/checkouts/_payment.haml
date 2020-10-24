@@ -2,7 +2,7 @@
   %h1.general-title-margin= t('.checkout')
   = render 'checkouts/steps', service: service
   %h3.general-subtitle= t('.credit_card')
-  = simple_form_for credit_card, as: 'credit_card', url: checkouts_path, method: :put, html: { class: 'max-600 mb-80' } do |f|
+  = simple_form_for credit_card, as: 'credit_card', url: checkouts_path, method: :put, html: { class: 'max-600 mb-80', id: 'credit_card_form' } do |f|
     .form-group
       = f.input :order_id, as: :hidden, input_html: { value: service.current_order.id }
       = f.input :number,
@@ -44,6 +44,6 @@
                               autocomplete: :on  }
             %i.fa.fa-question-circle.general-form-help
     .general-text-align
-      = render 'checkouts/order_summary', current_order: service.current_order.decorate
-    .text-center
-      = f.button :submit, t('.save_and_continue'), class: 'btn btn-default mb-80'
+      = render 'checkouts/order_summary', service: service, current_order: service.current_order.decorate
+  .text-center
+    = submit_tag t('.save_and_continue'), class: 'btn btn-default mb-80', form: 'credit_card_form'

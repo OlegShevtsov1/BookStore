@@ -21,7 +21,7 @@ module Settings
 
     def address_params(type)
       params.require(type).permit(:first_name, :last_name, :address, :city,
-                                  :country, :zip, :phone, :user_id, :address_type)
+                                  :country, :zip, :phone, :address_type).merge(user_id: current_user.id)
     end
   end
 end
