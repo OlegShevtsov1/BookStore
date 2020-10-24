@@ -1,0 +1,5 @@
+%p.general-address
+  = shipping.name
+  = link_to checkouts_path(step: 'delivery'), class: 'general-edit link-edit' do
+    = t('.edit')
+

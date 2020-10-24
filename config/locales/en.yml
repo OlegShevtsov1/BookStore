@@ -230,6 +230,8 @@ en:
         confirm_address:
           edit: 'Edit'
           phone: 'Phone'
+        confirm_shipping:
+          edit: 'Edit'
       mobile:
         shipping_form:
           method: 'Method'
@@ -253,6 +255,7 @@ en:
       place_order: 'Place Order'
       shipping_address: 'Shipping Address'
       billing_address: 'Billing Address'
+      shipments: 'Shipments'
 
 
   controllers:

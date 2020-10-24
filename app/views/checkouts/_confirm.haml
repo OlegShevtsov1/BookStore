@@ -4,17 +4,13 @@
   .row.mb-20
     .col-sm-3
       %h3.general-subtitle= t('.shipping_address')
-      = render 'checkouts/media/desktop/confirm_address', address_form: service.current_service.addresses.shipping_form.decorate
+      = render 'checkouts/media/desktop/confirm_address', address: service.current_service.addresses.shipping_form.decorate
     .col-sm-3
       %h3.general-subtitle= t('.billing_address')
-      = render 'checkouts/media/desktop/confirm_address', address_form: service.current_service.addresses.billing_form.decorate
+      = render 'checkouts/media/desktop/confirm_address', address: service.current_service.addresses.billing_form.decorate
     .col-sm-3
-      %h3.general-subtitle Shipments
-      %p.general-address
-        Delivery Next Day!
-        %span.general-edit edit
-        %br
-        By train
+      %h3.general-subtitle= t('.shipments')
+      = render 'checkouts/media/desktop/confirm_shipping', shipping: service.current_service.shipping
     .col-sm-3
       %h3.general-subtitle Payment Information
       %p.general-address

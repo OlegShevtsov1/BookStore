@@ -1,6 +1,6 @@
 module Checkout
   class CheckoutConfirmService
-    attr_reader :addresses
+    attr_reader :addresses, :shipping
 
     def initialize(params, current_user, current_order)
       @params = params
@@ -14,6 +14,7 @@ module Checkout
 
     def show
       @addresses = Settings::SettingsIndexService.new(@current_user)
+      @shipping = @current_order.shipping
       self
     end
   end
