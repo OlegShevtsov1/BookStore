@@ -32,3 +32,18 @@ a.btn_get_started, a.btn_get_started:hover {
   color: #8c8c8c
 }
 
+.cvv_hint_message {
+  display: none;
+  width: 300px;
+  background-color: #c59c71;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  position: absolute;
+  z-index: 100;
+}
+
+.cvv_hint:hover .cvv_hint_message {
+  display: block;
+}

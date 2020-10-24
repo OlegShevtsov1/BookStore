@@ -43,7 +43,9 @@
                 type: 'password',
                 input_html: { value: f.object.cvv,
                               autocomplete: :on  }
-            %i.fa.fa-question-circle.general-form-help
+            %span.cvv_hint
+              %i.fa.fa-question-circle.general-form-help
+              %span.cvv_hint_message= t('.cvv_hint_message')
     .general-text-align
       = render 'checkouts/order_summary', service: service, current_order: service.current_order.decorate
   .text-center
