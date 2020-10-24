@@ -232,6 +232,8 @@ en:
           phone: 'Phone'
         confirm_shipping:
           edit: 'Edit'
+        confirm_payment:
+          edit: 'Edit'
       mobile:
         shipping_form:
           method: 'Method'
@@ -256,7 +258,7 @@ en:
       shipping_address: 'Shipping Address'
       billing_address: 'Billing Address'
       shipments: 'Shipments'
-
+      payment_information: 'Payment Information'
 
   controllers:
     added_in_cart: 'Added in cart'

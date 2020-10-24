@@ -12,12 +12,8 @@
       %h3.general-subtitle= t('.shipments')
       = render 'checkouts/media/desktop/confirm_shipping', shipping: service.current_service.shipping
     .col-sm-3
-      %h3.general-subtitle Payment Information
-      %p.general-address
-        ** ** ** 8756
-        %span.general-edit edit
-        %br
-        12/2018
+      %h3.general-subtitle= t('.payment_information')
+      = render 'checkouts/media/desktop/confirm_payment', payment: service.current_service.payment
   .visible-xs
     = render 'checkouts/media/mobile/confirm_items', items: service.current_order.items.includes(%i[book])
   .hidden-xs.divider-lg.pt-20
