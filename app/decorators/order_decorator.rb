@@ -1,6 +1,8 @@
 class OrderDecorator < Draper::Decorator
   include ActiveSupport::NumberHelper
   FIRST_PRICE = 0.0
+  DATE_FORMAT = '%B %d, %Y'.freeze
+
   delegate_all
 
   def subtotal_price
@@ -25,6 +27,14 @@ class OrderDecorator < Draper::Decorator
 
   def subtotal_books_price(book)
     format('%<offset>.2f', offset: subtotal_items_book_price(book))
+  end
+
+  def created_at
+    object.created_at.strftime(DATE_FORMAT)
+  end
+
+  def code
+    "Order ##{object.code}"
   end
 
   private

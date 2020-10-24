@@ -260,7 +260,10 @@ en:
       billing_address: 'Billing Address'
       shipments: 'Shipments'
       payment_information: 'Payment Information'
-
+    complete:
+      thank_you_for_order: 'Thank You for your Order!'
+      send_massage_email_in_complete: 'An order confirmation has been has been sent to %{email}'
+      back_to_store: 'Back to Store'
   controllers:
     added_in_cart: 'Added in cart'
     deleted_from_cart: 'Successfully delete book from cart'

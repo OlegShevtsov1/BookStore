@@ -4,7 +4,8 @@ module Checkout
       address: Checkout::CheckoutAddressService,
       delivery: Checkout::CheckoutShippingService,
       payment: Checkout::CheckoutPaymentService,
-      confirm: Checkout::CheckoutConfirmService
+      confirm: Checkout::CheckoutConfirmService,
+      complete: Checkout::CheckoutCompleteService
     }.freeze
 
     attr_reader :params, :current_user, :current_order, :current_step, :step

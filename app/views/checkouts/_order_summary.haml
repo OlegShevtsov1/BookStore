@@ -1,5 +1,5 @@
 %p.in-gold-500.font-18= t('.order_summary')
-%table.general-summary-table{ class: service.current_order.status == 'confirm' ? 'general-summary-table-right general-text-right' : '' }
+%table.general-summary-table{ class: service.current_order.status == 'confirm' || service.current_order.status == 'complete' ? 'general-summary-table-right general-text-right' : '' }
   %tr
   %td
     %p.font-16=t('.subtotal')
