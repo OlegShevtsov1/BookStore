@@ -1,7 +1,6 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
     TOKEN_SIZE = 25
-    before_action only: :create
 
     def create
       return checkout_quick_register if quick_register?
@@ -15,7 +14,8 @@ module Users
       secret_password_token
       build_resource(sign_up_params)
       resource.skip_confirmation!
-      resource.save ? authenticate_user : redirect_to(user_session_path, notice: 'email exists')
+      resource.save
+      authenticate_user
     end
 
     def authenticate_user
@@ -31,15 +31,15 @@ module Users
     end
 
     def quick_register?
-      params[:quick_register] && !User.find_by(email: params[:user][:email])
+      params[:quick_register]
     end
 
     def email_error
-      redirect_to checkout_path, alert: email_form.errors[:email].to_sentence
+      redirect_to checkouts_path(step: :email_login), alert: @email_form.errors[:email].to_sentence
     end
 
     def email_form
-      EmailForm.new(user_params)
+      @email_form = EmailForm.new(user_params)
     end
 
     def user_params
