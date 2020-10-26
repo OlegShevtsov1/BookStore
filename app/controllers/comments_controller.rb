@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    authorize @comment
     if @comment.save
       redirect_to category_book_path(@book.category, @book), notice: I18n.t('books.comment.success')
     else

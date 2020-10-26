@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   DEFAULT_COUNT_ITEMS_IN_CART = 0
   before_action :categories, :count_items_in_cart
 
