@@ -16,6 +16,8 @@ en:
         by_now: 'Buy Now'
         previous: 'Previous'
         next: 'Next'
+      best_sellers:
+        best_sellers: 'Best Sellers'
   shared:
     header:
       title: 'BookStoreOs'
