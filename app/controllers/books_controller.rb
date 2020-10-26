@@ -3,15 +3,15 @@ class BooksController < ApplicationController
   BOOKS_COUNT_ROW = 4
   COUNT_PAGE_BOOKS = 12
   skip_before_action :verify_authenticity_token
+  before_action :books, only: [:index]
+  before_action :book, only: [:show]
 
   def index
-    @pagy, @books = pagy(Sort::SortBooksService.new(books, params['sort_by']).call, items: COUNT_PAGE_BOOKS)
-    authorize books
+    @pagy, @books = pagy(Sort::SortBooksService.new(@books, params['sort_by']).call, items: COUNT_PAGE_BOOKS)
   end
 
   def show
     @comment = Comment.new
-    authorize book
   end
 
   def calc_price
@@ -26,13 +26,13 @@ class BooksController < ApplicationController
   private
 
   def books
-    return @books ||= Book.includes(%i[category]).all unless params[:category_id]
+    return @books = Book.includes(%i[category]).all unless params[:category_id]
 
     @books ||= category.books
   end
 
   def book
-    @book ||= books.find(params[:id]).decorate
+    @book = books.find(params[:id]).decorate
   end
 
   def category
