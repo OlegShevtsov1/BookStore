@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :categories, :count_items_in_cart
 
   def categories
-    @categories = Category.all
+    @categories ||= Category.all
   end
 
   def current_order
