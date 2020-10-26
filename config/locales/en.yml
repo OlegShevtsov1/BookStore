@@ -27,6 +27,24 @@ en:
       log_out: 'Log Out'
       orders: 'Orders'
       settings: 'Settings'
+    media:
+      desktop:
+        menu:
+          my_account: 'My account'
+          sign_up: 'Sign Up'
+          log_in: 'Log In'
+          log_out: 'Log Out'
+          orders: 'Orders'
+          settings: 'Settings'
+      mobile:
+        menu:
+          my_account: 'My account'
+          sign_up: 'Sign Up'
+          log_in: 'Log In'
+          log_out: 'Log Out'
+          orders: 'Orders'
+          settings: 'Settings'
+
     footer:
       home: 'Home'
       shop: 'Shop'
