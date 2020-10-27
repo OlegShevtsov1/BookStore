@@ -290,6 +290,31 @@ en:
       thank_you_for_order: 'Thank You for your Order!'
       send_massage_email_in_complete: 'An order confirmation has been has been sent to %{email}'
       back_to_store: 'Back to Store'
+  orders:
+    index:
+      my_orders: 'My Orders'
+      sort_by: 'Sort By'
+    filter:
+      waiting_for_processing: 'Waiting for processing'
+      in_delivery: 'In delivery'
+      delivered: 'Delivered'
+      canceled: 'Canceled'
+    media:
+      desktop:
+        orders:
+          there_is_no_orders: 'There is no orders with this status'
+          number: 'Number'
+          completed_at: 'Completed at'
+          status: 'Status'
+          total: 'Total'
+      mobile:
+        orders:
+          there_is_no_orders: 'There is no orders with this status'
+          number: 'Number'
+          completed_at: 'Completed at'
+          status: 'Status'
+          total: 'Total'
+
   controllers:
     added_in_cart: 'Added in cart'
     deleted_from_cart: 'Successfully delete book from cart'

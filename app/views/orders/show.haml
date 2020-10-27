@@ -1,0 +1,10 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('.order_code', code: @chosen_order.code)
+  .row.mb-20
+    = render partial: 'address', locals: { address: @shipping_address, confirm_presenter: @confirm_presenter, label: t('.shipping_label'), address_type: 'shipping' }
+    = render partial: 'address', locals: { address: @billing_address, confirm_presenter: @confirm_presenter, label: t('.billing_label'), address_type: 'billing' }
+    = render partial: 'shipments', locals: { chosen_order: @chosen_order }
+    = render partial: 'payment_information', locals: { confirm_presenter: @confirm_presenter }
+  = render partial: 'orders/mobile/cart_items', locals: { cart_items_presenter: @cart_items_presenter, price_service: @price_service }
+  = render partial: 'cart_items', locals: { cart_items_presenter: @cart_items_presenter, price_service: @price_service }
+  = render partial: 'checkout/order_summary', locals: { price_service: @price_service, order_summary_class: 'text-center general-text-right', table_class: 'general-summary-table general-summary-table-right general-text-right' }

@@ -1,0 +1,26 @@
+- if orders.empty?
+  %h1
+    = t('.there_is_no_orders')
+- else
+  %table.table.table-hover
+    %thead
+      %tr
+        %th
+          %span.in-grey-600= t('.number')
+        %th
+          %span.in-grey-600= t('.completed_at')
+        %th
+          %span.in-grey-600= t('.status')
+        %th
+          %span.in-grey-600= t('.total')
+    %tbody
+      - orders.each do |order|
+        %tr
+          %td
+            %span.general-order-number= order.code
+          %td
+            %span.in-grey-900.font-16.fw-300= order.created_at.to_date
+          %td
+            %span.font-16.in-grey-900.fw-300= order.decorate.status
+          %td
+            %strong.font-16= order.decorate.order_total_price
