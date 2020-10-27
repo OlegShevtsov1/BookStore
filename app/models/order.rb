@@ -8,7 +8,13 @@ class Order < ApplicationRecord
   belongs_to :shipping, optional: true
   has_one :credit_card, dependent: :destroy
 
-  enum status: { in_cart: 0, address: 1, choosing_delivery: 2, payment: 3, confirmation: 4, completed: 5 }
+  enum status: { in_cart: 0, address: 1, choosing_delivery: 2, payment: 3, confirmation: 4, completed: 5, in_delivery: 6,
+                 delivered: 7, canceled: 8 }
+
+  scope :waiting_for_processing, -> { where(status: :completed) }
+  scope :in_delivery, -> { where(status: :in_delivery) }
+  scope :delivered, -> { where(status: :delivered) }
+  scope :canceled, -> { where(status: :canceled) }
 
   aasm :status, enum: true do
     state :in_cart, initial: true
@@ -36,6 +42,18 @@ class Order < ApplicationRecord
 
     event :complete do
       transitions from: :confirmation, to: :completed
+    end
+
+    event :in_delivery do
+      transitions from: :completed, to: :in_delivery
+    end
+
+    event :delivered do
+      transitions from: :in_delivery, to: :delivered
+    end
+
+    event :canceled do
+      transitions from: %i[complete in_delivery delivered], to: :canceled
     end
   end
 end

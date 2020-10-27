@@ -179,6 +179,14 @@ en:
     coupon:
       discount: 'Discount '
       code: 'Code '
+    orders:
+      order_updated: 'Order status updated!'
+      order_updating_fail: 'Something went wrong'
+      completed_at_column: 'Completed At'
+      in_delivery_status: 'Set status in delivery'
+      delivered_status: 'Set status delivered'
+      canceled_status: 'Set status canceled'
+
 
 
   carts:
