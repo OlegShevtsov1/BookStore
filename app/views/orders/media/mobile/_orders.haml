@@ -9,7 +9,8 @@
           %td.col-half
             %span.in-grey-600= t('.number')
           %td.col-half
-            %span.general-order-number= order.code
+            %span.general-order-number
+              = link_to order.code, order_path(order), class: 'order_link'
         %tr
           %td
             %span.in-grey-600= t('.completed_at')

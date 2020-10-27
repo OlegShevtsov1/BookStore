@@ -1,10 +1,21 @@
 %main.container.general-main-wrap
-  %h1.general-title-margin= t('.order_code', code: @chosen_order.code)
+  %h1.general-title-margin= @order.decorate.code
   .row.mb-20
-    = render partial: 'address', locals: { address: @shipping_address, confirm_presenter: @confirm_presenter, label: t('.shipping_label'), address_type: 'shipping' }
-    = render partial: 'address', locals: { address: @billing_address, confirm_presenter: @confirm_presenter, label: t('.billing_label'), address_type: 'billing' }
-    = render partial: 'shipments', locals: { chosen_order: @chosen_order }
-    = render partial: 'payment_information', locals: { confirm_presenter: @confirm_presenter }
-  = render partial: 'orders/mobile/cart_items', locals: { cart_items_presenter: @cart_items_presenter, price_service: @price_service }
-  = render partial: 'cart_items', locals: { cart_items_presenter: @cart_items_presenter, price_service: @price_service }
-  = render partial: 'checkout/order_summary', locals: { price_service: @price_service, order_summary_class: 'text-center general-text-right', table_class: 'general-summary-table general-summary-table-right general-text-right' }
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('.shipping_address')
+      = render 'orders/media/desktop/order_address', address: @addresses.shipping_form.decorate
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('.billing_address')
+      = render 'orders/media/desktop/order_address', address: @addresses.billing_form.decorate
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('.shipments')
+      = render 'orders/media/desktop/order_shipping', shipping: @order.shipping
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('.payment_information')
+      = render 'orders/media/desktop/order_payment', payment: @order.credit_card
+  .visible-xs
+    = render 'orders/media/mobile/order_items', items: @order.items.includes(%i[book])
+  .hidden-xs.divider-lg.pt-20
+    = render 'orders/media/desktop/order_items', items: @order.items.includes(%i[book])
+  .text-center.general-text-right
+    = render 'orders/order_summary', order: @order.decorate

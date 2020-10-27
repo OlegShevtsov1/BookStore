@@ -299,6 +299,20 @@ en:
       in_delivery: 'In delivery'
       delivered: 'Delivered'
       canceled: 'Canceled'
+    show:
+      order: 'Order'
+      shipping_address: 'Shipping Address'
+      billing_address: 'Billing Address'
+      shipments: 'Shipments'
+      payment_information: 'Payment Information'
+      order_summary: 'Order Summary'
+    order_summary:
+      order_summary: 'Order Summary'
+      subtotal: 'Subtotal'
+      coupon: 'Coupon'
+      shipping: 'Shipping'
+      order_total: 'Order Total'
+
     media:
       desktop:
         orders:
@@ -307,7 +321,21 @@ en:
           completed_at: 'Completed at'
           status: 'Status'
           total: 'Total'
+        order_address:
+          phone: 'Phone'
+        order_items:
+          book: 'Book'
+          price: 'Price'
+          quantity: 'Quantity'
+          total: 'Total'
+
+
       mobile:
+        order_items:
+          book: 'Book'
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
         orders:
           there_is_no_orders: 'There is no orders with this status'
           number: 'Number'

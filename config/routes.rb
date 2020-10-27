@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
   resource :coupons, only: [:update]
   resource :checkouts
-  resources :orders, only: [:index]
+  resources :orders, only: %i[index show]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   mount ImageUploader.derivation_endpoint => '/derivations/image'
 end

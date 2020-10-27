@@ -1,0 +1,23 @@
+- items.each do |item|
+  .general-cart-item.divider-lg
+    .general-img-wrap-table
+      = link_to category_book_path(item.book.category, item.book) do
+        = image_tag item.book.decorate.image_url(:small), alt: item.book.name, class: 'cart-img-shadow pull-left'
+    %p.title= item.book.name
+    %P.in-grey-600.fw-300= item.book.decorate.short_description
+    %table.table
+      %tr
+        %td
+          %span.in-grey-600= t('.price')
+        %td
+          %span.font-16.in-gold-500= item.book.decorate.price
+      %tr
+        %td.vertical-middle
+          %span.in-grey-600= t('.quantity')
+        %td
+          %span= item.quantity
+      %tr
+        %td
+          %span.in-grey-600= t('.subtotal')
+        %td
+          %span.font-16.in-gold-500= item.order.decorate.subtotal_books_price(item.book)
