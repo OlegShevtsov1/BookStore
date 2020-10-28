@@ -5,7 +5,8 @@ Rails.application.routes.draw do
                                    sign_out: 'logout',
                                    password: 'secret',
                                    sign_up: 'registration' },
-                     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+                     controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
+                                    sessions: 'users/sessions' }
 
   root 'homes#index'
   resources :homes, only: [:index]
@@ -20,6 +21,11 @@ Rails.application.routes.draw do
   resources :addresses, only: %i[create update]
   resources :emails, only: [:update]
   resources :accounts, only: %i[update destroy]
+  resources :items, only: %i[create destroy]
+  resources :carts, only: [:index] do
+    put :calc_order, on: :collection
+  end
+  resource :coupons, only: [:update]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   mount ImageUploader.derivation_endpoint => '/derivations/image'
 end

@@ -18,6 +18,7 @@ en:
         next: 'Next'
   shared:
     header:
+      title: 'BookStoreOs'
       my_account: 'My account'
       sign_up: 'Sign Up'
       log_in: 'Log In'
@@ -45,7 +46,6 @@ en:
       view more: 'View More'
     show:
       description: 'Description'
-      add_to_cart: 'Add to Cart'
       read_more: 'Read More'
       year_of_publication: 'Year of publication'
       dimensions: 'Dimensions'
@@ -54,6 +54,8 @@ en:
         write_review: 'Write a Review'
         reviews: 'Reviews (%{count})'
         verified_reviewer: 'Verified Reviewer'
+    form_book:
+      add_to_cart: 'Add to Cart'
     comment:
       form:
         score: 'Score'
@@ -148,5 +150,41 @@ en:
       approve: 'Approve'
       reject: 'Reject'
       destroy: 'Destroy'
+    coupon:
+      discount: 'Discount '
+      code: 'Code '
 
 
+  carts:
+    index:
+      name_cart: 'Cart'
+      empty_cart: 'Your cart is empty'
+      back_to_store: 'Back to store'
+      checkout: 'Checkout'
+    order_total:
+      order_summary: 'Order Summary'
+      subtotal: 'Subtotal:'
+      coupon: 'Coupon:'
+      order_total: 'Order Total:'
+    coupon_form:
+      enter_coupon: 'Enter Your Coupon Code '
+      apply_coupon: 'Apply Coupon '
+    media:
+     desktop:
+        item_form:
+          product: 'Product'
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
+     mobile:
+        item_form:
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
+
+  controllers:
+    added_in_cart: 'Added in cart'
+    deleted_from_cart: 'Successfuly delete book from cart'
+    wrong_coupon: 'Wrong coupon'
+    used_coupon: 'Coupon already used'
+    applied_coupon: 'Coupon was applied succesfully'

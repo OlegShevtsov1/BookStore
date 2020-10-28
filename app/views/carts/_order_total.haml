@@ -1,0 +1,18 @@
+.res-mr-200.text-center.general-text-right
+  %p.in-gold-500.font-18= t('.order_summary')
+  %table.general-summary-table.general-summary-table-right.general-text-right
+    %tr
+      %td
+        %p.font-16= t('.subtotal')
+      %td
+        %p.font-16{id: "subtotal_price"}= @current_order.decorate.subtotal_price
+    %tr
+      %td
+        %p.font-16= t('.coupon')
+      %td
+        %p.font-16= @current_order.decorate.coupon_price
+    %tr
+      %td
+        %strong.font-18= t('.order_total')
+      %td
+        %strong.font-18{id: "order_total_price"}= @current_order.decorate.order_total_price

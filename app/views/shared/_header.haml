@@ -6,13 +6,13 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand=t('title')
-      %a.shop-link.pull-right.visible-xs{href: "#"}
+      %a.navbar-brand=t('.title')
+      = link_to carts_path, class: 'shop-link pull-right visible-xs' do
         %span.shop-icon
-          %span.shop-quantity 3
-    %a.shop-link.pull-right.hidden-xs{href: "#"}
+          %span.shop-quantity= count_items_in_cart
+    = link_to carts_path, class: 'shop-link pull-right hidden-xs' do
       %span.shop-icon
-        %span.shop-quantity 3
+        %span.shop-quantity= count_items_in_cart
     #navbar.navbar-collapse.collapse.pl-30{'aria-expanded': "false"}
       = render 'shared/media/mobile/menu', categories: categories
       = render 'shared/media/desktop/menu', categories: categories

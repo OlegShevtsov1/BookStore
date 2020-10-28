@@ -1,0 +1,59 @@
+<script>
+    document.getElementById("book_plus_id_<%= book.id%>").addEventListener("click", function (e) {
+        if (e.target) {
+            var url = '<%= calc_order_carts_path(change: 'plus', book_id: book.id) %>';
+            url = url + '&'
+                + 'amount= '
+                + document.getElementById("book_amount_id_<%= book.id%>").value;
+            requestJSON_id_<%= book.id%>(url);
+        }
+    });
+
+    document.getElementById("book_minus_id_<%= book.id%>").addEventListener("click", function (e) {
+        if (e.target) {
+            var url = '<%= calc_order_carts_path(change: 'minus', book_id: book.id) %>';
+            url = url + '&'
+                + 'amount= '
+                + document.getElementById("book_amount_id_<%= book.id%>").value;
+            requestJSON_id_<%= book.id%>(url);
+        }
+    });
+
+    function requestJSON_id_<%= book.id%>(url) {
+        const getMethod = {
+            method: 'PUT',
+            headers: {'Content-type': 'application/json; charset=utf-8'},
+        };
+        fetch(url, getMethod)
+            .then(response => response.json())
+            .then(data => change_id_<%= book.id%>(data))
+            .catch(err => console.log(err))
+    }
+
+    function change_id_<%= book.id%>(data) {
+        change_price_id_<%= book.id%>(data.price);
+        change_amount_id_<%= book.id%>(data.amount);
+        subtotal_price_id_<%= book.id%>(data.subtotal_price);
+        order_total_price_id_<%= book.id%>(data.order_total_price);
+    }
+
+    function change_price_id_<%= book.id%>(price) {
+        let book_price = document.getElementById("book_price_id_<%= book.id%>");
+        book_price.innerHTML = price
+    }
+
+    function change_amount_id_<%= book.id%>(amount) {
+        let book_amount = document.getElementById("book_amount_id_<%= book.id%>");
+        book_amount.value = amount
+    }
+
+    function subtotal_price_id_<%= book.id%>(subtotal_price) {
+        let book_price = document.getElementById("subtotal_price");
+        book_price.innerHTML = subtotal_price
+    }
+
+    function order_total_price_id_<%= book.id%>(order_total_price) {
+        let book_price = document.getElementById("order_total_price");
+        book_price.innerHTML = order_total_price
+    }
+</script>

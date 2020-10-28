@@ -1,0 +1,13 @@
+= form_tag items_path, method: :post do
+  - if user_signed_in?
+    = hidden_field_tag 'current_user', current_user.id
+  = hidden_field_tag 'current_item', book.id
+  .col-xs-5.col-md-3
+    .input-group.general-position
+      #book_minus.input-link
+        %i.fa.fa-minus.line-height-40
+      = text_field_tag :quantity, "", class: 'form-control quantity-input', id: "book_amount", value: ItemForm::DEFAULT_COUNT_ITEM, readonly: :readonly, autofocus: true
+      #book_plus.input-link
+        %i.fa.fa-plus.line-height-40
+  .col-xs-7.col-md-5
+    = submit_tag t('.add_to_cart'), class: 'btn btn-default pull-right general-position'

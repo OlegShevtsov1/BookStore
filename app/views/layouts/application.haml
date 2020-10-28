@@ -12,7 +12,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   %body
-    = render partial: 'shared/header', locals: { categories: @categories }
+    = render partial: 'shared/header', locals: { categories: @categories, count_items_in_cart: @count_items_in_cart }
     = render partial: 'shared/flash'
     = yield
     = render partial: 'shared/footer'

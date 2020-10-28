@@ -1,0 +1,22 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('.name_cart')
+  - if @current_order
+    = render 'carts/media/mobile/item_form', books: @books, current_order: @current_order
+    = render 'carts/media/desktop/item_form', books: @books, current_order: @current_order
+    .general-order-wrap
+      .row
+        .col-sm-4
+          = render 'carts/coupon_form'
+        .col-sm-8
+          = render 'carts/order_total', current_order: @current_order
+    %button.btn.btn-default.mb-20.visible-xs-inline-block= t('.checkout')
+    %button.btn.btn-default.mb-20.hidden-xs.center-block= t('.checkout')
+  - else
+    %div.mb-30
+    %h2.text-center
+      = t('.empty_cart')
+    %br
+    = button_to t('.back_to_store'), root_path, method: :get, class: 'btn btn-default mb-20 visible-xs center-block'
+    = button_to t('.back_to_store'), root_path, method: :get, class: 'btn btn-default mb-20 hidden-xs center-block'
+
+
