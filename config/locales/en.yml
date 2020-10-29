@@ -181,6 +181,18 @@ en:
           price: 'Price'
           quantity: 'Quantity'
           subtotal: 'SubTotal'
+  checkouts:
+    email_login:
+      returning_customer: 'Returning Customer'
+      or: 'or'
+      log_in_with_password: 'Log In with Password'
+      forgot_password: ' Forgot password?'
+      new_customer: 'New Customer'
+      quick_register: 'Quick Register'
+      password_later: 'You’ll be able to create password later'
+      continue_to_checkout: 'Continue to Checkout'
+      enter_email: 'Enter email'
+      password: 'Password'
 
   controllers:
     added_in_cart: 'Added in cart'
