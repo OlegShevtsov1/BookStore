@@ -1,5 +1,6 @@
 class CouponsController < ApplicationController
   def update
+    authorize coupon
     return redirect_to carts_path, alert: I18n.t('controllers.wrong_coupon') unless coupon
     return redirect_to carts_path, alert: I18n.t('controllers.used_coupon') if coupon_used?
 
