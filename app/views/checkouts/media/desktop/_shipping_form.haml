@@ -16,7 +16,7 @@
             %td
               .form-group.radio.mt-0.mb-0
                 %label.radio-label
-                  = radio_button_tag :shipping_id, shipping.id, shipping.decorate.shipping_method(service.current_order), class: 'radio-input', hidden: true
+                  = radio_button_tag :shipping_id, shipping.id, shipping.decorate.shipping_method?(service.current_order), class: 'radio-input', hidden: true
                   %span.radio-icon
                   %span.radio-text= shipping.name
             %td

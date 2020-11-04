@@ -9,7 +9,7 @@ class ShippingDecorator < Draper::Decorator
     "#{I18n.t('EUR')} #{format('%<offset>.2f', offset: object.price)}"
   end
 
-  def shipping_method(current_order)
+  def shipping_method?(current_order)
     shipping_exist?(current_order) || default_shipping
   end
 
