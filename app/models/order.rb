@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   belongs_to :shipping, optional: true
   has_one :credit_card, dependent: :destroy
 
-  enum status: { in_cart: 0, address: 1, delivery: 2, payment: 3, confirm: 4, complete: 5 }
+  enum status: { in_cart: 0, address: 1, choose_delivery: 2, pay: 3, confirmation: 4, completed: 5 }
 
   aasm :status, enum: true do
     state :in_cart, initial: true
@@ -23,19 +23,19 @@ class Order < ApplicationRecord
     end
 
     event :delivery do
-      transitions from: :address, to: :delivery
+      transitions from: :address, to: :choose_delivery
     end
 
-    event :payment do
-      transitions from: :delivery, to: :payment
+    event :pay do
+      transitions from: :choose_delivery, to: :pay
     end
 
-    event :confirm do
-      transitions from: :payment, to: :confirm
+    event :confirmation do
+      transitions from: :pay, to: :confirmation
     end
 
-    event :complete do
-      transitions from: :confirm, to: :complete
+    event :completed do
+      transitions from: :confirmation, to: :completed
     end
   end
 end

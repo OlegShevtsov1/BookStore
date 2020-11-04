@@ -3,7 +3,7 @@
   = render 'checkouts/steps', service: service
   %h3.general-subtitle= t('.credit_card')
   = simple_form_for credit_card, as: 'credit_card', url: checkouts_path, method: :put, html: { class: 'max-600 mb-80', id: 'credit_card_form' } do |f|
-    = hidden_field_tag :step, 'payment'
+    = hidden_field_tag :step, 'pay'
     .form-group
       = f.input :order_id, as: :hidden, input_html: { value: service.current_order.id }
       = f.input :number,

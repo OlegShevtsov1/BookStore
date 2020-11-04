@@ -21,4 +21,4 @@
   .text-center.general-text-right
     = render 'checkouts/order_summary', current_order: service.current_order.decorate, service: service
   .text-center
-    = button_to t('.place_order'), checkouts_path(step: 'complete'), method: :put, class: 'btn btn-default mb-20'
+    = button_to t('.place_order'), checkouts_path(step: 'completed'), method: :put, class: 'btn btn-default mb-20'

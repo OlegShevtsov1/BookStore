@@ -215,6 +215,12 @@ en:
     shipping:
       checkout: 'Checkout'
       shipping: 'Shipping'
+    steps:
+      address: 'Address'
+      choose_delivery: 'Delivery'
+      pay: 'Payment'
+      confirmation: 'Confirm'
+      completed: 'Complete'
     media:
       desktop:
         shipping_form:
