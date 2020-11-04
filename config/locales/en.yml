@@ -270,3 +270,6 @@ en:
     wrong_coupon: 'Wrong coupon'
     used_coupon: 'Coupon already used'
     applied_coupon: 'Coupon was applied successfully'
+  order_mailer:
+    thanks_message: 'Thank you for your order. We will wait for your visiting again!'
+

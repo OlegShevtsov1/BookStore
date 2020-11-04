@@ -14,6 +14,7 @@ module Checkout
     end
 
     def call
+      OrderMailer.with(current_order: @current_order).send_thanks_email.deliver_later
       @current_order.complete!
     end
 
