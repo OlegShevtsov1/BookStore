@@ -1,12 +1,14 @@
-- if @service.step == 'email_login'
+- case @service.step
+- when   'email_login'
   = render 'checkouts/email_login'
-- if @service.step == 'address'
+- when   'address'
   = render  'checkouts/address', service: @service, address: @service.current_service
-- if @service.step == 'delivery'
+- when   'delivery'
   = render  'checkouts/shipping', service: @service
-- if @service.step == 'payment'
+- when   'payment'
   = render  'checkouts/payment', service: @service, credit_card: @service.current_service.credit_card
-- if @service.step == 'confirm'
+- when   'confirm'
   = render  'checkouts/confirm', service: @service
-- if @service.step == 'complete'
+- when   'complete'
   = render  'checkouts/complete', service: @service
+

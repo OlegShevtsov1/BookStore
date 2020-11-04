@@ -1,5 +1,4 @@
 class ShippingDecorator < Draper::Decorator
-  DEFAULT_SHIPPING = 1
   delegate_all
 
   def shipping_period
@@ -21,6 +20,6 @@ class ShippingDecorator < Draper::Decorator
   end
 
   def default_shipping
-    object.id == DEFAULT_SHIPPING
+    object.id == Shipping.first.id
   end
 end

@@ -32,7 +32,7 @@ class BooksController < ApplicationController
   end
 
   def book
-    @book = books.find(params[:id])
+    @book ||= books.find(params[:id])
   end
 
   def category
