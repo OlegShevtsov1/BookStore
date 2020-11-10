@@ -13,10 +13,10 @@ class Order < ApplicationRecord
   aasm :status, enum: true do
     state :in_cart, initial: true
     state :address
-    state :delivery
-    state :payment
-    state :confirm
-    state :complete
+    state :choose_delivery
+    state :pay
+    state :confirmation
+    state :completed
 
     event :address do
       transitions from: :in_cart, to: :address

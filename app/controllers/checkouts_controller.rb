@@ -1,6 +1,7 @@
 class CheckoutsController < ApplicationController
   def show
     @service = Checkout::CheckoutShowService.new(params, current_user, current_order)
+    authorize @service
   end
 
   def update
