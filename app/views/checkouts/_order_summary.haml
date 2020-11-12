@@ -1,0 +1,26 @@
+%p.in-gold-500.font-18= t('.order_summary')
+%table.general-summary-table{ class: service.current_order.status == 'confirm' || service.current_order.status == 'complete' ? 'general-summary-table-right general-text-right' : '' }
+  %tr
+  %td
+    %p.font-16=t('.subtotal')
+  %td
+    %p.font-16
+      = current_order.subtotal_price
+  %tr
+    %td
+      %p.font-16=t('.coupon')
+    %td
+      %p.font-16
+        = current_order.coupon_price
+  %tr
+    %td
+      %p.font-16=t('.shipping')
+    %td
+      %p.font-16
+        = current_order.shipping_price
+  %tr
+    %td
+      %strong.font-18=t('.order_total')
+    %td
+      %strong.font-18
+        = current_order.order_total_price

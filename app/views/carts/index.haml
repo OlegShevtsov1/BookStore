@@ -10,8 +10,8 @@
         .col-sm-8
           = render 'carts/order_total', current_order: @current_order
     - if user_signed_in?
-      = button_to t('.checkout'), checkouts_path, method: :get, params: {step: :address}, class: 'btn btn-default mb-20 visible-xs center-block'
-      = button_to t('.checkout'), checkouts_path, method: :get, params: {step: :address}, class: 'btn btn-default mb-20 hidden-xs center-block'
+      = button_to t('.checkout'), checkouts_path, method: :get, class: 'btn btn-default mb-20 visible-xs center-block'
+      = button_to t('.checkout'), checkouts_path, method: :get, class: 'btn btn-default mb-20 hidden-xs center-block'
     - else
       = button_to t('.checkout'), checkouts_path, method: :get, params: {step: :email_login}, class: 'btn btn-default mb-20 visible-xs center-block'
       = button_to t('.checkout'), checkouts_path, method: :get, params: {step: :email_login}, class: 'btn btn-default mb-20 hidden-xs center-block'

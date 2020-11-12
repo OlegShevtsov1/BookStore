@@ -1,105 +1,34 @@
 %main.container
-  %h1.general-title-margin Checkout
-  %ul.steps.list-inline
-    %li.step.active
-      %span.step-number 1
-      %span.step-text.hidden-xs Address
-    %li.step-divider
-    %li.step
-      %span.step-number 2
-      %span.step-text.hidden-xs Delivery
-    %li.step-divider
-    %li.step
-      %span.step-number 3
-      %span.step-text.hidden-xs Payment
-    %li.step-divider
-    %li.step
-      %span.step-number 4
-      %span.step-text.hidden-xs Confirm
-    %li.step-divider
-    %li.step
-      %span.step-number 5
-      %span.step-text.hidden-xs Complete
-  %form.res-mb-100
+  %h1.general-title-margin= t('.checkout')
+  = render 'checkouts/steps', service: service
+  = simple_form_for address.billing_form, url: checkouts_path, method: :put, class: 'res-mb-100' do |form|
+    = hidden_field_tag :step, 'address'
     .hidden-xs.hidden-sm
       .row
         .col-md-5
-          %h3.general-subtitle Billing Address
-          %p.general-info-text all fields are required
+          %h3.general-subtitle= t('.billing_address')
+          %p.general-info-text=t('.fields_required')
         .col-md-5.col-md-offset-1
-          %h3.general-subtitle Shipping Address
+          %h3.general-subtitle= t('.shipping_address')
     .row
       .col-md-5.mb-40
         .visible-xs.visible-sm
-          %h3.general-subtitle Billing Address
-          %p.general-info-text all fields are required
-        .form-group.has-error
-          %label.control-label.input-label{for: "firstName"} First Name
-          %input#firstName.form-control{name:"fname", type: "text", placeholder: "First Name"}
-          %span.help-block Please enter your first name
-        .form-group
-          %label.control-label.input-label{for: "lastName"} Last Name
-          %input#lastName.form-control{name:"lname", type: "text", placeholder: "Last Name"}
-        .form-group
-          %label.control-label.input-label{for: "address"} Address
-          %input#address.form-control{name: "address", type: "text", placeholder: "Address"}
-        .form-group
-          %label.control-label.input-label{for: "city"} City
-          %input#city.form-control{name: "city", type: "text", placeholder: "City"}
-        .form-group
-          %label.control-label.input-label{for: "zip"} Zip
-          %input#zip.form-control{name: "zip", type: "text", placeholder: "Zip"}
-        .form-group
-          %label.control-label.input-label{for: "сountry"} Country
-          %input#country.form-control{name: "country", type: "text", placeholder: "Select a country"}
-        .form-group
-          %label.control-label.input-label{for: "phone"} Phone
-          %input#phone.form-control{name: "phone", type: "tel", placeholder: "Example +355 66 123 4567"}
+          %h3.general-subtitle= t('.billing_address')
+          %p.general-info-text=t('.fields_required')
+        = simple_fields_for :billing_form, address.billing_form do |f|
+          = render partial: 'addresses/form', locals: {f: f, address_type: 'billing'}
       .col-md-5.col-md-offset-1.mb-60
         .visible-xs.visible-sm
-          %h3.general-subtitle Shipping Address
-        .form-group.has-error
-          %label.control-label.input-label{for: "firstName"} First Name
-          %input#firstName.form-control{name:"fname", type: "text", placeholder: "First Name"}
-          %span.help-block Please enter your first name
-        .form-group
-          %label.control-label.input-label{for: "lastName"} Last Name
-          %input#lastName.form-control{name:"lname", type: "text", placeholder: "Last Name"}
-        .form-group
-          %label.control-label.input-label{for: "address"} Address
-          %input#address.form-control{name: "address", type: "text", placeholder: "Address"}
-        .form-group
-          %label.control-label.input-label{for: "city"} City
-          %input#city.form-control{name: "city", type: "text", placeholder: "City"}
-        .form-group
-          %label.control-label.input-label{for: "zip"} Zip
-          %input#zip.form-control{name: "zip", type: "text", placeholder: "Zip"}
-        .form-group
-          %label.control-label.input-label{for: "сountry"} Country
-          %select#country.form-control{name: "country", placeholder: "Select a country"}
-            %option London
-            %option London
-            %option London
-        .form-group
-          %label.control-label.input-label{for: "phone"} Phone
-          %input#phone.form-control{name: "phone", type: "tel", placeholder: "Example +355 66 123 4567"}
+          %h3.general-subtitle= t('.shipping_address')
+        = simple_fields_for :shipping_form, address.shipping_form do |f|
+          .shipping-form
+            = render partial: 'addresses/form', locals: {f: f, address_type: 'shipping'}
         .form-group.checkbox
           %label.checkbox-label
-            %input.checkbox-input{type: "checkbox", hidden: "true"}
+            %input.checkbox-input.use_billing{type: 'checkbox', hidden: 'true',  name: 'use_billing', value: '1' }
             %span.checkbox-icon
               %i.fa.fa-check
-            %span.checkbox-text Use Billing Adress
+            %span.checkbox-text= t('.use_billing_address')
     .general-text-align.mb-60
-      %p.in-gold-500.font-18 Order Summary
-      %table.general-summary-table
-        %tr
-          %td
-            %p.font-16 Item Total:
-          %td
-            %p.font-16 €117.69
-        %tr
-          %td
-            %p.font-16 Order Total:
-          %td
-            %p.font-16 €117.69
-      %button.btn.disabled.center-block.mb-20 Save and Continue
+      = render 'checkouts/order_summary', service: service, current_order: service.current_order.decorate
+      = form.submit t('.save_and_continue'), class: 'btn btn-default center-block mb-20'

@@ -1,0 +1,28 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        %span.in-grey-600= t('.book')
+      %th.col-method
+      %th
+        %span.in-grey-600= t('.price')
+      %th
+        %span.in-grey-600= t('.quantity')
+      %th
+        %span.in-grey-600= t('.total')
+  %tbody
+    - items.includes([:book]).each do |item|
+      %tr
+        %td
+          .general-img-wrap-table
+            = link_to category_book_path(item.book.category, item.book) do
+              = image_tag item.book.decorate.image_url(:small), alt: item.book.name, class: 'cart-img-shadow pull-left'
+        %td
+          %p.title= item.book.name
+          %p.in-grey-600.fw-300= item.book.decorate.short_description
+        %td
+          %span.font-16.in-gold-500= item.book.decorate.price
+        %td
+          %span.ml-30= item.quantity
+        %td
+          %span.font-16.in-gold-500= item.order.decorate.subtotal_books_price(item.book)

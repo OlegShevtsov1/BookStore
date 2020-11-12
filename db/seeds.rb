@@ -164,3 +164,8 @@ if Coupon.count.zero?
   Coupon.create!(discount: 10, code: 'IUWTTQTQCSXM')
   Coupon.create!(discount: 15, code: 'PSHDFETTVXZA')
 end
+
+if Shipping.count.zero?
+  Shipping.create!(name: 'Delivery Next Day!', from_days: 1, to_days: 2, price: 28.5)
+  Shipping.create!(name: 'Delivery Next Week!', from_days: 5, to_days: 7, price: 24.5)
+end

@@ -1,0 +1,29 @@
+= form_tag checkouts_path, method: :put do
+  = hidden_field_tag :step, 'choosing_delivery'
+  .hidden-xs.mb-res-50
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.col-method
+            %span.in-grey-600.ml-40= t('.method')
+          %th
+            %span.in-grey-600= t('.days')
+          %th
+            %span.in-grey-600= t('.price')
+      %tbody
+        - service.shippings.each do |shipping|
+          %tr
+            %td
+              .form-group.radio.mt-0.mb-0
+                %label.radio-label
+                  = radio_button_tag :shipping_id, shipping.id, shipping.decorate.shipping_method?(service.current_order), class: 'radio-input', hidden: true
+                  %span.radio-icon
+                  %span.radio-text= shipping.name
+            %td
+              %span= shipping.decorate.shipping_period
+            %td
+              %span.font-16.in-gold-500= shipping.decorate.price
+  .general-text-align
+    = render 'checkouts/order_summary', service: service, current_order: service.current_order.decorate
+  .text-center
+    = submit_tag t('.save_and_continue'), class: 'btn btn-default mb-20'

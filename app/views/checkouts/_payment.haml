@@ -1,0 +1,52 @@
+%main.container.mb-res-50
+  %h1.general-title-margin= t('.checkout')
+  = render 'checkouts/steps', service: service
+  %h3.general-subtitle= t('.credit_card')
+  = simple_form_for credit_card, as: 'credit_card', url: checkouts_path, method: :put, html: { class: 'max-600 mb-80', id: 'credit_card_form' } do |f|
+    = hidden_field_tag :step, 'payment'
+    .form-group
+      = f.input :order_id, as: :hidden, input_html: { value: service.current_order.id }
+      = f.input :number,
+          required: false,
+          autofocus: true,
+          label: t('.card_number'),
+          placeholder: t('.card_number'),
+          input_html: { value: f.object.number,
+                        autocomplete: :on }
+      .row
+        .col-sm-6
+          .form-group
+            = f.input :name,
+                required: false,
+                autofocus: true,
+                label: t('.name_on_card'),
+                placeholder: t('.name_on_card'),
+                input_html: { value: f.object.name,
+                              autocomplete: :on }
+        .col-sm-3
+          .form-group
+            = f.input :date,
+                required: false,
+                autofocus: true,
+                label: t('.mm_yy'),
+                placeholder: t('.mm_yy'),
+                input_html: { value: f.object.date,
+                              autocomplete: :on }
+        .col-sm-3
+          .form-group.relative
+            = f.input :cvv,
+                required: false,
+                autofocus: true,
+                as: :password,
+                label: t('.cvv'),
+                placeholder: t('.cvv'),
+                type: 'password',
+                input_html: { value: f.object.cvv,
+                              autocomplete: :on  }
+            %span.cvv_hint
+              %i.fa.fa-question-circle.general-form-help
+              %span.cvv_hint_message= t('.cvv_hint_message')
+    .general-text-align
+      = render 'checkouts/order_summary', service: service, current_order: service.current_order.decorate
+  .text-center
+    = submit_tag t('.save_and_continue'), class: 'btn btn-default mb-80', form: 'credit_card_form'

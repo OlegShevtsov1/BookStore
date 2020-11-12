@@ -1,0 +1,12 @@
+%p.general-address
+  = address.name
+  = link_to checkouts_path(step: 'address'), class: 'general-edit link-edit' do
+    = t('.edit')
+  %br
+  = address.address
+  %br
+  = address.city
+  %br
+  = address.country
+  %br
+  = "#{t('.phone')} #{address.phone}"

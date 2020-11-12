@@ -1,7 +1,7 @@
 .col-sm-6
   .product-gallery
     .mb-20
-    = image_tag book.decorate.image_url(:large), alt: book.name, class: 'img-responsive'
+    = image_tag book.image_url(:large), alt: book.name, class: 'img-responsive'
     .images.clearfix
     - book.book_images.each do |book_image|
       = link_to '#', class: 'img-link' do
@@ -14,7 +14,7 @@
       %p.h1.in-gold-500.mt-10.inline
         #{t('EUR')}
       %p.h1.in-gold-500.mt-10.inline{id:'book_price'}
-        #{book.price}
+        #{book.price_without_currency}
     = render 'books/form_book', book: book
   .general-info-wrap.divider-lg
     %p= t('.description')

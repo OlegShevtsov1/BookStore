@@ -3,20 +3,25 @@ module Settings
     BILLING = 'billing'.freeze
     SHIPPING = 'shipping'.freeze
 
-    attr_reader :current_user, :billing_form, :shipping_form
+    attr_reader :params, :current_user, :billing_form, :shipping_form, :address_form
 
-    def initialize(current_user)
+    delegate :create, to: :address_form
+    delegate :update, to: :address_form
+
+    def initialize(params, current_user, current_order)
+      @params = params
       @current_user = current_user
-      @billing_form = address(BILLING)
-      @shipping_form = address(SHIPPING)
+      @current_order = current_order
+      @billing_form = AddressForm.new(address_params(:billing_form)) if params[:billing_form]
+      @shipping_form = AddressForm.new(address_params(:shipping_form)) if params[:shipping_form]
+      @address_form = params[:billing_form] ? @billing_form : @shipping_form
     end
 
-    def address_type(address_form, address_params)
-      address_params[:address_type] == BILLING ? @billing_form = address_form : @shipping_form = address_form
-    end
+    private
 
-    def address(type)
-      Address.find_by(address_type: type, user_id: current_user.id) || Address.new
+    def address_params(type)
+      params.require(type).permit(:first_name, :last_name, :address, :city,
+                                  :country, :zip, :phone, :address_type).merge(user_id: current_user.id)
     end
   end
 end

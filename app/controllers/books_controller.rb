@@ -8,6 +8,7 @@ class BooksController < ApplicationController
 
   def index
     @pagy, @books = pagy(Sort::SortBooksService.new(@books, params['sort_by']).call, items: COUNT_PAGE_BOOKS)
+    policy_scope @books
   end
 
   def show
@@ -32,7 +33,7 @@ class BooksController < ApplicationController
   end
 
   def book
-    @book = books.find(params[:id]).decorate
+    @book ||= books.find(params[:id])
   end
 
   def category
