@@ -9,7 +9,7 @@ module Checkout
     end
 
     def call
-      @current_order.completed! if @current_order.may_completed?
+      @current_order.completed! if @current_order.may_complete?
     end
 
     def show

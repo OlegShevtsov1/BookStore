@@ -3,9 +3,9 @@
   = render 'checkouts/email_login'
 - when   'address'
   = render  'checkouts/address', service: @service, address: @service.current_service
-- when   'choose_delivery'
+- when   'choosing_delivery'
   = render  'checkouts/shipping', service: @service
-- when   'pay'
+- when   'payment'
   = render  'checkouts/payment', service: @service, credit_card: @service.current_service.credit_card
 - when   'confirmation'
   = render  'checkouts/confirm', service: @service

@@ -21,7 +21,7 @@ module Checkout
     private
 
     def return_step
-      (@current_order.pay! if @current_order.may_pay?) || params[:step]
+      (@current_order.payment! if @current_order.may_pay?) || params[:step]
     end
   end
 end

@@ -10,6 +10,10 @@ class BookDecorator < Draper::Decorator
     number_to_currency(object.price, unit: I18n.t('EUR'))
   end
 
+  def price_without_currency
+    object.price
+  end
+
   def authors
     object.authors.decorate.map(&:name).join COMA
   end

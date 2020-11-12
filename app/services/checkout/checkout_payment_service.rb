@@ -32,7 +32,7 @@ module Checkout
     end
 
     def return_step
-      (@current_order.confirmation! if @current_order.may_confirmation?) || params[:step]
+      (@current_order.confirmation! if @current_order.may_confirm?) || params[:step]
     end
   end
 end

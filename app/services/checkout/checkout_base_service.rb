@@ -2,8 +2,8 @@ module Checkout
   class CheckoutBaseService
     STEP_SERVICES = {
       address: Checkout::CheckoutAddressService,
-      choose_delivery: Checkout::CheckoutShippingService,
-      pay: Checkout::CheckoutPaymentService,
+      choosing_delivery: Checkout::CheckoutShippingService,
+      payment: Checkout::CheckoutPaymentService,
       confirmation: Checkout::CheckoutConfirmService,
       completed: Checkout::CheckoutCompleteService
     }.freeze

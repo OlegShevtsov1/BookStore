@@ -34,7 +34,7 @@ module Checkout
     end
 
     def return_step
-      (@current_order.delivery! if @current_order.may_delivery?) || params[:step]
+      (@current_order.choosing_delivery! if @current_order.may_choose_delivery?) || params[:step]
     end
   end
 end

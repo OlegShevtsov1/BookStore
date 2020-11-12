@@ -1,6 +1,6 @@
 %p.general-address
   = payment.hide_number
-  = link_to checkouts_path(step: 'pay'), class: 'general-edit link-edit' do
+  = link_to checkouts_path(step: 'payment'), class: 'general-edit link-edit' do
     = t('.edit')
   %br
   = payment.date
