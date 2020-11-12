@@ -44,15 +44,15 @@ class Order < ApplicationRecord
       transitions from: :confirmation, to: :completed
     end
 
-    event :in_delivery do
+    event :start_delivery do
       transitions from: :completed, to: :in_delivery
     end
 
-    event :delivered do
+    event :end_delivery do
       transitions from: :in_delivery, to: :delivered
     end
 
-    event :canceled do
+    event :cancel do
       transitions from: %i[complete in_delivery delivered], to: :canceled
     end
   end
