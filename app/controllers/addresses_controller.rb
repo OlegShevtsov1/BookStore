@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
+  before_action :settings
+
   def create
-    @settings = Settings::SettingsIndexService.new(current_user)
     authorize address_form
     if address_form.create
       redirect_to(settings_path, notice: I18n.t('settings.new.updated', type: address_form.address_type.capitalize))
@@ -11,7 +12,6 @@ class AddressesController < ApplicationController
   end
 
   def update
-    @settings = Settings::SettingsIndexService.new(current_user)
     authorize address_form
     if @address_form.update
       redirect_to(settings_path, notice: I18n.t('settings.new.updated', type: address_form.address_type.capitalize))
@@ -21,7 +21,13 @@ class AddressesController < ApplicationController
     end
   end
 
+  private
+
+  def settings
+    @settings ||= Settings::SettingsIndexService.new(current_user)
+  end
+
   def address_form
-    @address_form = Settings::AddressesService.new(params, current_user, current_order).address_form
+    @address_form ||= Settings::AddressesService.new(params, current_user, current_order).address_form
   end
 end
