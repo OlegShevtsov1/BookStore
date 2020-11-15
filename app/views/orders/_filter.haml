@@ -1,0 +1,6 @@
+%ul.dropdown-menu
+  - Sort::SortOrdersService::SORT_BY.each do |sort_by|
+    %li
+      = link_to orders_path(sort_by: sort_by) do
+        =t(".filter.#{sort_by}")
+

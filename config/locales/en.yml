@@ -16,6 +16,8 @@ en:
         by_now: 'Buy Now'
         previous: 'Previous'
         next: 'Next'
+      best_sellers:
+        best_sellers: 'Best Sellers'
   shared:
     header:
       title: 'BookStoreOs'
@@ -25,6 +27,24 @@ en:
       log_out: 'Log Out'
       orders: 'Orders'
       settings: 'Settings'
+    media:
+      desktop:
+        menu:
+          my_account: 'My account'
+          sign_up: 'Sign Up'
+          log_in: 'Log In'
+          log_out: 'Log Out'
+          orders: 'Orders'
+          settings: 'Settings'
+      mobile:
+        menu:
+          my_account: 'My account'
+          sign_up: 'Sign Up'
+          log_in: 'Log In'
+          log_out: 'Log Out'
+          orders: 'Orders'
+          settings: 'Settings'
+
     footer:
       home: 'Home'
       shop: 'Shop'
@@ -159,6 +179,14 @@ en:
     coupon:
       discount: 'Discount '
       code: 'Code '
+    orders:
+      order_updated: 'Order status updated!'
+      order_updating_fail: 'Something went wrong'
+      completed_at_column: 'Completed At'
+      in_delivery_status: 'Set status in delivery'
+      delivered_status: 'Set status delivered'
+      canceled_status: 'Set status canceled'
+
 
 
   carts:
@@ -270,6 +298,59 @@ en:
       thank_you_for_order: 'Thank You for your Order!'
       send_massage_email_in_complete: 'An order confirmation has been has been sent to %{email}'
       back_to_store: 'Back to Store'
+  orders:
+    index:
+      my_orders: 'My Orders'
+      sort_by: 'Sort By'
+    filter:
+      waiting_for_processing: 'Waiting for processing'
+      in_delivery: 'In delivery'
+      delivered: 'Delivered'
+      canceled: 'Canceled'
+    show:
+      order: 'Order'
+      shipping_address: 'Shipping Address'
+      billing_address: 'Billing Address'
+      shipments: 'Shipments'
+      payment_information: 'Payment Information'
+      order_summary: 'Order Summary'
+    order_summary:
+      order_summary: 'Order Summary'
+      subtotal: 'Subtotal'
+      coupon: 'Coupon'
+      shipping: 'Shipping'
+      order_total: 'Order Total'
+
+    media:
+      desktop:
+        orders:
+          there_is_no_orders: 'There is no orders with this status'
+          number: 'Number'
+          completed_at: 'Completed at'
+          status: 'Status'
+          total: 'Total'
+        order_address:
+          phone: 'Phone'
+        order_items:
+          book: 'Book'
+          price: 'Price'
+          quantity: 'Quantity'
+          total: 'Total'
+
+
+      mobile:
+        order_items:
+          book: 'Book'
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
+        orders:
+          there_is_no_orders: 'There is no orders with this status'
+          number: 'Number'
+          completed_at: 'Completed at'
+          status: 'Status'
+          total: 'Total'
+
   controllers:
     added_in_cart: 'Added in cart'
     deleted_from_cart: 'Successfully delete book from cart'

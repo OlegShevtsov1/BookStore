@@ -7,4 +7,4 @@
       %p=t('.welcome_description')
     %button.btn.btn-default
       = link_to t('.get_started'), books_path, class: 'btn_get_started'
-  -# = render 'best_sellers'
+  = render 'best_sellers', best_sellers: @best_sellers

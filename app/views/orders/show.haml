@@ -1,0 +1,21 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= @order.decorate.code
+  .row.mb-20
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('.shipping_address')
+      = render 'orders/media/desktop/order_address', address: @addresses.shipping_form.decorate
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('.billing_address')
+      = render 'orders/media/desktop/order_address', address: @addresses.billing_form.decorate
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('.shipments')
+      = render 'orders/media/desktop/order_shipping', shipping: @order.shipping
+    .col-sm-3
+      %h3.general-subtitle.mt-0= t('.payment_information')
+      = render 'orders/media/desktop/order_payment', payment: @order.credit_card
+  .visible-xs
+    = render 'orders/media/mobile/order_items', items: @order.items.includes(%i[book])
+  .hidden-xs.divider-lg.pt-20
+    = render 'orders/media/desktop/order_items', items: @order.items.includes(%i[book])
+  .text-center.general-text-right
+    = render 'orders/order_summary', order: @order.decorate

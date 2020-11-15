@@ -37,6 +37,10 @@ class OrderDecorator < Draper::Decorator
     "Order ##{object.code}"
   end
 
+  def status
+    object.status.capitalize
+  end
+
   private
 
   def subtotal_items_book_price(book)

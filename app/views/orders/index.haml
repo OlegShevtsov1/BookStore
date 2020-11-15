@@ -1,0 +1,12 @@
+%main.container.general-main-wrap
+  %h1.mt-0.mb-25= t('.my_orders')
+  %p.lead.small.mb-10.visible-xs= t('.sort_by')
+  .dropdowns.dropdown.general-order-dropdown
+    %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+      =t(".filter.#{Sort::SortOrdersService::SORT_BY.first}")
+      %i.fa.fa-angle-down.dropdown-icon.pull-right
+    = render 'filter'
+  .visible-xs
+    = render 'orders/media/mobile/orders', orders: @orders
+  .hidden-xs.mb-res-50
+    = render 'orders/media/desktop/orders', orders: @orders
